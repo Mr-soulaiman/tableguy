@@ -23,7 +23,6 @@ import {
   Table as TableIcon,
   ArrowUp,
   ArrowDown,
-  ArrowLeft,
   ArrowRight,
   ArrowDownAZ,
   ArrowUpZA,
@@ -37,6 +36,7 @@ import {
 } from 'lucide-react';
 import { TableItem, CellFormat, ColumnAlignment, MergeCell } from '../types';
 import {
+  getTableMergeInfo,
   getMergeMatrix,
   findMergeAt,
   sanitizeMerges,
@@ -193,8 +193,9 @@ export const TableEditor: React.FC<TableEditorProps> = ({
   const [downloadedFormat, setDownloadedFormat] = useState<string | null>(null);
   const [duplicateNotice, setDuplicateNotice] = useState<string | null>(null);
 
-  // Computed 2D merge matrix
-  const mergeMatrix = getMergeMatrix(rows.length, headers.length, merges);
+  // Computed merge info for header and body
+  const { headerMergeInfo, bodyMergeMatrix } = getTableMergeInfo(rows.length, headers.length, merges);
+  const mergeMatrix = bodyMergeMatrix;
 
   // Column alignments normalization
   const currentAlignments: ColumnAlignment[] =
@@ -370,15 +371,21 @@ export const TableEditor: React.FC<TableEditorProps> = ({
     onUpdateTable({ ...table, rows: nextRows });
   };
 
-  // Merge & Unmerge operations
-  const currentSelectedMerge =
-    selectedCell && selectedCell.type === 'cell'
-      ? findMergeAt(merges, selectedCell.rowIndex, selectedCell.colIndex)
-      : undefined;
+  // Merge & Unmerge operations (Unified for Header and Body cells)
+  const effectiveSelectedRow = selectedCell
+    ? selectedCell.type === 'header'
+      ? -1
+      : selectedCell.rowIndex
+    : 0;
+  const effectiveSelectedCol = selectedCell ? selectedCell.colIndex : 0;
+
+  const currentSelectedMerge = selectedCell
+    ? findMergeAt(merges, effectiveSelectedRow, effectiveSelectedCol)
+    : undefined;
 
   const canMergeRight = (() => {
-    if (!selectedCell || selectedCell.type !== 'cell') return false;
-    const r = selectedCell.rowIndex;
+    if (!selectedCell) return false;
+    const r = selectedCell.type === 'header' ? -1 : selectedCell.rowIndex;
     const c = selectedCell.colIndex;
     const existing = findMergeAt(merges, r, c);
     const rightCol = existing ? existing.col + existing.colspan : c + 1;
@@ -386,7 +393,7 @@ export const TableEditor: React.FC<TableEditorProps> = ({
   })();
 
   const canMergeDown = (() => {
-    if (!selectedCell || selectedCell.type !== 'cell') return false;
+    if (!selectedCell || selectedCell.type === 'header') return false;
     const r = selectedCell.rowIndex;
     const c = selectedCell.colIndex;
     const existing = findMergeAt(merges, r, c);
@@ -395,32 +402,47 @@ export const TableEditor: React.FC<TableEditorProps> = ({
   })();
 
   const handleMergeRight = () => {
-    if (!selectedCell || selectedCell.type !== 'cell') return;
-    const r = selectedCell.rowIndex;
+    if (!selectedCell) return;
+    const r = selectedCell.type === 'header' ? -1 : selectedCell.rowIndex;
     const c = selectedCell.colIndex;
     const existing = findMergeAt(merges, r, c);
 
     const masterR = existing ? existing.row : r;
     const masterC = existing ? existing.col : c;
     const currentCols = existing ? existing.colspan : 1;
-    const currentRows = existing ? existing.rowspan : 1;
+    const currentRows = masterR === -1 ? 1 : (existing ? existing.rowspan : 1);
     const targetCol = masterC + currentCols;
 
+    // Never allow merging into the protected ACTIONS column
     if (targetCol >= headers.length) return;
 
-    // Collect texts and append if target cell has text
+    const nextHeaders = [...headers];
     const nextRows = rows.map(row => [...row]);
-    let masterVal = nextRows[masterR][masterC] || '';
 
-    for (let rowOffset = 0; rowOffset < currentRows; rowOffset++) {
-      const neighborR = masterR + rowOffset;
-      const neighborVal = (nextRows[neighborR][targetCol] || '').trim();
-      if (neighborVal) {
-        masterVal = masterVal ? `${masterVal} ${neighborVal}` : neighborVal;
-        nextRows[neighborR][targetCol] = '';
+    if (masterR === -1) {
+      // Header is master row
+      let masterVal = nextHeaders[masterC] || '';
+      const neighborHdrVal = (nextHeaders[targetCol] || '').trim();
+      if (neighborHdrVal) {
+        masterVal = masterVal ? `${masterVal} ${neighborHdrVal}` : neighborHdrVal;
+        nextHeaders[targetCol] = '';
       }
+      nextHeaders[masterC] = masterVal;
+    } else {
+      // Body cell is master row
+      let masterVal = nextRows[masterR][masterC] || '';
+      for (let rowOffset = 0; rowOffset < currentRows; rowOffset++) {
+        const neighborR = masterR + rowOffset;
+        if (neighborR >= 0 && neighborR < nextRows.length) {
+          const neighborVal = (nextRows[neighborR][targetCol] || '').trim();
+          if (neighborVal) {
+            masterVal = masterVal ? `${masterVal} ${neighborVal}` : neighborVal;
+            nextRows[neighborR][targetCol] = '';
+          }
+        }
+      }
+      nextRows[masterR][masterC] = masterVal;
     }
-    nextRows[masterR][masterC] = masterVal;
 
     // Remove any overlapping merge records
     const filtered = (merges || []).filter(
@@ -436,19 +458,27 @@ export const TableEditor: React.FC<TableEditorProps> = ({
 
     onUpdateTable({
       ...table,
+      headers: nextHeaders,
       rows: nextRows,
       merges: [...filtered, newMerge],
     });
 
-    setSelectedCell({
-      type: 'cell',
-      rowIndex: masterR,
-      colIndex: masterC,
-    });
+    if (masterR === -1) {
+      setSelectedCell({
+        type: 'header',
+        colIndex: masterC,
+      });
+    } else {
+      setSelectedCell({
+        type: 'cell',
+        rowIndex: masterR,
+        colIndex: masterC,
+      });
+    }
   };
 
   const handleMergeDown = () => {
-    if (!selectedCell || selectedCell.type !== 'cell') return;
+    if (!selectedCell || selectedCell.type === 'header') return;
     const r = selectedCell.rowIndex;
     const c = selectedCell.colIndex;
     const existing = findMergeAt(merges, r, c);
@@ -461,16 +491,17 @@ export const TableEditor: React.FC<TableEditorProps> = ({
 
     if (targetRow >= rows.length) return;
 
-    // Collect texts and append if target cell has text
     const nextRows = rows.map(row => [...row]);
     let masterVal = nextRows[masterR][masterC] || '';
 
     for (let colOffset = 0; colOffset < currentCols; colOffset++) {
       const neighborC = masterC + colOffset;
-      const neighborVal = (nextRows[targetRow][neighborC] || '').trim();
-      if (neighborVal) {
-        masterVal = masterVal ? `${masterVal} ${neighborVal}` : neighborVal;
-        nextRows[targetRow][neighborC] = '';
+      if (targetRow >= 0 && targetRow < nextRows.length) {
+        const neighborVal = (nextRows[targetRow][neighborC] || '').trim();
+        if (neighborVal) {
+          masterVal = masterVal ? `${masterVal} ${neighborVal}` : neighborVal;
+          nextRows[targetRow][neighborC] = '';
+        }
       }
     }
     nextRows[masterR][masterC] = masterVal;
@@ -501,8 +532,8 @@ export const TableEditor: React.FC<TableEditorProps> = ({
   };
 
   const handleUnmerge = () => {
-    if (!selectedCell || selectedCell.type !== 'cell') return;
-    const r = selectedCell.rowIndex;
+    if (!selectedCell) return;
+    const r = selectedCell.type === 'header' ? -1 : selectedCell.rowIndex;
     const c = selectedCell.colIndex;
     const existing = findMergeAt(merges, r, c);
     if (!existing) return;
@@ -516,11 +547,18 @@ export const TableEditor: React.FC<TableEditorProps> = ({
       merges: filtered,
     });
 
-    setSelectedCell({
-      type: 'cell',
-      rowIndex: existing.row,
-      colIndex: existing.col,
-    });
+    if (existing.row === -1) {
+      setSelectedCell({
+        type: 'header',
+        colIndex: existing.col,
+      });
+    } else {
+      setSelectedCell({
+        type: 'cell',
+        rowIndex: existing.row,
+        colIndex: existing.col,
+      });
+    }
   };
 
   // Add row
@@ -758,114 +796,7 @@ export const TableEditor: React.FC<TableEditorProps> = ({
     }
   };
 
-  // 4. Move column left / right
-  const handleMoveColumnLeft = (colIndex: number) => {
-    if (colIndex <= 0) return;
-    const target = colIndex - 1;
-
-    const nextHeaders = [...headers];
-    [nextHeaders[target], nextHeaders[colIndex]] = [nextHeaders[colIndex], nextHeaders[target]];
-
-    const nextHeaderColors = [...headerColors];
-    [nextHeaderColors[target], nextHeaderColors[colIndex]] = [nextHeaderColors[colIndex], nextHeaderColors[target]];
-
-    const nextHeaderFormats = [...headerFormats];
-    [nextHeaderFormats[target], nextHeaderFormats[colIndex]] = [nextHeaderFormats[colIndex], nextHeaderFormats[target]];
-
-    const nextAlignments = [...currentAlignments];
-    while (nextAlignments.length < headers.length) nextAlignments.push('left');
-    [nextAlignments[target], nextAlignments[colIndex]] = [nextAlignments[colIndex], nextAlignments[target]];
-
-    const nextRows = rows.map(r => {
-      const rowCopy = [...r];
-      [rowCopy[target], rowCopy[colIndex]] = [rowCopy[colIndex], rowCopy[target]];
-      return rowCopy;
-    });
-
-    const nextColors = cellColors.map(c => {
-      const cCopy = [...c];
-      [cCopy[target], cCopy[colIndex]] = [cCopy[colIndex], cCopy[target]];
-      return cCopy;
-    });
-
-    const nextFormats = cellFormats.map(f => {
-      const fCopy = [...f];
-      [fCopy[target], fCopy[colIndex]] = [fCopy[colIndex], fCopy[target]];
-      return fCopy;
-    });
-
-    onUpdateTable({
-      ...table,
-      headers: nextHeaders,
-      headerColors: nextHeaderColors,
-      headerFormats: nextHeaderFormats,
-      columnAlignments: nextAlignments,
-      rows: nextRows,
-      cellColors: nextColors,
-      cellFormats: nextFormats,
-    });
-
-    if (selectedCell && selectedCell.colIndex === colIndex) {
-      setSelectedCell({ ...selectedCell, colIndex: target });
-    } else if (selectedCell && selectedCell.colIndex === target) {
-      setSelectedCell({ ...selectedCell, colIndex });
-    }
-  };
-
-  const handleMoveColumnRight = (colIndex: number) => {
-    if (colIndex >= headers.length - 1) return;
-    const target = colIndex + 1;
-
-    const nextHeaders = [...headers];
-    [nextHeaders[target], nextHeaders[colIndex]] = [nextHeaders[colIndex], nextHeaders[target]];
-
-    const nextHeaderColors = [...headerColors];
-    [nextHeaderColors[target], nextHeaderColors[colIndex]] = [nextHeaderColors[colIndex], nextHeaderColors[target]];
-
-    const nextHeaderFormats = [...headerFormats];
-    [nextHeaderFormats[target], nextHeaderFormats[colIndex]] = [nextHeaderFormats[colIndex], nextHeaderFormats[target]];
-
-    const nextAlignments = [...currentAlignments];
-    while (nextAlignments.length < headers.length) nextAlignments.push('left');
-    [nextAlignments[target], nextAlignments[colIndex]] = [nextAlignments[colIndex], nextAlignments[target]];
-
-    const nextRows = rows.map(r => {
-      const rowCopy = [...r];
-      [rowCopy[target], rowCopy[colIndex]] = [rowCopy[colIndex], rowCopy[target]];
-      return rowCopy;
-    });
-
-    const nextColors = cellColors.map(c => {
-      const cCopy = [...c];
-      [cCopy[target], cCopy[colIndex]] = [cCopy[colIndex], cCopy[target]];
-      return cCopy;
-    });
-
-    const nextFormats = cellFormats.map(f => {
-      const fCopy = [...f];
-      [fCopy[target], fCopy[colIndex]] = [fCopy[colIndex], fCopy[target]];
-      return fCopy;
-    });
-
-    onUpdateTable({
-      ...table,
-      headers: nextHeaders,
-      headerColors: nextHeaderColors,
-      headerFormats: nextHeaderFormats,
-      columnAlignments: nextAlignments,
-      rows: nextRows,
-      cellColors: nextColors,
-      cellFormats: nextFormats,
-    });
-
-    if (selectedCell && selectedCell.colIndex === colIndex) {
-      setSelectedCell({ ...selectedCell, colIndex: target });
-    } else if (selectedCell && selectedCell.colIndex === target) {
-      setSelectedCell({ ...selectedCell, colIndex });
-    }
-  };
-
-  // 5. Duplicate individual row
+  // 4. Duplicate individual row
   const handleDuplicateRow = (rowIndex: number) => {
     const nextRows = [...rows];
     nextRows.splice(rowIndex + 1, 0, [...rows[rowIndex]]);
@@ -1378,54 +1309,50 @@ export const TableEditor: React.FC<TableEditorProps> = ({
               )}
             </div>
 
-            {/* MERGE CELLS CONTROLS (Only for body cells) */}
-            {selectedCell.type === 'cell' && (
-              <>
-                <div className="h-4 w-[2px] bg-black/25 hidden sm:block" />
+            {/* MERGE CELLS CONTROLS (For both headers and body cells) */}
+            <div className="h-4 w-[2px] bg-black/25 hidden sm:block" />
 
-                {/* Merge Right Button */}
-                <BrutalButton
-                  id={`merge-right-btn-${tableIndex}`}
-                  variant="secondary"
-                  size="sm"
-                  onClick={handleMergeRight}
-                  disabled={!canMergeRight}
-                  className="flex items-center gap-1.5 py-1 px-2.5 text-xs disabled:opacity-30 disabled:pointer-events-none"
-                  title="Merge right"
-                >
-                  <ArrowRight className="w-3.5 h-3.5 stroke-[2.5]" />
-                  <span>Merge right</span>
-                </BrutalButton>
+            {/* Merge Right Button */}
+            <BrutalButton
+              id={`merge-right-btn-${tableIndex}`}
+              variant="secondary"
+              size="sm"
+              onClick={handleMergeRight}
+              disabled={!canMergeRight}
+              className="flex items-center gap-1.5 py-1 px-2.5 text-xs disabled:opacity-30 disabled:pointer-events-none"
+              title="Merge right"
+            >
+              <ArrowRight className="w-3.5 h-3.5 stroke-[2.5]" />
+              <span>Merge right</span>
+            </BrutalButton>
 
-                {/* Merge Down Button */}
-                <BrutalButton
-                  id={`merge-down-btn-${tableIndex}`}
-                  variant="secondary"
-                  size="sm"
-                  onClick={handleMergeDown}
-                  disabled={!canMergeDown}
-                  className="flex items-center gap-1.5 py-1 px-2.5 text-xs disabled:opacity-30 disabled:pointer-events-none"
-                  title="Merge down"
-                >
-                  <ArrowDown className="w-3.5 h-3.5 stroke-[2.5]" />
-                  <span>Merge down</span>
-                </BrutalButton>
+            {/* Merge Down Button */}
+            <BrutalButton
+              id={`merge-down-btn-${tableIndex}`}
+              variant="secondary"
+              size="sm"
+              onClick={handleMergeDown}
+              disabled={!canMergeDown}
+              className="flex items-center gap-1.5 py-1 px-2.5 text-xs disabled:opacity-30 disabled:pointer-events-none"
+              title="Merge down"
+            >
+              <ArrowDown className="w-3.5 h-3.5 stroke-[2.5]" />
+              <span>Merge down</span>
+            </BrutalButton>
 
-                {/* Unmerge Button (shown if cell is part of a merge) */}
-                {currentSelectedMerge && (
-                  <BrutalButton
-                    id={`unmerge-btn-${tableIndex}`}
-                    variant="primary"
-                    size="sm"
-                    onClick={handleUnmerge}
-                    className="flex items-center gap-1.5 py-1 px-2.5 text-xs"
-                    title="Separate merged cell back into individual cells"
-                  >
-                    <Split className="w-3.5 h-3.5 stroke-[2.5]" />
-                    <span>Unmerge</span>
-                  </BrutalButton>
-                )}
-              </>
+            {/* Unmerge Button (shown if selected cell or header is part of a merge) */}
+            {currentSelectedMerge && (
+              <BrutalButton
+                id={`unmerge-btn-${tableIndex}`}
+                variant="primary"
+                size="sm"
+                onClick={handleUnmerge}
+                className="flex items-center gap-1.5 py-1 px-2.5 text-xs"
+                title="Separate merged cell back into individual cells"
+              >
+                <Split className="w-3.5 h-3.5 stroke-[2.5]" />
+                <span>Unmerge</span>
+              </BrutalButton>
             )}
           </div>
 
@@ -1452,6 +1379,11 @@ export const TableEditor: React.FC<TableEditorProps> = ({
                 HDR
               </th>
               {headers.map((headerVal, colIdx) => {
+                const hdrMerge = headerMergeInfo[colIdx];
+                if (hdrMerge && hdrMerge.isCovered) {
+                  return null;
+                }
+
                 const isHeaderSelected =
                   selectedCell?.type === 'header' && selectedCell.colIndex === colIdx;
                 const hdrColor = headerColors[colIdx];
@@ -1464,9 +1396,15 @@ export const TableEditor: React.FC<TableEditorProps> = ({
                     ? 'text-center'
                     : 'text-left';
 
+                const rowSpanAttr = hdrMerge && hdrMerge.isMaster && hdrMerge.rowspan > 1 ? hdrMerge.rowspan : undefined;
+                const colSpanAttr = hdrMerge && hdrMerge.isMaster && hdrMerge.colspan > 1 ? hdrMerge.colspan : undefined;
+
                 return (
                   <th
                     key={`header-${colIdx}`}
+                    rowSpan={rowSpanAttr}
+                    colSpan={colSpanAttr}
+                    onClick={() => setSelectedCell({ type: 'header', colIndex: colIdx })}
                     style={{ backgroundColor: hdrColor || undefined }}
                     className={`p-1.5 border-r-2 border-black min-w-[130px] sm:min-w-[160px] max-w-[280px] sm:max-w-[380px] lg:max-w-[460px] align-top ${
                       isHeaderSelected && !hdrColor ? 'bg-amber-200' : ''
@@ -1493,31 +1431,14 @@ export const TableEditor: React.FC<TableEditorProps> = ({
                         }`}
                       />
 
-                      {/* Header Column Actions: Move Left, Move Right, Delete */}
-                      <div className="flex items-center gap-0.5 shrink-0 pt-1">
+                      {/* Header Column Action: Delete ONLY */}
+                      <div className="flex items-center shrink-0 pt-1">
                         <button
                           type="button"
-                          onClick={() => handleMoveColumnLeft(colIdx)}
-                          disabled={colIdx === 0}
-                          title={`Move column ${colIdx + 1} left`}
-                          className="w-6 h-6 flex items-center justify-center text-black bg-white hover:bg-black hover:text-white disabled:opacity-20 disabled:pointer-events-none border border-black shadow-[1px_1px_0px_0px_#000] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all cursor-pointer"
-                        >
-                          <ArrowLeft className="w-3 h-3 stroke-[2.5]" />
-                        </button>
-
-                        <button
-                          type="button"
-                          onClick={() => handleMoveColumnRight(colIdx)}
-                          disabled={colIdx === headers.length - 1}
-                          title={`Move column ${colIdx + 1} right`}
-                          className="w-6 h-6 flex items-center justify-center text-black bg-white hover:bg-black hover:text-white disabled:opacity-20 disabled:pointer-events-none border border-black shadow-[1px_1px_0px_0px_#000] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all cursor-pointer"
-                        >
-                          <ArrowRight className="w-3 h-3 stroke-[2.5]" />
-                        </button>
-
-                        <button
-                          type="button"
-                          onClick={() => handleRemoveColumn(colIdx)}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleRemoveColumn(colIdx);
+                          }}
                           title={`Delete column ${colIdx + 1}`}
                           className="w-6 h-6 flex items-center justify-center text-black bg-white hover:bg-red-100 hover:text-red-700 border border-black shadow-[1px_1px_0px_0px_#000] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all cursor-pointer"
                         >
@@ -1529,7 +1450,7 @@ export const TableEditor: React.FC<TableEditorProps> = ({
                 );
               })}
               <th className="p-2 w-28 sm:w-36 text-center font-mono text-xs font-black uppercase text-black align-top">
-                Actions
+                ACTIONS
               </th>
             </tr>
           </thead>

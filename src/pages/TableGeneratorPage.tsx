@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { useRouter } from '../router';
+import { useRouter, Link } from '../router';
 import { BrutalCard } from '../components/BrutalCard';
 import { BrutalButton } from '../components/BrutalButton';
 import { BrutalBadge } from '../components/BrutalBadge';
 import { TableEditor } from '../components/TableEditor';
+import { SEO } from '../components/SEO';
 import {
   Table,
   ArrowLeft,
@@ -130,39 +131,45 @@ export const TableGeneratorPage: React.FC = () => {
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12 flex flex-col gap-8">
-      {/* Top Header */}
-      <div className="border-b-2 sm:border-b-[3px] border-black pb-6 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-        <div>
-          <button
-            id="back-to-home-link"
-            onClick={() => navigate('/')}
-            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-black hover:underline cursor-pointer mb-3"
-          >
-            <ArrowLeft className="w-4 h-4 stroke-[3]" />
-            <span>TABLEGUY Home</span>
-          </button>
-          <div className="flex items-center gap-3 mb-2">
-            <div className="w-10 h-10 bg-[#FFDE00] border-2 sm:border-[3px] border-black shadow-[2px_2px_0px_0px_#000] flex items-center justify-center font-black">
-              <Table className="w-5 h-5 stroke-[2.5]" />
-            </div>
-            <h1 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-black">
-              Table Generator
-            </h1>
-          </div>
-          <p className="text-base sm:text-lg font-bold text-gray-800">
-            Create, edit, and copy a table in seconds.
-          </p>
-        </div>
+    <>
+      <SEO
+        title="Free Table Generator — Create Tables Online | TABLEGUY"
+        description="Create tables online for free. Paste or enter your data, edit cells, merge cells, format tables, and export your finished table."
+        canonicalPath="/table-generator"
+      />
 
-        {tables.length > 1 && (
-          <div className="flex items-center gap-2">
-            <BrutalBadge variant="yellow" size="md">
-              {tables.length} Tables Detected
-            </BrutalBadge>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12 flex flex-col gap-8">
+        {/* Top Header */}
+        <div className="border-b-2 sm:border-b-[3px] border-black pb-6 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div>
+            <Link
+              href="/"
+              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-black hover:underline mb-3"
+            >
+              <ArrowLeft className="w-4 h-4 stroke-[3]" />
+              <span>Back to Home</span>
+            </Link>
+            <div className="flex items-center gap-3 mb-2">
+              <div className="w-10 h-10 bg-[#FFDE00] border-2 sm:border-[3px] border-black shadow-[2px_2px_0px_0px_#000] flex items-center justify-center font-black">
+                <Table className="w-5 h-5 stroke-[2.5]" />
+              </div>
+              <h1 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-black">
+                Free Table Generator
+              </h1>
+            </div>
+            <p className="text-base sm:text-lg font-medium text-gray-800 max-w-2xl leading-relaxed">
+              Use this free online table generator to create a table, edit table rows and columns, merge cells, and export directly as an HTML table, Markdown table, CSV table, or PDF.
+            </p>
           </div>
-        )}
-      </div>
+
+          {tables.length > 1 && (
+            <div className="flex items-center gap-2">
+              <BrutalBadge variant="yellow" size="md">
+                {tables.length} Tables Detected
+              </BrutalBadge>
+            </div>
+          )}
+        </div>
 
       {/* SECTION 1: MAGIC TABLE / PASTE DATA */}
       <section id="section-paste-data" aria-label="Paste data section">
@@ -262,6 +269,7 @@ export const TableGeneratorPage: React.FC = () => {
           </div>
         )}
       </section>
-    </div>
+      </div>
+    </>
   );
 };

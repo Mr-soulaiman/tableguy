@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tableguy.vercel.app/sitemap.xml

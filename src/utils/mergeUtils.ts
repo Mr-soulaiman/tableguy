@@ -3,25 +3,32 @@ import { MergeCell } from '../types';
 export interface MergedCellInfo {
   isMaster: boolean;
   isCovered: boolean;
-  masterRow: number;
+  masterRow: number; // -1 for header, 0..rowCount-1 for body rows
   masterCol: number;
   rowspan: number;
   colspan: number;
   mergeRecord?: MergeCell;
 }
 
+export interface TableMergeInfo {
+  headerMergeInfo: MergedCellInfo[];
+  bodyMergeMatrix: MergedCellInfo[][];
+}
+
 /**
- * Given the table dimensions and merges array, returns a 2D matrix
- * where each cell [r][c] has its merge info (master, covered, rowspan, colspan).
+ * Given the table dimensions and merges array, returns merge info for both
+ * the header row (row -1) and all body rows (rows 0 .. rowCount - 1).
  */
-export function getMergeMatrix(
+export function getTableMergeInfo(
   rowCount: number,
   colCount: number,
   merges: MergeCell[] = []
-): MergedCellInfo[][] {
-  const matrix: MergedCellInfo[][] = [];
+): TableMergeInfo {
+  // We represent rows from -1 (header) to rowCount - 1 (body rows)
+  // Index 0 in rawGrid corresponds to row -1, index (r + 1) to body row r.
+  const rawGrid: MergedCellInfo[][] = [];
 
-  for (let r = 0; r < rowCount; r++) {
+  for (let r = -1; r < rowCount; r++) {
     const rowInfo: MergedCellInfo[] = [];
     for (let c = 0; c < colCount; c++) {
       rowInfo.push({
@@ -33,12 +40,12 @@ export function getMergeMatrix(
         colspan: 1,
       });
     }
-    matrix.push(rowInfo);
+    rawGrid.push(rowInfo);
   }
 
   for (const m of merges) {
     if (
-      m.row < 0 ||
+      m.row < -1 ||
       m.col < 0 ||
       m.row >= rowCount ||
       m.col >= colCount ||
@@ -48,7 +55,9 @@ export function getMergeMatrix(
       continue;
     }
 
-    const endRow = Math.min(rowCount, m.row + m.rowspan);
+    const maxRowspan = m.row === -1 ? 1 : rowCount - m.row;
+    const safeRowspan = Math.min(m.rowspan, maxRowspan);
+    const endRow = m.row + safeRowspan;
     const endCol = Math.min(colCount, m.col + m.colspan);
     const actualRowspan = endRow - m.row;
     const actualColspan = endCol - m.col;
@@ -58,9 +67,12 @@ export function getMergeMatrix(
     }
 
     for (let r = m.row; r < endRow; r++) {
+      const gridRowIdx = r + 1;
+      if (!rawGrid[gridRowIdx]) continue;
+
       for (let c = m.col; c < endCol; c++) {
         if (r === m.row && c === m.col) {
-          matrix[r][c] = {
+          rawGrid[gridRowIdx][c] = {
             isMaster: true,
             isCovered: false,
             masterRow: m.row,
@@ -70,7 +82,7 @@ export function getMergeMatrix(
             mergeRecord: m,
           };
         } else {
-          matrix[r][c] = {
+          rawGrid[gridRowIdx][c] = {
             isMaster: false,
             isCovered: true,
             masterRow: m.row,
@@ -84,11 +96,30 @@ export function getMergeMatrix(
     }
   }
 
-  return matrix;
+  const headerMergeInfo = rawGrid[0] || [];
+  const bodyMergeMatrix = rawGrid.slice(1);
+
+  return {
+    headerMergeInfo,
+    bodyMergeMatrix,
+  };
 }
 
 /**
- * Find the merge record that governs the cell at (r, c), whether it is master or covered.
+ * Given the table dimensions and merges array, returns a 2D matrix
+ * for body cells [r][c] with their merge info.
+ */
+export function getMergeMatrix(
+  rowCount: number,
+  colCount: number,
+  merges: MergeCell[] = []
+): MergedCellInfo[][] {
+  return getTableMergeInfo(rowCount, colCount, merges).bodyMergeMatrix;
+}
+
+/**
+ * Find the merge record that governs the cell at (r, c) (where r = -1 is header, r >= 0 is body),
+ * whether it is master or covered.
  */
 export function findMergeAt(merges: MergeCell[] = [], row: number, col: number): MergeCell | undefined {
   return merges.find(
@@ -111,8 +142,8 @@ export function sanitizeMerges(
   const result: MergeCell[] = [];
 
   for (const m of merges) {
-    if (m.row >= rowCount || m.col >= colCount) continue;
-    const maxRowspan = rowCount - m.row;
+    if (m.row < -1 || m.col < 0 || m.row >= rowCount || m.col >= colCount) continue;
+    const maxRowspan = m.row === -1 ? 1 : rowCount - m.row;
     const maxColspan = colCount - m.col;
     const rowspan = Math.min(m.rowspan, maxRowspan);
     const colspan = Math.min(m.colspan, maxColspan);
@@ -146,10 +177,10 @@ export function onRowRemovedMerges(
     const endRow = m.row + m.rowspan - 1;
 
     if (removedRowIdx < startRow) {
-      // Shift up
+      // Shift up (only if startRow >= 0; header row at -1 does not shift)
       updated.push({
         ...m,
-        row: startRow - 1,
+        row: startRow > 0 ? startRow - 1 : startRow,
       });
     } else if (removedRowIdx > endRow) {
       // Untouched
@@ -209,3 +240,4 @@ export function onColRemovedMerges(
 
   return sanitizeMerges(updated, rowCount, newColCount);
 }
+

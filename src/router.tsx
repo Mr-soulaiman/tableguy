@@ -1,6 +1,14 @@
 import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 
-type Route = '/' | '/table-generator';
+export type RoutePath =
+  | '/'
+  | '/table-generator'
+  | '/about'
+  | '/contact'
+  | '/privacy-policy'
+  | '/terms'
+  | '/404'
+  | string;
 
 interface RouterContextType {
   currentPath: string;
@@ -22,7 +30,7 @@ export function RouterProvider({ children }: RouterProviderProps) {
   const [currentPath, setCurrentPath] = useState<string>(() => {
     if (typeof window !== 'undefined') {
       const path = window.location.pathname;
-      return path === '/table-generator' ? '/table-generator' : '/';
+      return path || '/';
     }
     return '/';
   });
@@ -30,7 +38,7 @@ export function RouterProvider({ children }: RouterProviderProps) {
   useEffect(() => {
     const handlePopState = () => {
       const path = window.location.pathname;
-      setCurrentPath(path === '/table-generator' ? '/table-generator' : '/');
+      setCurrentPath(path || '/');
     };
 
     window.addEventListener('popstate', handlePopState);
@@ -40,7 +48,7 @@ export function RouterProvider({ children }: RouterProviderProps) {
   const navigate = (path: string) => {
     if (path !== currentPath) {
       window.history.pushState({}, '', path);
-      setCurrentPath(path === '/table-generator' ? '/table-generator' : '/');
+      setCurrentPath(path);
       window.scrollTo({ top: 0, behavior: 'instant' });
     }
   };
@@ -80,3 +88,4 @@ export function Link({ href, children, className = '', target, onClick, ...rest 
     </a>
   );
 }
+

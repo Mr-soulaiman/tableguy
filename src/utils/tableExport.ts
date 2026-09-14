@@ -1,7 +1,7 @@
 import { jsPDF } from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import { CellFormat, TableItem, MergeCell } from '../types';
-import { getMergeMatrix } from './mergeUtils';
+import { getTableMergeInfo, getMergeMatrix } from './mergeUtils';
 
 /**
  * Utility functions to export and download table data as HTML, Markdown, CSV, and Plain Text.
@@ -54,26 +54,39 @@ export function tableToHtml(
   columnAlignments?: ('left' | 'center' | 'right')[],
   merges?: MergeCell[]
 ): string {
-  const mergeMatrix = getMergeMatrix(rows.length, headers.length, merges || []);
+  const { headerMergeInfo, bodyMergeMatrix } = getTableMergeInfo(rows.length, headers.length, merges || []);
 
-  const thead = `  <thead>\n    <tr>\n${headers
-    .map((h, i) => {
-      const color = headerColors?.[i];
-      const align = columnAlignments?.[i] || 'left';
-      const styles: string[] = [];
-      if (color) styles.push(`background-color: ${color}`);
-      if (align !== 'left') styles.push(`text-align: ${align}`);
-      const styleAttr = styles.length > 0 ? ` style="${styles.join('; ')}"` : '';
-      const content = formatCellHtml(h, headerFormats?.[i]);
-      return `      <th${styleAttr}>${content}</th>`;
-    })
-    .join('\n')}\n    </tr>\n  </thead>`;
+  const thCells: string[] = [];
+  for (let i = 0; i < headers.length; i++) {
+    const info = headerMergeInfo[i];
+    if (info && info.isCovered) {
+      continue;
+    }
+    const color = headerColors?.[i];
+    const align = columnAlignments?.[i] || 'left';
+    const styles: string[] = [];
+    if (color) styles.push(`background-color: ${color}`);
+    if (align !== 'left') styles.push(`text-align: ${align}`);
+    const styleAttr = styles.length > 0 ? ` style="${styles.join('; ')}"` : '';
+
+    const spanAttrs: string[] = [];
+    if (info && info.isMaster) {
+      if (info.rowspan > 1) spanAttrs.push(` rowspan="${info.rowspan}"`);
+      if (info.colspan > 1) spanAttrs.push(` colspan="${info.colspan}"`);
+    }
+    const spanAttrStr = spanAttrs.join('');
+
+    const content = formatCellHtml(headers[i], headerFormats?.[i]);
+    thCells.push(`      <th${spanAttrStr}${styleAttr}>${content}</th>`);
+  }
+
+  const thead = `  <thead>\n    <tr>\n${thCells.join('\n')}\n    </tr>\n  </thead>`;
 
   const tbodyLines: string[] = [];
   for (let rowIdx = 0; rowIdx < rows.length; rowIdx++) {
     const tdCells: string[] = [];
     for (let colIdx = 0; colIdx < headers.length; colIdx++) {
-      const info = mergeMatrix[rowIdx]?.[colIdx];
+      const info = bodyMergeMatrix[rowIdx]?.[colIdx];
       // If cell is covered by another master merge cell, skip rendering it in HTML
       if (info && info.isCovered) {
         continue;
@@ -533,14 +546,31 @@ export function downloadPdf(tables: TableItem[], filename = 'table.pdf'): void {
 
     const fontSize = maxCols > 8 ? 7.5 : maxCols > 5 ? 8.5 : 9.5;
 
-    // Convert rows to jspdf-autotable RowInput with colSpan / rowSpan support for merges
-    const mergeMatrix = getMergeMatrix(tbl.rows.length, tbl.headers.length, tbl.merges || []);
+    // Convert headers and rows to jspdf-autotable Input with colSpan / rowSpan support for merges
+    const { headerMergeInfo, bodyMergeMatrix } = getTableMergeInfo(tbl.rows.length, tbl.headers.length, tbl.merges || []);
+
+    const headRow: any[] = [];
+    for (let cIdx = 0; cIdx < tbl.headers.length; cIdx++) {
+      const info = headerMergeInfo[cIdx];
+      if (info && info.isCovered) {
+        continue;
+      }
+      const cellObj: any = {
+        content: tbl.headers[cIdx] ?? '',
+      };
+      if (info && info.isMaster) {
+        if (info.rowspan > 1) cellObj.rowSpan = info.rowspan;
+        if (info.colspan > 1) cellObj.colSpan = info.colspan;
+      }
+      headRow.push(cellObj);
+    }
+
     const bodyData: any[] = [];
 
     for (let rIdx = 0; rIdx < tbl.rows.length; rIdx++) {
       const rowCells: any[] = [];
       for (let cIdx = 0; cIdx < tbl.headers.length; cIdx++) {
-        const info = mergeMatrix[rIdx]?.[cIdx];
+        const info = bodyMergeMatrix[rIdx]?.[cIdx];
         if (info && info.isCovered) {
           // autoTable automatically handles skipping covered cells if master specifies colSpan / rowSpan
           continue;
@@ -563,7 +593,7 @@ export function downloadPdf(tables: TableItem[], filename = 'table.pdf'): void {
 
     autoTable(doc, {
       startY: currentY,
-      head: [tbl.headers],
+      head: [headRow],
       body: bodyData,
       theme: 'grid',
       margin: { top: margin, right: margin, bottom: margin, left: margin },

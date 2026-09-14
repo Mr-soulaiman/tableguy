@@ -11,18 +11,18 @@ export const Footer: React.FC = () => {
             <Link
               href="/"
               className="inline-block focus:outline-none"
-              title="TABLEGUY — Make a table. Get it out."
+              title="TABLEGUY — Free Online Table Generator"
             >
               <img
                 src="/tableguy-logo.png"
-                alt="TABLEGUY — Make a table. Get it out."
+                alt="TABLEGUY — Free Online Table Generator"
                 className="h-9 sm:h-10 w-auto max-w-[180px] object-contain hover:opacity-90 transition-opacity"
               />
             </Link>
           </div>
 
-          {/* Quick links */}
-          <div className="flex flex-wrap items-center gap-3">
+          {/* Navigation links */}
+          <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
             <Link
               href="/"
               className="text-xs sm:text-sm font-bold px-3 py-1 bg-[#FAF8F5] border-2 border-black shadow-[2px_2px_0px_0px_#000] hover:bg-[#FFDE00] transition-colors"
@@ -35,6 +35,30 @@ export const Footer: React.FC = () => {
             >
               Table Generator
             </Link>
+            <Link
+              href="/about"
+              className="text-xs sm:text-sm font-bold px-3 py-1 bg-[#FAF8F5] border-2 border-black shadow-[2px_2px_0px_0px_#000] hover:bg-[#FFDE00] transition-colors"
+            >
+              About
+            </Link>
+            <Link
+              href="/contact"
+              className="text-xs sm:text-sm font-bold px-3 py-1 bg-[#FAF8F5] border-2 border-black shadow-[2px_2px_0px_0px_#000] hover:bg-[#FFDE00] transition-colors"
+            >
+              Contact
+            </Link>
+            <Link
+              href="/privacy-policy"
+              className="text-xs sm:text-sm font-bold px-3 py-1 bg-[#FAF8F5] border-2 border-black shadow-[2px_2px_0px_0px_#000] hover:bg-[#FFDE00] transition-colors"
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              href="/terms"
+              className="text-xs sm:text-sm font-bold px-3 py-1 bg-[#FAF8F5] border-2 border-black shadow-[2px_2px_0px_0px_#000] hover:bg-[#FFDE00] transition-colors"
+            >
+              Terms
+            </Link>
           </div>
         </div>
 
@@ -42,7 +66,7 @@ export const Footer: React.FC = () => {
         <div className="pt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-semibold text-gray-700">
           <div className="flex flex-wrap items-center gap-4">
             <span className="flex items-center gap-1.5">
-              <Zap className="w-3.5 h-3.5 text-black stroke-[2.5]" /> Fast & In-Browser
+              <Zap className="w-3.5 h-3.5 text-black stroke-[2.5]" /> Fast &amp; In-Browser
             </span>
             <span className="flex items-center gap-1.5">
               <Lock className="w-3.5 h-3.5 text-black stroke-[2.5]" /> No Account Required
@@ -53,10 +77,11 @@ export const Footer: React.FC = () => {
           </div>
 
           <p className="text-gray-600">
-            TABLEGUY — Browser-based utility for quick tables.
+            TABLEGUY — Free Online Table Generator.
           </p>
         </div>
       </div>
     </footer>
   );
 };
+
