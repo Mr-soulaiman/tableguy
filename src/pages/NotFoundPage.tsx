@@ -12,7 +12,7 @@ export const NotFoundPage: React.FC = () => {
     <>
       <SEO
         title="404 — Table Not Found | TABLEGUY"
-        description="The page you are looking for does not exist on TABLEGUY."
+        description="The page you're looking for doesn't exist."
         canonicalPath="/404"
       />
 

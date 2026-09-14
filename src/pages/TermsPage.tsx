@@ -4,11 +4,14 @@ import { BrutalBadge } from '../components/BrutalBadge';
 import { SEO } from '../components/SEO';
 
 export const TermsPage: React.FC = () => {
+  const lastUpdated = 'September 14, 2026';
+  const contactEmail = 'martah.soulaiman10@gmail.com';
+
   return (
     <>
       <SEO
         title="TABLEGUY Terms of Use"
-        description="Terms of Use for TABLEGUY free online table generator and editor."
+        description="Read the Terms of Use for TABLEGUY, a free online table creation and formatting tool."
         canonicalPath="/terms"
       />
 
@@ -20,70 +23,135 @@ export const TermsPage: React.FC = () => {
               Legal
             </BrutalBadge>
             <BrutalBadge variant="white" size="md">
-              Effective September 2026
+              Last updated: {lastUpdated}
             </BrutalBadge>
           </div>
           <h1 className="text-4xl sm:text-6xl font-black uppercase tracking-tight text-black mb-3">
             Terms of Use
           </h1>
           <p className="text-lg sm:text-xl font-bold text-gray-800">
-            Terms and conditions governing the use of the TABLEGUY website.
+            Terms governing the use of the TABLEGUY online table generator utility.
           </p>
         </div>
 
         {/* Content Card */}
         <BrutalCard shadow="lg" className="p-6 sm:p-10 bg-white flex flex-col gap-8 text-black">
+          {/* Section 1: Use of TABLEGUY */}
           <section className="flex flex-col gap-3">
             <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight">
-              1. Free Use of TABLEGUY
+              1. Use of TABLEGUY
             </h2>
             <p className="text-sm sm:text-base font-medium text-gray-800 leading-relaxed">
-              TABLEGUY provides free, browser-based table creation, editing, and formatting tools. You are welcome to use TABLEGUY for personal, educational, or commercial projects without subscription fees or licensing costs.
+              TABLEGUY is provided as a free, web-based utility for creating, editing, formatting, and exporting tables. You are welcome to use TABLEGUY for personal, academic, organizational, or commercial purposes without fees, licensing subscriptions, or account requirements.
             </p>
           </section>
 
+          {/* Section 2: User Responsibility */}
           <section className="flex flex-col gap-3">
             <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight">
-              2. User Responsibility for Content
+              2. User Responsibility
             </h2>
             <p className="text-sm sm:text-base font-medium text-gray-800 leading-relaxed">
-              You retain full ownership of any data, text, or figures you input into TABLEGUY. You are solely responsible for ensuring you have the right to input and process your data, and that your content complies with applicable laws and regulations.
+              You are responsible for the data, text, numbers, and content you enter, edit, or paste into TABLEGUY. You agree to ensure that your use of the tool and the data you process comply with all laws, confidentiality agreements, and regulations applicable to you.
             </p>
           </section>
 
+          {/* Section 3: User-Generated Content */}
           <section className="flex flex-col gap-3">
             <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight">
-              3. Acceptable Use
+              3. User-Generated Content &amp; Ownership
             </h2>
             <p className="text-sm sm:text-base font-medium text-gray-800 leading-relaxed">
-              You agree not to use the service in any way that disrupts, damages, or impairs the functionality of the website, or attempts to circumvent technical safeguards, reverse engineer unauthorized services, or overload infrastructure.
+              You retain complete ownership and all rights to the tables, data, and exported files you produce using TABLEGUY. TABLEGUY claims no ownership, copyright, or intellectual property rights over any table content created, edited, or exported by users.
             </p>
           </section>
 
+          {/* Section 4: Acceptable Use */}
           <section className="flex flex-col gap-3">
             <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight">
-              4. Availability & Disclaimer of Warranty
+              4. Acceptable Use
             </h2>
             <p className="text-sm sm:text-base font-medium text-gray-800 leading-relaxed">
-              TABLEGUY is provided on an &quot;as is&quot; and &quot;as available&quot; basis without warranties of any kind, either express or implied. While we strive for high reliability and accurate formatting outputs, we do not warrant that the service will be uninterrupted, bug-free, or suitable for critical automated pipelines without user verification.
+              You agree to use TABLEGUY only for lawful purposes. You agree not to attempt to disrupt, exploit, overload, or compromise the technical availability or security of the website or its hosting infrastructure.
             </p>
           </section>
 
+          {/* Section 5: Intellectual Property */}
           <section className="flex flex-col gap-3">
             <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight">
               5. Intellectual Property
             </h2>
             <p className="text-sm sm:text-base font-medium text-gray-800 leading-relaxed">
-              The design, branding, logo, and user interface software of TABLEGUY are protected by copyright and intellectual property laws. You may not copy, replicate, or rebrand the TABLEGUY interface without prior permission. However, any tables and data generated or exported by you remain entirely your property.
+              The TABLEGUY name, website design, visual identity, logos, icons, and interface code are protected by intellectual property and copyright laws. You may not duplicate, redistribute, or clone the TABLEGUY website or brand identity without prior permission. This does not restrict your rights to your own table data and exports.
             </p>
           </section>
 
+          {/* Section 6: Availability of the Service */}
           <section className="flex flex-col gap-3">
             <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight">
-              6. Changes to the Service
+              6. Availability of the Service
             </h2>
             <p className="text-sm sm:text-base font-medium text-gray-800 leading-relaxed">
-              We reserve the right to update, modify, or enhance features of TABLEGUY at any time. Continued use of the website following any updates constitutes acceptance of the revised Terms of Use.
+              TABLEGUY is provided as a free utility. While we make every effort to ensure reliable performance and consistent availability, we do not guarantee continuous, uninterrupted, or error-free operation of the website at all times.
+            </p>
+          </section>
+
+          {/* Section 7: Disclaimer */}
+          <section className="flex flex-col gap-3">
+            <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight">
+              7. Disclaimer of Warranties
+            </h2>
+            <p className="text-sm sm:text-base font-medium text-gray-800 leading-relaxed">
+              TABLEGUY is provided &quot;as is&quot; and &quot;as available,&quot; without express or implied warranties of any kind, including but not limited to warranties of fitness for a particular purpose, merchantability, or non-infringement. You are encouraged to verify exported table calculations, syntax, and formatting prior to relying on them for critical applications.
+            </p>
+          </section>
+
+          {/* Section 8: Limitation of Liability */}
+          <section className="flex flex-col gap-3">
+            <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight">
+              8. Limitation of Liability
+            </h2>
+            <p className="text-sm sm:text-base font-medium text-gray-800 leading-relaxed">
+              To the fullest extent permitted by law, TABLEGUY and its creator shall not be liable for any direct, indirect, incidental, consequential, or special damages resulting from the use or inability to use the service, including data loss or formatting inaccuracies.
+            </p>
+          </section>
+
+          {/* Section 9: Changes to the Service */}
+          <section className="flex flex-col gap-3">
+            <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight">
+              9. Changes to the Service
+            </h2>
+            <p className="text-sm sm:text-base font-medium text-gray-800 leading-relaxed">
+              We reserve the right to modify, add, or update features of the table tool at any time without prior notice in order to improve usability and maintain technical standards.
+            </p>
+          </section>
+
+          {/* Section 10: Changes to the Terms */}
+          <section className="flex flex-col gap-3">
+            <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight">
+              10. Changes to These Terms
+            </h2>
+            <p className="text-sm sm:text-base font-medium text-gray-800 leading-relaxed">
+              We may revise these Terms of Use periodically. Any changes will be published on this page with an updated &quot;Last updated&quot; date. Continued use of TABLEGUY following the posting of updated terms constitutes acceptance of those revisions.
+            </p>
+          </section>
+
+          {/* Section 11: Contact */}
+          <section className="flex flex-col gap-3 pt-4 border-t-2 border-black">
+            <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight">
+              11. Contact
+            </h2>
+            <p className="text-sm sm:text-base font-medium text-gray-800 leading-relaxed">
+              For any questions regarding these Terms of Use, please get in touch by email:
+            </p>
+            <p className="text-sm sm:text-base font-bold text-black">
+              Email:{' '}
+              <a
+                href={`mailto:${contactEmail}`}
+                className="underline hover:text-gray-700"
+              >
+                {contactEmail}
+              </a>
             </p>
           </section>
         </BrutalCard>

@@ -1,31 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useRouter } from '../router';
 import { BrutalCard } from '../components/BrutalCard';
 import { BrutalButton } from '../components/BrutalButton';
 import { BrutalBadge } from '../components/BrutalBadge';
 import { SEO } from '../components/SEO';
-import { Mail, MessageSquare, Send, CheckCircle2, ArrowLeft } from 'lucide-react';
+import { Mail, HelpCircle, MessageSquare, Bug, Lightbulb, ArrowLeft, ArrowRight } from 'lucide-react';
 
 export const ContactPage: React.FC = () => {
   const { navigate } = useRouter();
-  const [submitted, setSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!formData.message.trim()) return;
-    setSubmitted(true);
-  };
+  const contactEmail = 'martah.soulaiman10@gmail.com';
 
   return (
     <>
       <SEO
         title="Contact TABLEGUY"
-        description="Get in touch with TABLEGUY. Feedback, questions, and feature suggestions for our online table generator."
+        description="Contact TABLEGUY with questions, feedback, bug reports or suggestions about the free table generator."
         canonicalPath="/contact"
       />
 
@@ -36,111 +25,121 @@ export const ContactPage: React.FC = () => {
             <BrutalBadge variant="yellow" size="md">
               Contact
             </BrutalBadge>
+            <BrutalBadge variant="white" size="md">
+              Get in Touch
+            </BrutalBadge>
           </div>
           <h1 className="text-4xl sm:text-6xl font-black uppercase tracking-tight text-black mb-3">
             Contact TABLEGUY
           </h1>
           <p className="text-lg sm:text-xl font-bold text-gray-800">
-            Have feedback, questions, or ideas for improving TABLEGUY? Let us know.
+            Have a question, feedback, or a suggestion? We would love to hear from you.
           </p>
         </div>
 
-        {/* Contact Form Card */}
-        <BrutalCard shadow="lg" className="p-6 sm:p-10 bg-white">
-          {submitted ? (
-            <div className="text-center py-8 flex flex-col items-center gap-4">
-              <div className="w-16 h-16 bg-[#FFDE00] border-2 sm:border-[3px] border-black shadow-[3px_3px_0px_0px_#000] flex items-center justify-center">
-                <CheckCircle2 className="w-8 h-8 text-black stroke-[2.5]" />
+        {/* Contact Info Card */}
+        <BrutalCard shadow="lg" className="p-6 sm:p-10 bg-white flex flex-col gap-8">
+          <div>
+            <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-black mb-3">
+              How to Reach Us
+            </h2>
+            <p className="text-base sm:text-lg font-medium text-gray-800 leading-relaxed">
+              TABLEGUY is an independent online tool. If you encounter an issue, need clarification, or have ideas on how to make table generation better, feel free to send an email directly.
+            </p>
+          </div>
+
+          {/* Email Box */}
+          <div className="p-5 sm:p-6 bg-[#FFFDF0] border-2 sm:border-[3px] border-black shadow-[3px_3px_0px_0px_#000] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="flex items-center gap-3.5">
+              <div className="w-12 h-12 bg-[#FFDE00] border-2 border-black flex items-center justify-center shrink-0 shadow-[2px_2px_0px_0px_#000]">
+                <Mail className="w-6 h-6 text-black stroke-[2.5]" />
               </div>
-              <h2 className="text-2xl sm:text-3xl font-black uppercase text-black">
-                Message Received
-              </h2>
-              <p className="text-base font-medium text-gray-700 max-w-md">
-                Thank you for your feedback! We appreciate you taking the time to share your thoughts with us.
-              </p>
-              <div className="pt-4">
-                <BrutalButton
-                  id="contact-back-home-btn"
-                  variant="primary"
-                  size="md"
-                  onClick={() => navigate('/')}
+              <div className="flex flex-col">
+                <span className="text-xs font-mono font-black uppercase text-gray-600">
+                  Direct Email Address
+                </span>
+                <a
+                  href={`mailto:${contactEmail}`}
+                  className="text-base sm:text-lg font-black text-black hover:underline hover:text-gray-900 break-all"
+                  title="Send email to TABLEGUY"
                 >
-                  <ArrowLeft className="w-4 h-4 stroke-[3] mr-1.5" />
-                  <span>Back to Home</span>
-                </BrutalButton>
+                  {contactEmail}
+                </a>
               </div>
             </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-              <div>
-                <label
-                  htmlFor="contact-name"
-                  className="block text-sm font-black uppercase text-black mb-1.5"
-                >
-                  Name (Optional)
-                </label>
-                <input
-                  id="contact-name"
-                  type="text"
-                  value={formData.name}
-                  onChange={e => setFormData(prev => ({ ...prev, name: e.target.value }))}
-                  placeholder="Your name"
-                  className="w-full px-3.5 py-2.5 text-sm sm:text-base border-2 border-black font-medium focus:outline-none focus:ring-2 focus:ring-black bg-white"
-                />
+
+            <a
+              href={`mailto:${contactEmail}`}
+              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-black text-black bg-[#FFDE00] hover:bg-[#FFE633] border-2 border-black shadow-[2px_2px_0px_0px_#000] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[1px_1px_0px_0px_#000] transition-all cursor-pointer whitespace-nowrap self-start sm:self-auto"
+            >
+              <span>Email Us</span>
+              <ArrowRight className="w-4 h-4 stroke-[3]" />
+            </a>
+          </div>
+
+          {/* What you can contact us for */}
+          <div className="flex flex-col gap-3">
+            <h3 className="text-xl font-black uppercase tracking-tight text-black">
+              What You Can Contact Us For
+            </h3>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+              <div className="p-3.5 bg-[#FAF8F5] border-2 border-black flex items-start gap-3">
+                <HelpCircle className="w-5 h-5 text-black stroke-[2.5] shrink-0 mt-0.5" />
+                <div>
+                  <span className="font-black text-sm uppercase block text-black">Questions</span>
+                  <span className="text-xs font-medium text-gray-700">Need help with table formatting, imports, or export formats.</span>
+                </div>
               </div>
 
-              <div>
-                <label
-                  htmlFor="contact-email"
-                  className="block text-sm font-black uppercase text-black mb-1.5"
-                >
-                  Email (Optional)
-                </label>
-                <input
-                  id="contact-email"
-                  type="email"
-                  value={formData.email}
-                  onChange={e => setFormData(prev => ({ ...prev, email: e.target.value }))}
-                  placeholder="name@example.com"
-                  className="w-full px-3.5 py-2.5 text-sm sm:text-base border-2 border-black font-medium focus:outline-none focus:ring-2 focus:ring-black bg-white"
-                />
+              <div className="p-3.5 bg-[#FAF8F5] border-2 border-black flex items-start gap-3">
+                <MessageSquare className="w-5 h-5 text-black stroke-[2.5] shrink-0 mt-0.5" />
+                <div>
+                  <span className="font-black text-sm uppercase block text-black">Feedback</span>
+                  <span className="text-xs font-medium text-gray-700">Share your thoughts on the user interface and overall experience.</span>
+                </div>
               </div>
 
-              <div>
-                <label
-                  htmlFor="contact-message"
-                  className="block text-sm font-black uppercase text-black mb-1.5"
-                >
-                  Message <span className="text-red-600">*</span>
-                </label>
-                <textarea
-                  id="contact-message"
-                  required
-                  rows={5}
-                  value={formData.message}
-                  onChange={e => setFormData(prev => ({ ...prev, message: e.target.value }))}
-                  placeholder="Tell us what you think or how we can improve TABLEGUY..."
-                  className="w-full px-3.5 py-2.5 text-sm sm:text-base border-2 border-black font-medium focus:outline-none focus:ring-2 focus:ring-black bg-white resize-y"
-                />
+              <div className="p-3.5 bg-[#FAF8F5] border-2 border-black flex items-start gap-3">
+                <Bug className="w-5 h-5 text-black stroke-[2.5] shrink-0 mt-0.5" />
+                <div>
+                  <span className="font-black text-sm uppercase block text-black">Bug Reports</span>
+                  <span className="text-xs font-medium text-gray-700">Let us know if a table feature or export didn&apos;t behave as expected.</span>
+                </div>
               </div>
 
-              <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
-                <p className="text-xs text-gray-500 font-medium">
-                  TABLEGUY is a free independent utility.
-                </p>
-                <BrutalButton
-                  id="contact-submit-btn"
-                  variant="primary"
-                  size="md"
-                  type="submit"
-                  className="group"
-                >
-                  <span>Send Message</span>
-                  <Send className="w-4 h-4 stroke-[2.5] ml-1.5 group-hover:translate-x-0.5 transition-transform" />
-                </BrutalButton>
+              <div className="p-3.5 bg-[#FAF8F5] border-2 border-black flex items-start gap-3">
+                <Lightbulb className="w-5 h-5 text-black stroke-[2.5] shrink-0 mt-0.5" />
+                <div>
+                  <span className="font-black text-sm uppercase block text-black">Suggestions</span>
+                  <span className="text-xs font-medium text-gray-700">Propose new features or formats that would be useful to you.</span>
+                </div>
               </div>
-            </form>
-          )}
+            </div>
+          </div>
+
+          {/* Back Navigation */}
+          <div className="pt-4 border-t-2 border-black flex items-center justify-between">
+            <BrutalButton
+              id="contact-back-home-btn"
+              variant="secondary"
+              size="sm"
+              onClick={() => navigate('/')}
+            >
+              <ArrowLeft className="w-4 h-4 stroke-[3] mr-1.5" />
+              <span>Back to Home</span>
+            </BrutalButton>
+
+            <BrutalButton
+              id="contact-open-generator-btn"
+              variant="primary"
+              size="sm"
+              onClick={() => navigate('/table-generator')}
+            >
+              <span>Open Table Generator</span>
+              <ArrowRight className="w-4 h-4 stroke-[3] ml-1.5" />
+            </BrutalButton>
+          </div>
         </BrutalCard>
       </div>
     </>
