@@ -9,29 +9,45 @@ import { ContactPage } from './pages/ContactPage';
 import { PrivacyPolicyPage } from './pages/PrivacyPolicyPage';
 import { TermsPage } from './pages/TermsPage';
 import { NotFoundPage } from './pages/NotFoundPage';
+import { GuidesPage } from './pages/GuidesPage';
+import { GuideArticlePage } from './pages/GuideArticlePage';
 
 function AppContent() {
   const { currentPath } = useRouter();
 
   const renderPage = () => {
-    switch (currentPath) {
-      case '/':
-        return <HomePage />;
-      case '/table-generator':
-        return <TableGeneratorPage />;
-      case '/about':
-        return <AboutPage />;
-      case '/contact':
-        return <ContactPage />;
-      case '/privacy-policy':
-        return <PrivacyPolicyPage />;
-      case '/terms':
-        return <TermsPage />;
-      case '/404':
-        return <NotFoundPage />;
-      default:
-        return <NotFoundPage />;
+    if (currentPath === '/') {
+      return <HomePage />;
     }
+    if (currentPath === '/table-generator') {
+      return <TableGeneratorPage />;
+    }
+    if (currentPath === '/guides') {
+      return <GuidesPage />;
+    }
+    if (currentPath.startsWith('/guides/')) {
+      const slug = currentPath.replace('/guides/', '').split('/')[0];
+      if (slug) {
+        return <GuideArticlePage slug={slug} />;
+      }
+      return <GuidesPage />;
+    }
+    if (currentPath === '/about') {
+      return <AboutPage />;
+    }
+    if (currentPath === '/contact') {
+      return <ContactPage />;
+    }
+    if (currentPath === '/privacy-policy') {
+      return <PrivacyPolicyPage />;
+    }
+    if (currentPath === '/terms') {
+      return <TermsPage />;
+    }
+    if (currentPath === '/404') {
+      return <NotFoundPage />;
+    }
+    return <NotFoundPage />;
   };
 
   return (

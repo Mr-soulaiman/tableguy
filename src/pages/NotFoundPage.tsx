@@ -3,7 +3,7 @@ import { useRouter } from '../router';
 import { BrutalCard } from '../components/BrutalCard';
 import { BrutalButton } from '../components/BrutalButton';
 import { SEO } from '../components/SEO';
-import { ArrowLeft, Table as TableIcon } from 'lucide-react';
+import { ArrowLeft, Table as TableIcon, BookOpen } from 'lucide-react';
 
 export const NotFoundPage: React.FC = () => {
   const { navigate } = useRouter();
@@ -13,7 +13,7 @@ export const NotFoundPage: React.FC = () => {
       <SEO
         title="404 — Table Not Found | TABLEGUY"
         description="The page you're looking for doesn't exist."
-        canonicalPath="/404"
+        noindex={true}
       />
 
       <div className="max-w-xl mx-auto px-4 sm:px-6 py-16 sm:py-24 flex flex-col items-center text-center">
@@ -31,7 +31,7 @@ export const NotFoundPage: React.FC = () => {
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 w-full pt-4 border-t-2 border-black">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 w-full pt-4 border-t-2 border-black flex-wrap">
             <BrutalButton
               id="not-found-back-home-btn"
               variant="secondary"
@@ -40,7 +40,7 @@ export const NotFoundPage: React.FC = () => {
               onClick={() => navigate('/')}
             >
               <ArrowLeft className="w-4 h-4 stroke-[3] mr-1.5" />
-              <span>Back to TABLEGUY</span>
+              <span>Back to Home</span>
             </BrutalButton>
 
             <BrutalButton
@@ -51,7 +51,18 @@ export const NotFoundPage: React.FC = () => {
               onClick={() => navigate('/table-generator')}
             >
               <TableIcon className="w-4 h-4 stroke-[2.5] mr-1.5" />
-              <span>Open Table Generator</span>
+              <span>Table Generator</span>
+            </BrutalButton>
+
+            <BrutalButton
+              id="not-found-browse-guides-btn"
+              variant="secondary"
+              size="md"
+              className="w-full sm:w-auto"
+              onClick={() => navigate('/guides')}
+            >
+              <BookOpen className="w-4 h-4 stroke-[2.5] mr-1.5" />
+              <span>Browse Guides</span>
             </BrutalButton>
           </div>
         </BrutalCard>

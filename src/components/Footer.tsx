@@ -15,7 +15,7 @@ export const Footer: React.FC = () => {
             >
               <img
                 src="/tableguy-logo.png"
-                alt="TABLEGUY — Free Online Table Generator"
+                alt="TABLEGUY"
                 className="h-9 sm:h-10 w-auto max-w-[180px] object-contain hover:opacity-90 transition-opacity"
               />
             </Link>
@@ -46,6 +46,12 @@ export const Footer: React.FC = () => {
               className="text-xs sm:text-sm font-bold px-3 py-1 bg-[#FAF8F5] border-2 border-black shadow-[2px_2px_0px_0px_#000] hover:bg-[#FFDE00] transition-colors"
             >
               Contact
+            </Link>
+            <Link
+              href="/guides"
+              className="text-xs sm:text-sm font-bold px-3 py-1 bg-[#FAF8F5] border-2 border-black shadow-[2px_2px_0px_0px_#000] hover:bg-[#FFDE00] transition-colors"
+            >
+              Guides
             </Link>
             <Link
               href="/privacy-policy"

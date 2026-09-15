@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 
-interface BrutalCardProps {
+interface BrutalCardProps extends React.HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
   className?: string;
   shadow?: 'sm' | 'md' | 'lg' | 'none';
@@ -14,6 +14,8 @@ export const BrutalCard: React.FC<BrutalCardProps> = ({
   shadow = 'md',
   bg = 'bg-white',
   bordered = true,
+  onClick,
+  ...rest
 }) => {
   const shadowStyles = {
     none: 'shadow-none',
@@ -26,7 +28,9 @@ export const BrutalCard: React.FC<BrutalCardProps> = ({
 
   return (
     <div
+      onClick={onClick}
       className={`${bg} ${borderStyle} ${shadowStyles[shadow]} ${className}`}
+      {...rest}
     >
       {children}
     </div>

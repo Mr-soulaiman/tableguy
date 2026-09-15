@@ -12,6 +12,7 @@ import {
   Check,
   Download,
   Info,
+  BookOpen,
 } from 'lucide-react';
 import { TableItem } from '../types';
 import {
@@ -39,7 +40,7 @@ const DEMO_TABLE: TableItem = {
   ],
   cellColors: [
     ['', '', '', ''],
-    ['', '', '#FFDE00', ''],
+    ['', '', '', ''],
     ['', '', '', ''],
   ],
   headerColors: ['#FFDE00', '#FFDE00', '#FFDE00', '#FFDE00'],
@@ -182,7 +183,7 @@ export const HomePage: React.FC = () => {
             <div className="flex-1 w-full max-w-md lg:max-w-lg flex items-center justify-center">
               <img
                 src="/tableguy-mascot.png"
-                alt="TABLEGUY Online Table Generator Mascot"
+                alt="TABLEGUY mascot"
                 className="w-full h-auto object-contain select-none max-h-[360px] sm:max-h-[440px] lg:max-h-[480px]"
               />
             </div>
@@ -219,24 +220,24 @@ export const HomePage: React.FC = () => {
                   <tr className="hover:bg-[#FAF8F5]">
                     <td className="p-2.5 sm:p-3.5 font-bold border-r-2 border-black">Ahmed</td>
                     <td className="p-2.5 sm:p-3.5 border-r-2 border-black">Mathematics Notes</td>
-                    <td className="p-2.5 sm:p-3.5 border-r-2 border-black">
-                      <span className="px-2 py-0.5 bg-black text-white text-[11px] font-bold">Grade 18</span>
+                    <td className="p-2.5 sm:p-3.5 border-r-2 border-black font-semibold text-black">
+                      Grade 18
                     </td>
                     <td className="p-2.5 sm:p-3.5 font-mono text-xs">Ready</td>
                   </tr>
                   <tr className="hover:bg-[#FAF8F5]">
                     <td className="p-2.5 sm:p-3.5 font-bold border-r-2 border-black">Sara</td>
                     <td className="p-2.5 sm:p-3.5 border-r-2 border-black">Physics Lab Data</td>
-                    <td className="p-2.5 sm:p-3.5 border-r-2 border-black">
-                      <span className="px-2 py-0.5 bg-[#FFDE00] text-black border border-black text-[11px] font-bold">Grade 19</span>
+                    <td className="p-2.5 sm:p-3.5 border-r-2 border-black font-semibold text-black">
+                      Grade 19
                     </td>
                     <td className="p-2.5 sm:p-3.5 font-mono text-xs">Ready</td>
                   </tr>
                   <tr className="hover:bg-[#FAF8F5]">
                     <td className="p-2.5 sm:p-3.5 font-bold border-r-2 border-black">Youssef</td>
                     <td className="p-2.5 sm:p-3.5 border-r-2 border-black">English Literature</td>
-                    <td className="p-2.5 sm:p-3.5 border-r-2 border-black">
-                      <span className="px-2 py-0.5 bg-black text-white text-[11px] font-bold">Grade 16</span>
+                    <td className="p-2.5 sm:p-3.5 border-r-2 border-black font-semibold text-black">
+                      Grade 16
                     </td>
                     <td className="p-2.5 sm:p-3.5 font-mono text-xs">Ready</td>
                   </tr>
@@ -437,6 +438,31 @@ export const HomePage: React.FC = () => {
               </div>
             </BrutalCard>
           </div>
+        </section>
+
+        {/* Natural Guides & Resources Section */}
+        <section className="max-w-5xl mx-auto px-4 sm:px-6 w-full">
+          <BrutalCard shadow="md" className="p-6 sm:p-8 bg-white flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 shrink-0 bg-[#FFDE00] border-2 border-black shadow-[2px_2px_0px_0px_#000] flex items-center justify-center text-black">
+                <BookOpen className="w-6 h-6 stroke-[2.5]" />
+              </div>
+              <div>
+                <h2 className="text-xl sm:text-2xl font-black uppercase text-black mb-1">
+                  Learn more in our Guides
+                </h2>
+                <p className="text-sm font-medium text-gray-700 max-w-xl">
+                  Practical guides on choosing table formats (CSV, HTML, Markdown), organizing data, and designing clear, readable tables.
+                </p>
+              </div>
+            </div>
+            <Link
+              href="/guides"
+              className="px-4 py-2.5 text-xs sm:text-sm font-black bg-white hover:bg-[#FFDE00] text-black border-2 border-black shadow-[2px_2px_0px_0px_#000] hover:translate-x-[1px] hover:translate-y-[1px] transition-all whitespace-nowrap shrink-0"
+            >
+              Explore Guides →
+            </Link>
+          </BrutalCard>
         </section>
 
         {/* Natural About & Internal Link Section */}
