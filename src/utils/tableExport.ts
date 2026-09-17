@@ -343,7 +343,7 @@ export function generateFullHtmlDocument(tables: TableItem[]): string {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${tables.length === 1 && tables[0].name ? escapeHtml(tables[0].name) : 'TABLEGUY Export'}</title>
+  <title>${tables.length === 1 && tables[0].name ? escapeHtml(tables[0].name) : 'TABLABLE Export'}</title>
   <style>
     * {
       box-sizing: border-box;

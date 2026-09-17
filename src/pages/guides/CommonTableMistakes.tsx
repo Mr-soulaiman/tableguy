@@ -28,7 +28,7 @@ export const CommonTableMistakes: React.FC = () => {
   return (
     <>
       <SEO
-        title="Common Mistakes When Creating Tables | TABLEGUY"
+        title="Common Mistakes When Creating Tables | TABLABLE"
         description="Avoid the top 10 common table mistakes including too many columns, unclear headings, mixing formats, and forgetting mobile screens. Simple fixes for every problem."
         canonicalPath="/guides/common-table-mistakes"
       />
@@ -178,7 +178,7 @@ export const CommonTableMistakes: React.FC = () => {
                 <strong>Why it fails:</strong> Yellow headers, orange alternating rows, bright green text, and purple borders cause cognitive overload. The eye doesn't know where to focus.
               </p>
               <div className="p-3 bg-green-50 border border-black text-xs text-green-900">
-                <strong>The simple fix:</strong> Stick to neutral backgrounds with one strong accent color for the header (like TABLEGUY's classic yellow or clean gray) and use color strictly for status tags (green = done, red = overdue).
+                <strong>The simple fix:</strong> Stick to neutral backgrounds with one strong accent color for the header (like TABLABLE's classic yellow or clean gray) and use color strictly for status tags (green = done, red = overdue).
               </div>
             </div>
 
@@ -273,17 +273,17 @@ export const CommonTableMistakes: React.FC = () => {
             </ul>
           </section>
 
-          {/* Section: Using TABLEGUY */}
+          {/* Section: Using TABLABLE */}
           <section className="p-6 sm:p-8 bg-[#FFFDF0] border-2 sm:border-[3px] border-black shadow-[3px_3px_0px_0px_#000] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
             <div className="flex flex-col gap-1.5 max-w-xl">
               <span className="text-xs font-mono font-black uppercase text-gray-600">
-                TRY TABLEGUY
+                TRY TABLABLE
               </span>
               <h3 className="text-2xl font-black uppercase tracking-tight text-black">
-                Avoid Table Mistakes With TABLEGUY
+                Avoid Table Mistakes With TABLABLE
               </h3>
               <p className="text-sm font-medium text-gray-700">
-                Building tables by hand in code or messy software is when formatting errors creep in. TABLEGUY gives you clean visual alignments, automatic mobile-friendly wrappers, easy column deletion, and clean export to HTML, Markdown, or CSV.
+                Building tables by hand in code or messy software is when formatting errors creep in. TABLABLE gives you clean visual alignments, automatic mobile-friendly wrappers, easy column deletion, and clean export to HTML, Markdown, or CSV.
               </p>
             </div>
 

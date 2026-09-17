@@ -11,7 +11,7 @@ export const NotFoundPage: React.FC = () => {
   return (
     <>
       <SEO
-        title="404 — Table Not Found | TABLEGUY"
+        title="404 — Table Not Found | TABLABLE"
         description="The page you're looking for doesn't exist."
         noindex={true}
       />

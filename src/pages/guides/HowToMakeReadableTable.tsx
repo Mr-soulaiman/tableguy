@@ -29,7 +29,7 @@ export const HowToMakeReadableTable: React.FC = () => {
   return (
     <>
       <SEO
-        title="How to Make a Table Easy to Read | TABLEGUY"
+        title="How to Make a Table Easy to Read | TABLABLE"
         description="Learn how to turn a confusing table into one anyone can understand in a few seconds. Clear rules on alignment, headers, cell length, and the 5-second test."
         canonicalPath="/guides/how-to-make-readable-table"
       />
@@ -286,17 +286,17 @@ export const HowToMakeReadableTable: React.FC = () => {
             </p>
           </section>
 
-          {/* Section 5: Using TABLEGUY */}
+          {/* Section 5: Using TABLABLE */}
           <section className="p-6 sm:p-8 bg-[#FFFDF0] border-2 sm:border-[3px] border-black shadow-[3px_3px_0px_0px_#000] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
             <div className="flex flex-col gap-1.5 max-w-xl">
               <span className="text-xs font-mono font-black uppercase text-gray-600">
-                TRY TABLEGUY
+                TRY TABLABLE
               </span>
               <h3 className="text-2xl font-black uppercase tracking-tight text-black">
                 Make Your Next Table Effortlessly Clean
               </h3>
               <p className="text-sm font-medium text-gray-700">
-                TABLEGUY gives you complete visual control without messy formulas. Align columns left, center, or right with one click, highlight rows with clean colors, add or delete rows and columns instantly, and export to HTML, Markdown, or PDF.
+                TABLABLE gives you complete visual control without messy formulas. Align columns left, center, or right with one click, highlight rows with clean colors, add or delete rows and columns instantly, and export to HTML, Markdown, or PDF.
               </p>
             </div>
 

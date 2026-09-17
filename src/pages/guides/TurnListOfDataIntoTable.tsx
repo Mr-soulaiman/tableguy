@@ -25,7 +25,7 @@ export const TurnListOfDataIntoTable: React.FC = () => {
   return (
     <>
       <SEO
-        title="How to Turn a List of Data Into a Table | TABLEGUY"
+        title="How to Turn a List of Data Into a Table | TABLABLE"
         description="Learn how to turn raw text, comma-separated values, tabs, and copied spreadsheet data into a clean, properly structured table. Practical steps and troubleshooting."
         canonicalPath="/guides/turn-list-of-data-into-table"
       />
@@ -480,17 +480,17 @@ Nadia,Physics,16`}
             </div>
           </section>
 
-          {/* Section 8: TABLEGUY Single Natural CTA */}
+          {/* Section 8: TABLABLE Single Natural CTA */}
           <section className="p-6 sm:p-8 bg-[#FFFDF0] border-2 sm:border-[3px] border-black shadow-[3px_3px_0px_0px_#000] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
             <div className="flex flex-col gap-1.5 max-w-xl">
               <span className="text-xs font-mono font-black uppercase text-gray-600">
-                TRY TABLEGUY
+                TRY TABLABLE
               </span>
               <h3 className="text-2xl font-black uppercase tracking-tight text-black">
                 Paste Your Raw Data and Generate a Table Instantly
               </h3>
               <p className="text-sm font-medium text-gray-700">
-                Have a list separated by commas, tabs, or spreadsheet rows? Paste it directly into TABLEGUY to instantly format headers, set column alignments, and export clean HTML, Markdown, or PDF.
+                Have a list separated by commas, tabs, or spreadsheet rows? Paste it directly into TABLABLE to instantly format headers, set column alignments, and export clean HTML, Markdown, or PDF.
               </p>
             </div>
 

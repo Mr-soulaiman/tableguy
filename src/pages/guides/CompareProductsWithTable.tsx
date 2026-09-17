@@ -33,7 +33,7 @@ export const CompareProductsWithTable: React.FC = () => {
   return (
     <>
       <SEO
-        title="How to Compare Products Using a Table | TABLEGUY"
+        title="How to Compare Products Using a Table | TABLABLE"
         description="Learn how to create a simple product comparison table that puts prices, specs, and differences in one place. Avoid tab switching and make clear buying decisions."
         canonicalPath="/guides/compare-products-with-table"
       />
@@ -383,7 +383,7 @@ export const CompareProductsWithTable: React.FC = () => {
             </h2>
 
             <p className="text-gray-800 text-sm sm:text-base">
-              Copy this standard template into your notes or markdown editor, then paste it directly into TABLEGUY to adjust headers and fill in your options:
+              Copy this standard template into your notes or markdown editor, then paste it directly into TABLABLE to adjust headers and fill in your options:
             </p>
 
             <div className="p-4 bg-gray-900 text-white font-mono text-xs sm:text-sm border-2 border-black overflow-x-auto shadow-[3px_3px_0px_0px_#000]">
@@ -401,17 +401,17 @@ export const CompareProductsWithTable: React.FC = () => {
             </p>
           </section>
 
-          {/* Section 8: Single Natural TABLEGUY CTA */}
+          {/* Section 8: Single Natural TABLABLE CTA */}
           <section className="p-6 sm:p-8 bg-[#FFFDF0] border-2 sm:border-[3px] border-black shadow-[3px_3px_0px_0px_#000] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
             <div className="flex flex-col gap-1.5 max-w-xl">
               <span className="text-xs font-mono font-black uppercase text-gray-600">
-                TRY TABLEGUY
+                TRY TABLABLE
               </span>
               <h3 className="text-2xl font-black uppercase tracking-tight text-black">
                 Build Your Product Comparison Table
               </h3>
               <p className="text-sm font-medium text-gray-700">
-                Ready to compare your top product contenders? Use TABLEGUY to visually build, edit, and style your table. Highlight the winning model, right-align numbers, and export clean HTML, Markdown, or CSV.
+                Ready to compare your top product contenders? Use TABLABLE to visually build, edit, and style your table. Highlight the winning model, right-align numbers, and export clean HTML, Markdown, or CSV.
               </p>
             </div>
 

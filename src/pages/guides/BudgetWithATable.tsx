@@ -29,7 +29,7 @@ export const BudgetWithATable: React.FC = () => {
   return (
     <>
       <SEO
-        title="How to Organize Your Budget With a Table | TABLEGUY"
+        title="How to Organize Your Budget With a Table | TABLABLE"
         description="Learn how a simple table makes personal budgeting easy to understand. Compare planned vs actual spending, fixed vs variable costs, and avoid common budgeting traps."
         canonicalPath="/guides/budget-with-a-table"
       />
@@ -302,17 +302,17 @@ export const BudgetWithATable: React.FC = () => {
             </div>
           </section>
 
-          {/* Section 8: Using TABLEGUY */}
+          {/* Section 8: Using TABLABLE */}
           <section className="p-6 sm:p-8 bg-[#FFFDF0] border-2 sm:border-[3px] border-black shadow-[3px_3px_0px_0px_#000] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
             <div className="flex flex-col gap-1.5 max-w-xl">
               <span className="text-xs font-mono font-black uppercase text-gray-600">
-                TRY TABLEGUY
+                TRY TABLABLE
               </span>
               <h3 className="text-2xl font-black uppercase tracking-tight text-black">
                 Create a Clean Budget Table in 60 Seconds
               </h3>
               <p className="text-sm font-medium text-gray-700">
-                Want to build your personal budget table without wrestling spreadsheet software? With TABLEGUY, you can set your categories, enter planned amounts, right-align figures with one click, and download a crisp PDF or clean HTML to print or keep.
+                Want to build your personal budget table without wrestling spreadsheet software? With TABLABLE, you can set your categories, enter planned amounts, right-align figures with one click, and download a crisp PDF or clean HTML to print or keep.
               </p>
             </div>
 
@@ -367,7 +367,7 @@ export const BudgetWithATable: React.FC = () => {
                   Can I export my budget table to Excel or CSV later?
                 </h3>
                 <p className="text-sm text-gray-700">
-                  Yes. If you build your table in TABLEGUY, you can export it to CSV format anytime, which opens seamlessly in Excel, Google Sheets, or Apple Numbers. Check our guide on{' '}
+                  Yes. If you build your table in TABLABLE, you can export it to CSV format anytime, which opens seamlessly in Excel, Google Sheets, or Apple Numbers. Check our guide on{' '}
                   <Link href="/guides/when-to-use-csv" className="underline font-bold text-black hover:text-gray-700">
                     when should you use CSV
                   </Link>.

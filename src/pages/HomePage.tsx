@@ -121,7 +121,7 @@ export const HomePage: React.FC = () => {
   return (
     <>
       <SEO
-        title="TABLEGUY — Free Online Table Generator"
+        title="TABLABLE — Free Online Table Generator"
         description="Create, edit, format and export tables online for free. Paste your data, build a clean table, and copy or download it in multiple formats."
         canonicalPath="/"
       />
@@ -142,7 +142,7 @@ export const HomePage: React.FC = () => {
               </div>
 
               <div className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-black uppercase mb-3">
-                TABLEGUY
+                TABLABLE
               </div>
 
               <h1 className="text-4xl sm:text-6xl md:text-7xl font-black text-black tracking-tight mb-6 leading-tight">
@@ -182,8 +182,8 @@ export const HomePage: React.FC = () => {
             {/* Right Column: Mascot Image */}
             <div className="flex-1 w-full max-w-md lg:max-w-lg flex items-center justify-center">
               <img
-                src="/tableguy-mascot.png"
-                alt="TABLEGUY mascot"
+                src="/mascot.png"
+                alt="TABLABLE mascot"
                 className="w-full h-auto object-contain select-none max-h-[360px] sm:max-h-[440px] lg:max-h-[480px]"
               />
             </div>
@@ -376,7 +376,7 @@ export const HomePage: React.FC = () => {
               SIMPLE WORKFLOW
             </BrutalBadge>
             <h2 className="text-3xl sm:text-5xl font-black tracking-tight uppercase text-black">
-              How TABLEGUY works
+              How TABLABLE works
             </h2>
           </div>
 
@@ -477,7 +477,7 @@ export const HomePage: React.FC = () => {
                   Simple Online Table Tools
                 </h2>
                 <p className="text-sm font-medium text-gray-700 max-w-xl">
-                  Learn more about the philosophy behind TABLEGUY and how we keep table creation free, private, and local in your browser.
+                  Learn more about the philosophy behind TABLABLE and how we keep table creation free, private, and local in your browser.
                 </p>
               </div>
             </div>
@@ -485,7 +485,7 @@ export const HomePage: React.FC = () => {
               href="/about"
               className="px-4 py-2.5 text-xs sm:text-sm font-black bg-white hover:bg-[#FFDE00] text-black border-2 border-black shadow-[2px_2px_0px_0px_#000] hover:translate-x-[1px] hover:translate-y-[1px] transition-all whitespace-nowrap shrink-0"
             >
-              Read About TABLEGUY →
+              Read About TABLABLE →
             </Link>
           </BrutalCard>
         </section>

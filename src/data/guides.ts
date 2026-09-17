@@ -47,7 +47,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     category: 'TABLE FORMATS',
     description: "CSV, Excel, HTML and Markdown all handle tables differently. Here's what each one is good for, with simple examples to help you choose the right format.",
     readingTime: '5 min read',
-    seoTitle: "CSV vs Excel vs HTML vs Markdown: What's the Difference? | TABLEGUY",
+    seoTitle: "CSV vs Excel vs HTML vs Markdown: What's the Difference? | TABLABLE",
     seoDescription: "CSV, Excel, HTML and Markdown all handle tables differently. Here's what each one is good for, with simple examples to help you choose the right format.",
     intro: "CSV, Excel, HTML, and Markdown all handle tables differently. Here is what each format actually does, what it is good for, and how to pick the right one without overthinking it.",
     summaryPoints: [
@@ -64,7 +64,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     category: 'TABLE FORMATS',
     description: 'Not sure when to use CSV? Learn what CSV is good for, when it makes sense, and when another format like Excel is a better choice.',
     readingTime: '4 min read',
-    seoTitle: 'When Should You Use CSV? A Simple Guide | TABLEGUY',
+    seoTitle: 'When Should You Use CSV? A Simple Guide | TABLABLE',
     seoDescription: 'Not sure when to use CSV? Learn what CSV is good for, when it makes sense, and when another format like Excel is a better choice.',
     intro: "CSV isn't built for pretty reports or fancy colors. It was built for one specific purpose: moving data between different tools without friction. Here is how to know when it is the exact right tool for your table.",
     summaryPoints: [
@@ -81,7 +81,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     category: 'TABLE FORMATS',
     description: 'Learn when HTML tables are useful, when to use them on a website, and when another format is a better choice.',
     readingTime: '4 min read',
-    seoTitle: 'When Should You Use HTML Tables? A Simple Guide | TABLEGUY',
+    seoTitle: 'When Should You Use HTML Tables? A Simple Guide | TABLABLE',
     seoDescription: 'Learn when HTML tables are useful, when to use them on a website, and when another format is a better choice.',
     intro: "If you want people to view, compare, and understand structured data directly on a webpage, HTML tables are how you do it. Here is when they make total sense, and when you should avoid them.",
     summaryPoints: [
@@ -98,7 +98,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     category: 'TABLE FORMATS',
     description: 'Learn when Markdown tables are useful, when to avoid them, and how to create simple readable tables for documentation, GitHub, notes, and more.',
     readingTime: '4 min read',
-    seoTitle: 'When Should You Use Markdown Tables? | TABLEGUY',
+    seoTitle: 'When Should You Use Markdown Tables? | TABLABLE',
     seoDescription: 'Learn when Markdown tables are useful, when to avoid them, and how to create simple readable tables for documentation, GitHub, notes, and more.',
     intro: "Markdown tables give you a clean, lightweight way to show structured data inside notes, README files, and documentation without writing messy code. Here is when they shine, when they fall short, and how to build one that looks great.",
     summaryPoints: [
@@ -115,7 +115,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     category: 'TABLE BASICS',
     description: 'Learn when a table is better than a list and when a simple list is actually the better choice. Real examples, comparison rules, and practical advice.',
     readingTime: '5 min read',
-    seoTitle: 'Tables vs Lists: When Should You Use Each? | TABLEGUY',
+    seoTitle: 'Tables vs Lists: When Should You Use Each? | TABLABLE',
     seoDescription: 'Learn when a table is better than a list and when a simple list is actually the better choice. Real examples, comparison rules, and practical advice.',
     intro: "Choosing between a table and a list determines how easily your audience scans and interprets your content. Both have specific strengths depending on data complexity.",
     summaryPoints: [
@@ -132,7 +132,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     category: 'TABLE BASICS',
     description: 'Learn how to turn a confusing table into one anyone can understand in a few seconds. Clear rules on alignment, headers, cell length, and the 5-second test.',
     readingTime: '5 min read',
-    seoTitle: 'How to Make a Table Easy to Read | TABLEGUY',
+    seoTitle: 'How to Make a Table Easy to Read | TABLABLE',
     seoDescription: 'Learn how to turn a confusing table into one anyone can understand in a few seconds. Clear rules on alignment, headers, cell length, and the 5-second test.',
     intro: "A well-structured table allows readers to spot key data points in seconds. Clear header design, consistent alignment, and balanced spacing make all the difference.",
     summaryPoints: [
@@ -149,7 +149,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     category: 'TABLES IN EVERYDAY LIFE',
     description: 'Learn practical ways to use study tables for revision, definitions, vocabulary, formulas, and history. Avoid dense paragraphs and retain information faster.',
     readingTime: '5 min read',
-    seoTitle: 'How Tables Can Help You Study | TABLEGUY',
+    seoTitle: 'How Tables Can Help You Study | TABLABLE',
     seoDescription: 'Learn practical ways to use study tables for revision, definitions, vocabulary, formulas, and history. Avoid dense paragraphs and retain information faster.',
     intro: "Transforming dense textbook notes into structured visual tables is one of the most effective techniques for active learning and revision.",
     summaryPoints: [
@@ -166,7 +166,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     category: 'TABLES IN EVERYDAY LIFE',
     description: 'Learn how a simple table makes personal budgeting easy to understand. Compare planned vs actual spending, fixed vs variable costs, and avoid common budgeting traps.',
     readingTime: '5 min read',
-    seoTitle: 'How to Organize Your Budget With a Table | TABLEGUY',
+    seoTitle: 'How to Organize Your Budget With a Table | TABLABLE',
     seoDescription: 'Learn how a simple table makes personal budgeting easy to understand. Compare planned vs actual spending, fixed vs variable costs, and avoid common budgeting traps.',
     intro: "Tracking income and expenses in a clean table gives you complete clarity on cash flow and spending patterns without complex accounting software.",
     summaryPoints: [
@@ -183,14 +183,14 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     category: 'TABLES IN EVERYDAY LIFE',
     description: 'Learn how to create a simple product comparison table that makes prices, features, and differences easier to understand and compare.',
     readingTime: '5 min read',
-    seoTitle: 'How to Compare Products Using a Table | TABLEGUY',
+    seoTitle: 'How to Compare Products Using a Table | TABLABLE',
     seoDescription: 'Learn how to create a simple product comparison table that makes prices, features, and differences easier to understand and compare.',
     intro: "Comparing products across dozens of open browser tabs is exhausting. Putting the choices into a simple comparison table puts everything in one view so you can make a clear decision in minutes.",
     summaryPoints: [
       "Pick 4 to 8 critical deciding features rather than dozens of confusing specifications.",
       "Keep units, currencies, and formats strictly consistent across every row.",
       "Avoid large paragraphs in cells and focus on comparable values.",
-      "Turn your raw comparison into a clean exportable table in TABLEGUY."
+      "Turn your raw comparison into a clean exportable table in TABLABLE."
     ],
     relatedSlugs: ['how-to-make-readable-table', 'tables-vs-lists', 'make-table-from-excel-google-sheets'],
   },
@@ -200,7 +200,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     category: 'TIPS & HOW-TO',
     description: 'Avoid the top 10 common table mistakes including too many columns, unclear headings, mixing formats, and forgetting mobile screens. Simple fixes for every problem.',
     readingTime: '5 min read',
-    seoTitle: 'Common Mistakes When Creating Tables | TABLEGUY',
+    seoTitle: 'Common Mistakes When Creating Tables | TABLABLE',
     seoDescription: 'Avoid the top 10 common table mistakes including too many columns, unclear headings, mixing formats, and forgetting mobile screens. Simple fixes for every problem.',
     intro: "Even accurate data can be misunderstood if presented in a cluttered table. Recognizing frequent table mistakes helps you produce clearer documents.",
     summaryPoints: [
@@ -217,7 +217,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     category: 'TIPS & HOW-TO',
     description: 'Learn how to turn messy lists, notes, copied text, and other unorganized information into clean, readable tables with simple practical steps.',
     readingTime: '5 min read',
-    seoTitle: 'How to Turn a Messy List Into a Clean Table | TABLEGUY',
+    seoTitle: 'How to Turn a Messy List Into a Clean Table | TABLABLE',
     seoDescription: 'Learn how to turn messy lists, notes, copied text, and other unorganized information into clean, readable tables with simple practical steps.',
     intro: "When someone dumps unorganized text, notes, or messages in your lap, the data isn't the problem — the organization is. Here is a practical, 5-step method to turn messy text into a clean table in minutes.",
     summaryPoints: [
@@ -234,7 +234,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     category: 'TIPS & HOW-TO',
     description: 'Learn how to turn Excel or Google Sheets data into a clean, readable table using simple steps, with tips for fixing messy pasted data.',
     readingTime: '5 min read',
-    seoTitle: 'How to Make a Table From Excel or Google Sheets | TABLEGUY',
+    seoTitle: 'How to Make a Table From Excel or Google Sheets | TABLABLE',
     seoDescription: 'Learn how to turn Excel or Google Sheets data into a clean, readable table using simple steps, with tips for fixing messy pasted data.',
     intro: "Spreadsheets are great for calculating and managing data. But when you need to pull out rows to share in an email, documentation, or a website, sending an entire sheet is overkill. Here is how to turn spreadsheet data into a clean, ready-to-share table in a few easy steps.",
     summaryPoints: [
@@ -251,7 +251,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     category: 'TABLE BASICS',
     description: 'Learn a simple, step-by-step process to turn scattered notes, trip details, tasks, and project ideas into clean, scannable tables that anyone can understand.',
     readingTime: '5 min read',
-    seoTitle: 'How to Organize Information With a Table | TABLEGUY',
+    seoTitle: 'How to Organize Information With a Table | TABLABLE',
     seoDescription: 'Learn a simple, step-by-step process to turn scattered notes, trip details, tasks, and project ideas into clean, scannable tables that anyone can understand.',
     intro: "Turning unstructured notes into an organized table requires deciding what belongs in rows and what should become a column.",
     summaryPoints: [
@@ -268,7 +268,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     category: 'TABLES IN EVERYDAY LIFE',
     description: 'Learn how to turn scattered project tasks, owners, and deadlines into a simple project table. Practical steps, examples, and templates for small teams and personal projects.',
     readingTime: '5 min read',
-    seoTitle: 'How to Organize a Project With a Table | TABLEGUY',
+    seoTitle: 'How to Organize a Project With a Table | TABLABLE',
     seoDescription: 'Learn how to turn scattered project tasks, owners, and deadlines into a simple project table. Practical steps, examples, and templates for small teams and personal projects.',
     intro: "A project has tasks, people, deadlines, and different statuses, but everything is scattered across chat messages and notes. A simple table turns that confusion into a clean, actionable plan.",
     summaryPoints: [
@@ -285,7 +285,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     category: 'TABLES IN EVERYDAY LIFE',
     description: 'Learn how to turn long study notes, formulas, vocabulary, and history dates into clean revision tables. Practical steps, examples, and study templates.',
     readingTime: '5 min read',
-    seoTitle: 'How to Organize Your Study Notes With a Table | TABLEGUY',
+    seoTitle: 'How to Organize Your Study Notes With a Table | TABLABLE',
     seoDescription: 'Learn how to turn long study notes, formulas, vocabulary, and history dates into clean revision tables. Practical steps, examples, and study templates.',
     intro: "Reviewing pages of dense lecture notes before an exam takes forever. A structured study table turns scattered notes into a clear revision sheet you can scan in minutes.",
     summaryPoints: [
@@ -302,7 +302,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     category: 'TABLES IN EVERYDAY LIFE',
     description: 'Learn how to turn busy days, study routines, and work tasks into a clean schedule table. Practical templates, examples, and rules for realistic planning.',
     readingTime: '5 min read',
-    seoTitle: 'How to Create a Simple Schedule With a Table | TABLEGUY',
+    seoTitle: 'How to Create a Simple Schedule With a Table | TABLABLE',
     seoDescription: 'Learn how to turn busy days, study routines, and work tasks into a clean schedule table. Practical templates, examples, and rules for realistic planning.',
     intro: "Your week contains classes, work shifts, workouts, appointments, and chores. A simple schedule table gives you an instant overview of your week without micromanaging every minute.",
     summaryPoints: [
@@ -319,7 +319,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     category: 'TIPS & HOW-TO',
     description: 'Learn how to turn raw text, comma-separated values, tabs, and copied spreadsheet data into a clean, properly structured table with practical troubleshooting tips.',
     readingTime: '5 min read',
-    seoTitle: 'How to Turn a List of Data Into a Table | TABLEGUY',
+    seoTitle: 'How to Turn a List of Data Into a Table | TABLABLE',
     seoDescription: 'Learn how to turn raw text, comma-separated values, tabs, and copied spreadsheet data into a clean, properly structured table. Practical steps and troubleshooting.',
     intro: "Raw text separated by commas or tabs already has structure — it just isn't visual yet. Here is how to recognize rows, columns, and delimiters, and turn unformatted lines into a readable table.",
     summaryPoints: [
@@ -336,7 +336,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     category: 'TIPS & HOW-TO',
     description: 'Learn how to design comparison tables that clarify choices instead of overwhelming readers with dozens of obscure specifications.',
     readingTime: '5 min read',
-    seoTitle: 'How to Make a Comparison Table That Actually Helps | TABLEGUY',
+    seoTitle: 'How to Make a Comparison Table That Actually Helps | TABLABLE',
     seoDescription: 'Learn how to build comparison tables that clarify decisions instead of overwhelming readers. Practical methods, laptop examples, templates, and key rules.',
     intro: "Most comparison tables overwhelm readers with dozens of technical specifications nobody cares about. Here is how to build comparison tables that focus on genuine decision drivers.",
     summaryPoints: [
@@ -353,7 +353,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     category: 'TABLE FORMATS',
     description: 'Learn how to create clean, responsive HTML tables for websites. Understand table tags, mobile responsiveness, and when HTML beats Markdown or CSV.',
     readingTime: '5 min read',
-    seoTitle: 'How to Create a Table for a Website | TABLEGUY',
+    seoTitle: 'How to Create a Table for a Website | TABLABLE',
     seoDescription: 'Learn how to build clean, responsive HTML tables for websites. Practical code examples, when to use tables, HTML vs Markdown vs CSV, and accessibility tips.',
     intro: "Presenting pricing tiers, schedules, or specifications on a webpage requires responsive HTML. Here is how web tables work and how to build them with clean code.",
     summaryPoints: [
@@ -370,7 +370,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     category: 'TIPS & HOW-TO',
     description: 'Learn how to clean up a messy table before sharing it. Fix inconsistent data, duplicate rows, confusing headers, spacing, formatting, and more.',
     readingTime: '5 min read',
-    seoTitle: 'How to Clean Up a Table Before Sharing It | TABLEGUY',
+    seoTitle: 'How to Clean Up a Table Before Sharing It | TABLABLE',
     seoDescription: 'Learn how to clean up a messy table before sharing it. Fix inconsistent data, duplicate rows, confusing headers, spacing, formatting, and more.',
     intro: 'You spent hours collecting data into a grid. But right before sending it, you realize it looks chaotic. Here is a practical checklist to clean up sloppy rows and make your table immediately trustworthy.',
     summaryPoints: [
@@ -387,7 +387,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     category: 'TIPS & HOW-TO',
     description: 'Learn how to make tables easier to read on phones. Practical tips for shorter text, fewer columns, responsive layouts, wrapping, and wide tables.',
     readingTime: '5 min read',
-    seoTitle: 'How to Make a Table Mobile-Friendly | TABLEGUY',
+    seoTitle: 'How to Make a Table Mobile-Friendly | TABLABLE',
     seoDescription: 'Learn how to make tables easier to read on phones. Practical tips for shorter text, fewer columns, responsive layouts, wrapping, and wide tables.',
     intro: 'A table looks great on a 27-inch laptop monitor, but on a phone half of it disappears. Here is why wide tables struggle on smartphones and how to keep them genuinely readable.',
     summaryPoints: [
@@ -404,7 +404,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     category: 'TABLES IN EVERYDAY LIFE',
     description: 'Learn how to create a simple inventory table for your home, business, workshop, office, or supplies. Includes useful columns and practical examples.',
     readingTime: '6 min read',
-    seoTitle: 'How to Create a Simple Inventory Table | TABLEGUY',
+    seoTitle: 'How to Create a Simple Inventory Table | TABLABLE',
     seoDescription: 'Learn how to create a simple inventory table for your home, business, workshop, office, or supplies. Includes useful columns and practical examples.',
     intro: 'You don’t need expensive enterprise software to organize physical stock or household storage. A straightforward inventory table gives you total clarity in minutes.',
     summaryPoints: [
@@ -421,7 +421,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     category: 'TABLE FORMATS',
     description: 'Learn how to convert CSV data into an HTML table for a website. Includes examples, simple methods, formatting tips, and common CSV problems.',
     readingTime: '6 min read',
-    seoTitle: 'How to Convert CSV to HTML | TABLEGUY',
+    seoTitle: 'How to Convert CSV to HTML | TABLABLE',
     seoDescription: 'Learn how to convert CSV data into an HTML table for a website. Includes examples, simple methods, formatting tips, and common CSV problems.',
     intro: 'You have a CSV file full of rows and columns, but you need an actual table on a website. Here is how to turn raw comma-separated records into clean, semantic HTML table tags without headaches.',
     summaryPoints: [
@@ -438,7 +438,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     category: 'TABLE FORMATS',
     description: 'Learn how to convert CSV or spreadsheet data into a Markdown table for GitHub, documentation, notes, and other Markdown-based content.',
     readingTime: '6 min read',
-    seoTitle: 'How to Convert CSV to Markdown | TABLEGUY',
+    seoTitle: 'How to Convert CSV to Markdown | TABLABLE',
     seoDescription: 'Learn how to convert CSV or spreadsheet data into a Markdown table for GitHub, documentation, notes, and other Markdown-based content.',
     intro: 'You copied a CSV or spreadsheet full of data, but what you actually need is a clean Markdown table. Here is how to convert comma-separated values into GitHub-ready pipes and dashes without spending twenty minutes aligning hyphens by hand.',
     summaryPoints: [
@@ -455,7 +455,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     category: 'TABLES IN EVERYDAY LIFE',
     description: 'Learn how to insert, format, customize, and clean up tables in Google Docs. Includes simple steps, design tips, and common table mistakes.',
     readingTime: '6 min read',
-    seoTitle: 'How to Make a Table in Google Docs | TABLEGUY',
+    seoTitle: 'How to Make a Table in Google Docs | TABLABLE',
     seoDescription: 'Learn how to insert, format, customize, and clean up tables in Google Docs. Includes simple steps, design tips, and common table mistakes.',
     intro: 'Google Docs is great for writing, but paragraphs alone fail when presenting comparisons, meeting agendas, and project schedules. Here is how to insert, style, and polish Google Docs tables so they look professional rather than like a default homework assignment.',
     summaryPoints: [
@@ -472,7 +472,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     category: 'TABLE FORMATS',
     description: 'Learn how to convert Excel spreadsheet data into an HTML table for a website. Includes examples, conversion methods, formatting tips, and common problems.',
     readingTime: '7 min read',
-    seoTitle: 'How to Convert Excel to HTML | TABLEGUY',
+    seoTitle: 'How to Convert Excel to HTML | TABLABLE',
     seoDescription: 'Learn how to convert Excel spreadsheet data into an HTML table for a website. Includes examples, conversion methods, formatting tips, and common problems.',
     intro: 'You have a perfectly good table in Excel, but now you need that information on a website. Here is how to move your spreadsheet data into clean, accessible HTML without bloated tags or broken layouts.',
     summaryPoints: [

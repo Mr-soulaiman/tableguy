@@ -32,7 +32,7 @@ export const TurnMessyListIntoCleanTable: React.FC = () => {
   return (
     <>
       <SEO
-        title="How to Turn a Messy List Into a Clean Table | TABLEGUY"
+        title="How to Turn a Messy List Into a Clean Table | TABLABLE"
         description="Learn how to turn messy lists, copied notes, mixed-up data, and unorganized text into clean, scannable tables with a simple 7-step practical process."
         canonicalPath="/guides/turn-messy-list-into-clean-table"
       />
@@ -507,17 +507,17 @@ export const TurnMessyListIntoCleanTable: React.FC = () => {
             </ul>
           </section>
 
-          {/* Section 7: Try TABLEGUY (Single Natural CTA) */}
+          {/* Section 7: Try TABLABLE (Single Natural CTA) */}
           <section className="p-6 sm:p-8 bg-[#FFFDF0] border-2 sm:border-[3px] border-black shadow-[3px_3px_0px_0px_#000] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
             <div className="flex flex-col gap-1.5 max-w-xl">
               <span className="text-xs font-mono font-black uppercase text-gray-600">
-                TRY TABLEGUY
+                TRY TABLABLE
               </span>
               <h3 className="text-2xl font-black uppercase tracking-tight text-black">
                 Paste and Format Your Messy List
               </h3>
               <p className="text-sm font-medium text-gray-700">
-                Have a messy list sitting in your notes or messages? Paste it into TABLEGUY to split columns, reorder headers, format cell alignments, and export clean HTML, Markdown, CSV, or PDF in seconds.
+                Have a messy list sitting in your notes or messages? Paste it into TABLABLE to split columns, reorder headers, format cell alignments, and export clean HTML, Markdown, CSV, or PDF in seconds.
               </p>
             </div>
 

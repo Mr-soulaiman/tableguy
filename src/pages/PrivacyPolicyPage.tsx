@@ -11,8 +11,8 @@ export const PrivacyPolicyPage: React.FC = () => {
   return (
     <>
       <SEO
-        title="TABLEGUY Privacy Policy"
-        description="Read the TABLEGUY Privacy Policy and learn how the website handles information and table data."
+        title="TABLABLE Privacy Policy"
+        description="Read the TABLABLE Privacy Policy and learn how the website handles information and table data."
         canonicalPath="/privacy-policy"
       />
 
@@ -31,7 +31,7 @@ export const PrivacyPolicyPage: React.FC = () => {
             Privacy Policy
           </h1>
           <p className="text-lg sm:text-xl font-bold text-gray-800">
-            How TABLEGUY handles your table data and respects your privacy.
+            How TABLABLE handles your table data and respects your privacy.
           </p>
         </div>
 
@@ -44,7 +44,7 @@ export const PrivacyPolicyPage: React.FC = () => {
               <span className="text-base uppercase">Summary: Browser-Local Processing</span>
             </div>
             <p className="text-sm sm:text-base font-medium text-gray-800 leading-relaxed">
-              TABLEGUY runs entirely in your web browser. When you create, paste, format, or export tables, your data is processed locally in your browser&apos;s memory and is not sent to, stored on, or analyzed by remote servers.
+              TABLABLE runs entirely in your web browser. When you create, paste, format, or export tables, your data is processed locally in your browser&apos;s memory and is not sent to, stored on, or analyzed by remote servers.
             </p>
           </div>
 
@@ -75,7 +75,7 @@ export const PrivacyPolicyPage: React.FC = () => {
               2. User Accounts &amp; Information You Provide
             </h2>
             <p className="text-sm sm:text-base font-medium text-gray-800 leading-relaxed">
-              TABLEGUY does not require or offer user account registration, login credentials, or profiles. You do not need to provide an email address, name, or password to use any table creation or export features.
+              TABLABLE does not require or offer user account registration, login credentials, or profiles. You do not need to provide an email address, name, or password to use any table creation or export features.
             </p>
             <p className="text-sm sm:text-base font-medium text-gray-800 leading-relaxed">
               If you choose to contact us directly via email at <a href={`mailto:${contactEmail}`} className="font-bold underline">{contactEmail}</a>, we receive your email address and any information you include in your message solely to respond to your question or feedback.
@@ -99,7 +99,7 @@ export const PrivacyPolicyPage: React.FC = () => {
             </h2>
             <ul className="list-disc list-inside text-sm sm:text-base font-medium text-gray-800 space-y-2 pl-2">
               <li>
-                <strong>No Cookies:</strong> TABLEGUY does not set or use cookies for tracking, advertising, or profiling.
+                <strong>No Cookies:</strong> TABLABLE does not set or use cookies for tracking, advertising, or profiling.
               </li>
               <li>
                 <strong>No Analytics Networks:</strong> We do not integrate third-party analytics trackers, advertising pixels, or cross-site tracking tools on this website.
@@ -126,7 +126,7 @@ export const PrivacyPolicyPage: React.FC = () => {
               6. Your Data Rights
             </h2>
             <p className="text-sm sm:text-base font-medium text-gray-800 leading-relaxed">
-              Because TABLEGUY does not store personal information or table data on servers, you have full control over your data directly in your browser. You can clear your table at any time using the in-app &quot;Clear table&quot; button or by refreshing your browser tab.
+              Because TABLABLE does not store personal information or table data on servers, you have full control over your data directly in your browser. You can clear your table at any time using the in-app &quot;Clear table&quot; button or by refreshing your browser tab.
             </p>
           </section>
 
@@ -146,7 +146,7 @@ export const PrivacyPolicyPage: React.FC = () => {
               8. Contact Us
             </h2>
             <p className="text-sm sm:text-base font-medium text-gray-800 leading-relaxed">
-              If you have any questions about this Privacy Policy or how TABLEGUY operates, please contact us by email:
+              If you have any questions about this Privacy Policy or how TABLABLE operates, please contact us by email:
             </p>
             <p className="text-sm sm:text-base font-bold text-black">
               Email:{' '}

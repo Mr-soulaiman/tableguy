@@ -29,7 +29,7 @@ export const TablesVsLists: React.FC = () => {
   return (
     <>
       <SEO
-        title="Tables vs Lists: When Should You Use Each? | TABLEGUY"
+        title="Tables vs Lists: When Should You Use Each? | TABLABLE"
         description="Learn when a table is better than a list and when a simple list is actually the better choice. Real examples, comparison rules, and practical advice."
         canonicalPath="/guides/tables-vs-lists"
       />
@@ -323,17 +323,17 @@ export const TablesVsLists: React.FC = () => {
             </p>
           </section>
 
-          {/* Section 7: Using TABLEGUY */}
+          {/* Section 7: Using TABLABLE */}
           <section className="p-6 sm:p-8 bg-[#FFFDF0] border-2 sm:border-[3px] border-black shadow-[3px_3px_0px_0px_#000] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
             <div className="flex flex-col gap-1.5 max-w-xl">
               <span className="text-xs font-mono font-black uppercase text-gray-600">
-                TRY TABLEGUY
+                TRY TABLABLE
               </span>
               <h3 className="text-2xl font-black uppercase tracking-tight text-black">
                 Ready to Turn That List Into a Table?
               </h3>
               <p className="text-sm font-medium text-gray-700">
-                If your notes or lists have outgrown simple bullets, paste or type them into TABLEGUY. You can set column headers, adjust alignments, color-code important cells, and download clean HTML, Markdown, or CSV in seconds.
+                If your notes or lists have outgrown simple bullets, paste or type them into TABLABLE. You can set column headers, adjust alignments, color-code important cells, and download clean HTML, Markdown, or CSV in seconds.
               </p>
             </div>
 

@@ -28,7 +28,7 @@ export const WhenToUseHtmlTables: React.FC = () => {
   return (
     <>
       <SEO
-        title="When Should You Use HTML Tables? A Simple Guide | TABLEGUY"
+        title="When Should You Use HTML Tables? A Simple Guide | TABLABLE"
         description="Learn when HTML tables are useful, when to use them on a website, and when another format is a better choice."
         canonicalPath="/guides/when-to-use-html-tables"
       />
@@ -454,17 +454,17 @@ export const WhenToUseHtmlTables: React.FC = () => {
             </div>
           </section>
 
-          {/* Section 9: TABLEGUY Connection */}
+          {/* Section 9: TABLABLE Connection */}
           <section className="p-6 sm:p-8 bg-[#FFFDF0] border-2 sm:border-[3px] border-black shadow-[3px_3px_0px_0px_#000] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
             <div className="flex flex-col gap-1.5 max-w-xl">
               <span className="text-xs font-mono font-black uppercase text-gray-600">
-                TRY TABLEGUY
+                TRY TABLABLE
               </span>
               <h3 className="text-2xl font-black uppercase tracking-tight text-black">
                 Generate Clean HTML Tables Without Writing Code
               </h3>
               <p className="text-sm font-medium text-gray-700">
-                Writing <code className="font-mono text-xs">&lt;tr&gt;</code> and <code className="font-mono text-xs">&lt;td&gt;</code> tags by hand is tedious and error-prone. TABLEGUY lets you build your table visually and copy clean, semantic HTML in one click.
+                Writing <code className="font-mono text-xs">&lt;tr&gt;</code> and <code className="font-mono text-xs">&lt;td&gt;</code> tags by hand is tedious and error-prone. TABLABLE lets you build your table visually and copy clean, semantic HTML in one click.
               </p>
             </div>
 

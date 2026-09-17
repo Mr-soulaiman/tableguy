@@ -29,7 +29,7 @@ export const TablesForStudying: React.FC = () => {
   return (
     <>
       <SEO
-        title="How Tables Can Help You Study | TABLEGUY"
+        title="How Tables Can Help You Study | TABLABLE"
         description="Learn practical ways to use study tables for revision, definitions, vocabulary, formulas, and history. Avoid dense paragraphs and retain information faster."
         canonicalPath="/guides/tables-for-studying"
       />
@@ -331,17 +331,17 @@ export const TablesForStudying: React.FC = () => {
             </ol>
           </section>
 
-          {/* Section 6: Using TABLEGUY */}
+          {/* Section 6: Using TABLABLE */}
           <section className="p-6 sm:p-8 bg-[#FFFDF0] border-2 sm:border-[3px] border-black shadow-[3px_3px_0px_0px_#000] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
             <div className="flex flex-col gap-1.5 max-w-xl">
               <span className="text-xs font-mono font-black uppercase text-gray-600">
-                TRY TABLEGUY
+                TRY TABLABLE
               </span>
               <h3 className="text-2xl font-black uppercase tracking-tight text-black">
                 Build Clean Study Sheets in Minutes
               </h3>
               <p className="text-sm font-medium text-gray-700">
-                Need to create a quick comparison table or formula sheet for your revision binder? Use TABLEGUY to type, sort, align, and format your study data visually, then print it directly or export it to Markdown, HTML, or PDF.
+                Need to create a quick comparison table or formula sheet for your revision binder? Use TABLABLE to type, sort, align, and format your study data visually, then print it directly or export it to Markdown, HTML, or PDF.
               </p>
             </div>
 
@@ -369,7 +369,7 @@ export const TablesForStudying: React.FC = () => {
                   Are digital study tables better than handwritten ones?
                 </h3>
                 <p className="text-sm text-gray-700">
-                  Both have benefits. Hand-drawing a table helps visual memory, while digital tables in tools like TABLEGUY or Notion allow you to edit, re-sort rows, add extra columns later, and print clean copies.
+                  Both have benefits. Hand-drawing a table helps visual memory, while digital tables in tools like TABLABLE or Notion allow you to edit, re-sort rows, add extra columns later, and print clean copies.
                 </p>
               </div>
 

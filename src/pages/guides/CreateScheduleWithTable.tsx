@@ -31,7 +31,7 @@ export const CreateScheduleWithTable: React.FC = () => {
   return (
     <>
       <SEO
-        title="How to Create a Simple Schedule With a Table | TABLEGUY"
+        title="How to Create a Simple Schedule With a Table | TABLABLE"
         description="Learn how to turn busy days, study routines, and work tasks into a clean schedule table. Practical templates, examples, and rules for realistic planning."
         canonicalPath="/guides/create-schedule-with-table"
       />
@@ -361,7 +361,7 @@ export const CreateScheduleWithTable: React.FC = () => {
             </h2>
 
             <p className="text-gray-800 text-sm sm:text-base">
-              Copy this clean Markdown schedule directly into your planner, or paste it into TABLEGUY to customize hours, add colors, and export to PDF:
+              Copy this clean Markdown schedule directly into your planner, or paste it into TABLABLE to customize hours, add colors, and export to PDF:
             </p>
 
             <div className="p-4 bg-gray-900 text-white font-mono text-xs sm:text-sm border-2 border-black overflow-x-auto shadow-[3px_3px_0px_0px_#000]">
@@ -378,17 +378,17 @@ export const CreateScheduleWithTable: React.FC = () => {
             </div>
           </section>
 
-          {/* Section 8: TABLEGUY Single Natural CTA */}
+          {/* Section 8: TABLABLE Single Natural CTA */}
           <section className="p-6 sm:p-8 bg-[#FFFDF0] border-2 sm:border-[3px] border-black shadow-[3px_3px_0px_0px_#000] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
             <div className="flex flex-col gap-1.5 max-w-xl">
               <span className="text-xs font-mono font-black uppercase text-gray-600">
-                TRY TABLEGUY
+                TRY TABLABLE
               </span>
               <h3 className="text-2xl font-black uppercase tracking-tight text-black">
                 Design Your Weekly Schedule Table
               </h3>
               <p className="text-sm font-medium text-gray-700">
-                Want a clean weekly schedule you can keep on your desktop or print out for your wall? Build it in TABLEGUY, style your time blocks, and export to clean HTML, Markdown, or PDF in seconds.
+                Want a clean weekly schedule you can keep on your desktop or print out for your wall? Build it in TABLABLE, style your time blocks, and export to clean HTML, Markdown, or PDF in seconds.
               </p>
             </div>
 

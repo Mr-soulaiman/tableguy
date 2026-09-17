@@ -27,7 +27,7 @@ export const SimpleInventoryTable: React.FC = () => {
   return (
     <>
       <SEO
-        title="How to Create a Simple Inventory Table | TABLEGUY"
+        title="How to Create a Simple Inventory Table | TABLABLE"
         description="Learn how to create a simple inventory table for your home, business, workshop, office, or supplies. Includes useful columns and practical examples."
         canonicalPath="/guides/simple-inventory-table"
       />
@@ -368,17 +368,17 @@ export const SimpleInventoryTable: React.FC = () => {
             </p>
           </section>
 
-          {/* Section 10: TABLEGUY Single Natural CTA */}
+          {/* Section 10: TABLABLE Single Natural CTA */}
           <section className="p-6 sm:p-8 bg-[#FFFDF0] border-2 sm:border-[3px] border-black shadow-[3px_3px_0px_0px_#000] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
             <div className="flex flex-col gap-1.5 max-w-xl">
               <span className="text-xs font-mono font-black uppercase text-gray-600">
-                TRY TABLEGUY
+                TRY TABLABLE
               </span>
               <h3 className="text-2xl font-black uppercase tracking-tight text-black">
                 Design Your Custom Inventory Table in Seconds
               </h3>
               <p className="text-sm font-medium text-gray-700">
-                Set up your item names, categories, right-aligned quantities, and custom statuses in TABLEGUY. Once your grid is ready, export clean Markdown, HTML, or printable PDFs with zero hassle.
+                Set up your item names, categories, right-aligned quantities, and custom statuses in TABLABLE. Once your grid is ready, export clean Markdown, HTML, or printable PDFs with zero hassle.
               </p>
             </div>
 

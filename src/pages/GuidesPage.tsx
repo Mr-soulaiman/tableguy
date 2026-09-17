@@ -19,8 +19,8 @@ export const GuidesPage: React.FC = () => {
   return (
     <>
       <SEO
-        title="TABLEGUY Guides — Learn About Tables, Formats & Organization"
-        description="Learn how to create better tables, choose the right table format, organize information, and use tables effectively with practical guides from TABLEGUY."
+        title="TABLABLE Guides — Learn About Tables, Formats & Organization"
+        description="Learn how to create better tables, choose the right table format, organize information, and use tables effectively with practical guides from TABLABLE."
         canonicalPath="/guides"
       />
 
@@ -36,7 +36,7 @@ export const GuidesPage: React.FC = () => {
             </BrutalBadge>
           </div>
           <h1 className="text-4xl sm:text-6xl font-black uppercase tracking-tight text-black mb-3">
-            TABLEGUY Guides
+            TABLABLE Guides
           </h1>
           <p className="text-lg sm:text-xl font-bold text-gray-800 max-w-3xl">
             Useful guides for creating, organizing, formatting, and getting more out of tables.
@@ -98,7 +98,7 @@ export const GuidesPage: React.FC = () => {
               Ready to create your own table?
             </h2>
             <p className="text-sm font-medium text-gray-800">
-              Jump directly into the TABLEGUY generator to create, style, merge, and export tables in Markdown, HTML, CSV, and PDF.
+              Jump directly into the TABLABLE generator to create, style, merge, and export tables in Markdown, HTML, CSV, and PDF.
             </p>
           </div>
 

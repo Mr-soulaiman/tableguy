@@ -25,7 +25,7 @@ export const WhenToUseCsv: React.FC = () => {
   return (
     <>
       <SEO
-        title="When Should You Use CSV? A Simple Guide | TABLEGUY"
+        title="When Should You Use CSV? A Simple Guide | TABLABLE"
         description="Not sure when to use CSV? Learn what CSV is good for, when it makes sense, and when another format like Excel is a better choice."
         canonicalPath="/guides/when-to-use-csv"
       />
@@ -299,7 +299,7 @@ Sara,21,Rabat`}
               If you double-click a CSV file and your computer opens it in Notepad or TextEdit, it will look like a wall of comma-filled text.
             </p>
             <p className="text-sm text-gray-700">
-              Don't worry — it isn't broken. That raw simplicity is what makes it so fast and universal. As soon as you drag that exact same file into Excel, Google Sheets, or TABLEGUY, the columns snap neatly into place.
+              Don't worry — it isn't broken. That raw simplicity is what makes it so fast and universal. As soon as you drag that exact same file into Excel, Google Sheets, or TABLABLE, the columns snap neatly into place.
             </p>
           </section>
 
@@ -369,17 +369,17 @@ Sara,21,Rabat`}
             </div>
           </section>
 
-          {/* Section 8: TABLEGUY Connection */}
+          {/* Section 8: TABLABLE Connection */}
           <section className="p-6 sm:p-8 bg-[#FFFDF0] border-2 sm:border-[3px] border-black shadow-[3px_3px_0px_0px_#000] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
             <div className="flex flex-col gap-1.5 max-w-xl">
               <span className="text-xs font-mono font-black uppercase text-gray-600">
-                TRY TABLEGUY
+                TRY TABLABLE
               </span>
               <h3 className="text-2xl font-black uppercase tracking-tight text-black">
                 Edit and Export Clean CSV Tables Online
               </h3>
               <p className="text-sm font-medium text-gray-700">
-                If you have messy table data that needs cleaning, sorting, or reordering before exporting it as a pristine CSV file, TABLEGUY does it directly in your browser with zero login required.
+                If you have messy table data that needs cleaning, sorting, or reordering before exporting it as a pristine CSV file, TABLABLE does it directly in your browser with zero login required.
               </p>
             </div>
 

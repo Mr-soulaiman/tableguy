@@ -11,11 +11,11 @@ export const Footer: React.FC = () => {
             <Link
               href="/"
               className="inline-block focus:outline-none"
-              title="TABLEGUY — Free Online Table Generator"
+              title="TABLABLE — Free Online Table Generator"
             >
               <img
-                src="/tableguy-logo.png"
-                alt="TABLEGUY"
+                src="/tablable-logo.png"
+                alt="TABLABLE"
                 className="h-9 sm:h-10 w-auto max-w-[180px] object-contain hover:opacity-90 transition-opacity"
               />
             </Link>
@@ -83,7 +83,7 @@ export const Footer: React.FC = () => {
           </div>
 
           <p className="text-gray-600">
-            TABLEGUY — Free Online Table Generator.
+            TABLABLE — Free Online Table Generator.
           </p>
         </div>
       </div>

@@ -26,7 +26,7 @@ export const HowToCleanUpTable: React.FC = () => {
   return (
     <>
       <SEO
-        title="How to Clean Up a Table Before Sharing It | TABLEGUY"
+        title="How to Clean Up a Table Before Sharing It | TABLABLE"
         description="Learn how to clean up a messy table before sharing it. Fix inconsistent data, duplicate rows, confusing headers, spacing, formatting, and more."
         canonicalPath="/guides/how-to-clean-up-a-table"
       />
@@ -403,17 +403,17 @@ export const HowToCleanUpTable: React.FC = () => {
             </div>
           </section>
 
-          {/* Section 7: TABLEGUY Single Natural CTA */}
+          {/* Section 7: TABLABLE Single Natural CTA */}
           <section className="p-6 sm:p-8 bg-[#FFFDF0] border-2 sm:border-[3px] border-black shadow-[3px_3px_0px_0px_#000] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
             <div className="flex flex-col gap-1.5 max-w-xl">
               <span className="text-xs font-mono font-black uppercase text-gray-600">
-                TRY TABLEGUY
+                TRY TABLABLE
               </span>
               <h3 className="text-2xl font-black uppercase tracking-tight text-black">
                 Paste Your Raw Data and Export a Clean Table
               </h3>
               <p className="text-sm font-medium text-gray-700">
-                Have a messy text dump or unformatted spreadsheet rows? Paste it directly into TABLEGUY to adjust columns, set right/left alignments, and export clean Markdown, HTML, or PDF in seconds.
+                Have a messy text dump or unformatted spreadsheet rows? Paste it directly into TABLABLE to adjust columns, set right/left alignments, and export clean Markdown, HTML, or PDF in seconds.
               </p>
             </div>
 

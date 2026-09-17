@@ -31,7 +31,7 @@ export const HowToConvertExcelToHtml: React.FC = () => {
   return (
     <>
       <SEO
-        title="How to Convert Excel to HTML | TABLEGUY"
+        title="How to Convert Excel to HTML | TABLABLE"
         description="Learn how to convert Excel spreadsheet data into an HTML table for a website. Includes examples, conversion methods, formatting tips, and common problems."
         canonicalPath="/guides/how-to-convert-excel-to-html"
       />
@@ -635,17 +635,17 @@ export const HowToConvertExcelToHtml: React.FC = () => {
             </div>
           </section>
 
-          {/* Section 9: TABLEGUY Single Natural CTA */}
+          {/* Section 9: TABLABLE Single Natural CTA */}
           <section className="p-6 sm:p-8 bg-[#FFFDF0] border-2 sm:border-[3px] border-black shadow-[3px_3px_0px_0px_#000] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
             <div className="flex flex-col gap-1.5 max-w-xl">
               <span className="text-xs font-mono font-black uppercase text-gray-600">
-                TRY TABLEGUY
+                TRY TABLABLE
               </span>
               <h3 className="text-2xl font-black uppercase tracking-tight text-black">
                 Paste Spreadsheet Cells, Export Clean HTML
               </h3>
               <p className="text-sm font-medium text-gray-700">
-                When you need to turn Excel data into an HTML table without digging through bloated export code or typing tags manually, TABLEGUY gives you a fast, lightweight visual workbench. Paste cells directly from Excel, clean up columns, set alignments, and copy ready-to-use HTML table code in seconds.
+                When you need to turn Excel data into an HTML table without digging through bloated export code or typing tags manually, TABLABLE gives you a fast, lightweight visual workbench. Paste cells directly from Excel, clean up columns, set alignments, and copy ready-to-use HTML table code in seconds.
               </p>
             </div>
 
@@ -682,7 +682,7 @@ export const HowToConvertExcelToHtml: React.FC = () => {
                   How do I turn an Excel table into HTML?
                 </h3>
                 <p className="text-sm text-gray-700">
-                  The cleanest and fastest way is to highlight the table cells in Excel, copy them (<kbd className="font-mono text-xs bg-gray-100 px-1 border">Ctrl+C</kbd>), paste them into a tool like TABLEGUY, inspect the preview to ensure column headers are set, and click Export HTML. You can then paste that markup directly into your website's CMS or template.
+                  The cleanest and fastest way is to highlight the table cells in Excel, copy them (<kbd className="font-mono text-xs bg-gray-100 px-1 border">Ctrl+C</kbd>), paste them into a tool like TABLABLE, inspect the preview to ensure column headers are set, and click Export HTML. You can then paste that markup directly into your website's CMS or template.
                 </p>
               </div>
 

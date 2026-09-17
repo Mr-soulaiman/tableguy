@@ -13,11 +13,11 @@ export const Navbar: React.FC = () => {
         <Link
           href="/"
           className="group flex items-center focus:outline-none"
-          title="TABLEGUY — Make a table. Get it out."
+          title="TABLABLE — Make a table. Get it out."
         >
           <img
-            src="/tableguy-logo.png"
-            alt="TABLEGUY"
+            src="/tablable-logo.png"
+            alt="TABLABLE"
             className="h-10 sm:h-12 md:h-14 w-auto max-w-[190px] sm:max-w-[240px] object-contain group-hover:opacity-95 transition-opacity"
           />
         </Link>

@@ -13,8 +13,8 @@ export const ContactPage: React.FC = () => {
   return (
     <>
       <SEO
-        title="Contact TABLEGUY"
-        description="Contact TABLEGUY with questions, feedback, bug reports or suggestions about the free table generator."
+        title="Contact TABLABLE"
+        description="Contact TABLABLE with questions, feedback, bug reports or suggestions about the free table generator."
         canonicalPath="/contact"
       />
 
@@ -30,7 +30,7 @@ export const ContactPage: React.FC = () => {
             </BrutalBadge>
           </div>
           <h1 className="text-4xl sm:text-6xl font-black uppercase tracking-tight text-black mb-3">
-            Contact TABLEGUY
+            Contact TABLABLE
           </h1>
           <p className="text-lg sm:text-xl font-bold text-gray-800">
             Have a question, feedback, or a suggestion? We would love to hear from you.
@@ -44,7 +44,7 @@ export const ContactPage: React.FC = () => {
               How to Reach Us
             </h2>
             <p className="text-base sm:text-lg font-medium text-gray-800 leading-relaxed">
-              TABLEGUY is an independent online tool. If you encounter an issue, need clarification, or have ideas on how to make table generation better, feel free to send an email directly.
+              TABLABLE is an independent online tool. If you encounter an issue, need clarification, or have ideas on how to make table generation better, feel free to send an email directly.
             </p>
           </div>
 
@@ -61,7 +61,7 @@ export const ContactPage: React.FC = () => {
                 <a
                   href={`mailto:${contactEmail}`}
                   className="text-base sm:text-lg font-black text-black hover:underline hover:text-gray-900 break-all"
-                  title="Send email to TABLEGUY"
+                  title="Send email to TABLABLE"
                 >
                   {contactEmail}
                 </a>

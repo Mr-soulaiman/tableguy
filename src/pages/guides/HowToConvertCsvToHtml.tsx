@@ -28,7 +28,7 @@ export const HowToConvertCsvToHtml: React.FC = () => {
   return (
     <>
       <SEO
-        title="How to Convert CSV to HTML | TABLEGUY"
+        title="How to Convert CSV to HTML | TABLABLE"
         description="Learn how to convert CSV data into an HTML table for a website. Includes examples, simple methods, formatting tips, and common CSV problems."
         canonicalPath="/guides/how-to-convert-csv-to-html"
       />
@@ -417,7 +417,7 @@ Sara,Designer,Rabat`}
               </div>
               <div className="p-3 bg-[#FAF8F5] border border-black flex items-center gap-3">
                 <span className="w-6 h-6 bg-[#FFDE00] border border-black font-black text-xs flex items-center justify-center shrink-0">2</span>
-                <span><strong>Paste into a table generator:</strong> Open TABLEGUY and paste the comma-separated or tab-separated text directly into the import box.</span>
+                <span><strong>Paste into a table generator:</strong> Open TABLABLE and paste the comma-separated or tab-separated text directly into the import box.</span>
               </div>
               <div className="p-3 bg-[#FAF8F5] border border-black flex items-center gap-3">
                 <span className="w-6 h-6 bg-[#FFDE00] border border-black font-black text-xs flex items-center justify-center shrink-0">3</span>
@@ -438,17 +438,17 @@ Sara,Designer,Rabat`}
             </div>
           </section>
 
-          {/* Section 8: TABLEGUY Single Natural CTA */}
+          {/* Section 8: TABLABLE Single Natural CTA */}
           <section className="p-6 sm:p-8 bg-[#FFFDF0] border-2 sm:border-[3px] border-black shadow-[3px_3px_0px_0px_#000] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
             <div className="flex flex-col gap-1.5 max-w-xl">
               <span className="text-xs font-mono font-black uppercase text-gray-600">
-                TRY TABLEGUY
+                TRY TABLABLE
               </span>
               <h3 className="text-2xl font-black uppercase tracking-tight text-black">
                 Paste CSV, Export Pristine HTML in Seconds
               </h3>
               <p className="text-sm font-medium text-gray-700">
-                TABLEGUY makes converting CSV data to clean HTML effortless. Paste your raw rows, set column alignments, inspect the live visual grid, and copy ready-to-use HTML table code without bloated tags or coding errors.
+                TABLABLE makes converting CSV data to clean HTML effortless. Paste your raw rows, set column alignments, inspect the live visual grid, and copy ready-to-use HTML table code without bloated tags or coding errors.
               </p>
             </div>
 
@@ -485,7 +485,7 @@ Sara,Designer,Rabat`}
                   How do I turn CSV into an HTML table?
                 </h3>
                 <p className="text-sm text-gray-700">
-                  The quickest and cleanest way is using a dedicated tool like TABLEGUY. Paste your CSV text into the editor, check the live preview, and click Export HTML. You can also use code editors with regex replacements or programming scripts (Python, Node.js), but visual tools prevent formatting errors.
+                  The quickest and cleanest way is using a dedicated tool like TABLABLE. Paste your CSV text into the editor, check the live preview, and click Export HTML. You can also use code editors with regex replacements or programming scripts (Python, Node.js), but visual tools prevent formatting errors.
                 </p>
               </div>
 

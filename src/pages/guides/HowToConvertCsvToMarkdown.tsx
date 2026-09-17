@@ -28,7 +28,7 @@ export const HowToConvertCsvToMarkdown: React.FC = () => {
   return (
     <>
       <SEO
-        title="How to Convert CSV to Markdown | TABLEGUY"
+        title="How to Convert CSV to Markdown | TABLABLE"
         description="Learn how to convert CSV or spreadsheet data into a Markdown table for GitHub, documentation, notes, and other Markdown-based content."
         canonicalPath="/guides/how-to-convert-csv-to-markdown"
       />
@@ -390,7 +390,7 @@ Sara,16`}
               </div>
               <div className="p-3 bg-white border border-black flex items-center gap-3">
                 <span className="w-6 h-6 bg-[#FFDE00] border border-black font-black text-xs flex items-center justify-center shrink-0">2</span>
-                <span><strong>Paste into TABLEGUY:</strong> Paste directly into the table generator import box.</span>
+                <span><strong>Paste into TABLABLE:</strong> Paste directly into the table generator import box.</span>
               </div>
               <div className="p-3 bg-white border border-black flex items-center gap-3">
                 <span className="w-6 h-6 bg-[#FFDE00] border border-black font-black text-xs flex items-center justify-center shrink-0">3</span>
@@ -403,17 +403,17 @@ Sara,16`}
             </div>
           </section>
 
-          {/* Section 9: TABLEGUY Single Natural CTA */}
+          {/* Section 9: TABLABLE Single Natural CTA */}
           <section className="p-6 sm:p-8 bg-[#FFFDF0] border-2 sm:border-[3px] border-black shadow-[3px_3px_0px_0px_#000] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
             <div className="flex flex-col gap-1.5 max-w-xl">
               <span className="text-xs font-mono font-black uppercase text-gray-600">
-                TRY TABLEGUY
+                TRY TABLABLE
               </span>
               <h3 className="text-2xl font-black uppercase tracking-tight text-black">
                 Turn CSV and Spreadsheets into Markdown Fast
               </h3>
               <p className="text-sm font-medium text-gray-700">
-                Stop wrestling with missing pipes and misaligned dashes. Paste your CSV or Excel rows into TABLEGUY and get perfectly aligned, GitHub-ready Markdown tables in one click.
+                Stop wrestling with missing pipes and misaligned dashes. Paste your CSV or Excel rows into TABLABLE and get perfectly aligned, GitHub-ready Markdown tables in one click.
               </p>
             </div>
 
@@ -450,7 +450,7 @@ Sara,16`}
                   How do I turn CSV into a Markdown table?
                 </h3>
                 <p className="text-sm text-gray-700">
-                  The simplest way is using an online generator like TABLEGUY. Paste your raw CSV data, configure left/right alignment, and copy the clean Markdown output. You can also use VS Code extensions like Markdown All in One or Excel to Markdown converters.
+                  The simplest way is using an online generator like TABLABLE. Paste your raw CSV data, configure left/right alignment, and copy the clean Markdown output. You can also use VS Code extensions like Markdown All in One or Excel to Markdown converters.
                 </p>
               </div>
 

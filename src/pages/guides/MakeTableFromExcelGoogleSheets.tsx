@@ -28,7 +28,7 @@ export const MakeTableFromExcelGoogleSheets: React.FC = () => {
   return (
     <>
       <SEO
-        title="How to Make a Table From Excel or Google Sheets | TABLEGUY"
+        title="How to Make a Table From Excel or Google Sheets | TABLABLE"
         description="Learn how to turn Excel or Google Sheets data into a clean, ready-to-share table without rebuilding from scratch. Step-by-step tips, troubleshooting, and best practices."
         canonicalPath="/guides/make-table-from-excel-google-sheets"
       />
@@ -88,7 +88,7 @@ export const MakeTableFromExcelGoogleSheets: React.FC = () => {
             </p>
 
             <p>
-              You could re-type all the numbers into a new document. You could take a blurry screenshot that nobody can copy text from. Or you could copy the raw cells, paste them into TABLEGUY, and get a crisp, clean table formatted in seconds.
+              You could re-type all the numbers into a new document. You could take a blurry screenshot that nobody can copy text from. Or you could copy the raw cells, paste them into TABLABLE, and get a crisp, clean table formatted in seconds.
             </p>
 
             <p>
@@ -165,8 +165,8 @@ export const MakeTableFromExcelGoogleSheets: React.FC = () => {
               </div>
 
               <div className="p-3.5 bg-[#FAF8F5] border border-black">
-                <strong className="text-black block mb-1 font-bold">3. Paste them into TABLEGUY</strong>
-                <span className="text-gray-700">Open the editor and paste (<kbd className="font-mono text-xs bg-gray-100 border border-black px-1.5 py-0.5">Ctrl + V</kbd>). When spreadsheets copy data, they put invisible tab characters between columns. TABLEGUY automatically reads those tabs to create columns.</span>
+                <strong className="text-black block mb-1 font-bold">3. Paste them into TABLABLE</strong>
+                <span className="text-gray-700">Open the editor and paste (<kbd className="font-mono text-xs bg-gray-100 border border-black px-1.5 py-0.5">Ctrl + V</kbd>). When spreadsheets copy data, they put invisible tab characters between columns. TABLABLE automatically reads those tabs to create columns.</span>
               </div>
 
               <div className="p-3.5 bg-[#FAF8F5] border border-black">
@@ -219,7 +219,7 @@ export const MakeTableFromExcelGoogleSheets: React.FC = () => {
               <div className="p-3.5 bg-[#FAF8F5] border border-black">
                 <strong className="text-black block mb-1">Possible Cause 2: Copied as formatted rich text through an intermediary</strong>
                 <p className="text-gray-700">
-                  If you copied from Sheets into a chat app, then copied from the chat app into your table generator, the chat app may have replaced tabs with spaces. <strong>Fix:</strong> Copy directly from Excel or Sheets straight into TABLEGUY.
+                  If you copied from Sheets into a chat app, then copied from the chat app into your table generator, the chat app may have replaced tabs with spaces. <strong>Fix:</strong> Copy directly from Excel or Sheets straight into TABLABLE.
                 </p>
               </div>
 
@@ -334,14 +334,14 @@ export const MakeTableFromExcelGoogleSheets: React.FC = () => {
             </div>
           </section>
 
-          {/* Section 7: Excel/Sheets vs TABLEGUY */}
+          {/* Section 7: Excel/Sheets vs TABLABLE */}
           <section className="flex flex-col gap-4 pt-4 border-t-2 border-black">
             <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-black">
-              Excel / Google Sheets vs. TABLEGUY: When to Use Each
+              Excel / Google Sheets vs. TABLABLE: When to Use Each
             </h2>
 
             <p className="text-gray-800">
-              TABLEGUY is not trying to replace Excel or Google Sheets. They are built for fundamentally different tasks:
+              TABLABLE is not trying to replace Excel or Google Sheets. They are built for fundamentally different tasks:
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
@@ -359,7 +359,7 @@ export const MakeTableFromExcelGoogleSheets: React.FC = () => {
 
               <div className="p-4 bg-[#FFFDF0] border-2 border-black shadow-[3px_3px_0px_0px_#000]">
                 <strong className="text-black text-base block mb-2 font-black uppercase">
-                  TABLEGUY is for:
+                  TABLABLE is for:
                 </strong>
                 <ul className="space-y-1.5 text-gray-800 list-disc pl-5 text-xs sm:text-sm">
                   <li><strong>Quick table creation</strong> and visual editing in seconds.</li>
@@ -372,21 +372,21 @@ export const MakeTableFromExcelGoogleSheets: React.FC = () => {
             </div>
 
             <p className="text-xs text-gray-600 italic">
-              Keep doing your data crunching in Excel or Sheets. When it's time to share the result in a clean, human-friendly format, paste it into TABLEGUY.
+              Keep doing your data crunching in Excel or Sheets. When it's time to share the result in a clean, human-friendly format, paste it into TABLABLE.
             </p>
           </section>
 
-          {/* Section 8: TABLEGUY Single Natural CTA */}
+          {/* Section 8: TABLABLE Single Natural CTA */}
           <section className="p-6 sm:p-8 bg-[#FFFDF0] border-2 sm:border-[3px] border-black shadow-[3px_3px_0px_0px_#000] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
             <div className="flex flex-col gap-1.5 max-w-xl">
               <span className="text-xs font-mono font-black uppercase text-gray-600">
-                TRY TABLEGUY
+                TRY TABLABLE
               </span>
               <h3 className="text-2xl font-black uppercase tracking-tight text-black">
                 Paste Spreadsheet Cells and Format in Seconds
               </h3>
               <p className="text-sm font-medium text-gray-700">
-                Already have data in Excel or Google Sheets? Copy your cells and paste them straight into TABLEGUY. Add or remove columns, adjust alignments, and export clean HTML, Markdown, CSV, or PDF with one click.
+                Already have data in Excel or Google Sheets? Copy your cells and paste them straight into TABLABLE. Add or remove columns, adjust alignments, and export clean HTML, Markdown, CSV, or PDF with one click.
               </p>
             </div>
 
@@ -411,19 +411,19 @@ export const MakeTableFromExcelGoogleSheets: React.FC = () => {
             <div className="space-y-3">
               <div className="p-4 bg-white border-2 border-black shadow-[2px_2px_0px_0px_#000]">
                 <h3 className="text-base font-black text-black mb-1.5">
-                  Can I copy an Excel table straight into TABLEGUY?
+                  Can I copy an Excel table straight into TABLABLE?
                 </h3>
                 <p className="text-sm text-gray-700">
-                  Yes. Highlight your cells in Excel, press <kbd className="font-mono text-xs bg-gray-100 px-1 border border-black">Ctrl+C</kbd>, and paste directly into TABLEGUY. It automatically recognizes the tab delimiters and populates the grid.
+                  Yes. Highlight your cells in Excel, press <kbd className="font-mono text-xs bg-gray-100 px-1 border border-black">Ctrl+C</kbd>, and paste directly into TABLABLE. It automatically recognizes the tab delimiters and populates the grid.
                 </p>
               </div>
 
               <div className="p-4 bg-white border-2 border-black shadow-[2px_2px_0px_0px_#000]">
                 <h3 className="text-base font-black text-black mb-1.5">
-                  Can I copy a Google Sheets table into TABLEGUY?
+                  Can I copy a Google Sheets table into TABLABLE?
                 </h3>
                 <p className="text-sm text-gray-700">
-                  Yes. Google Sheets copies cells as tab-separated values automatically. You can paste them straight into TABLEGUY without saving or converting any files first.
+                  Yes. Google Sheets copies cells as tab-separated values automatically. You can paste them straight into TABLABLE without saving or converting any files first.
                 </p>
               </div>
 
@@ -441,7 +441,7 @@ export const MakeTableFromExcelGoogleSheets: React.FC = () => {
                   Can I export my finished table as Markdown or HTML?
                 </h3>
                 <p className="text-sm text-gray-700">
-                  Yes. Once you've cleaned and organized your table in TABLEGUY, you can export it with a single click as clean HTML (ready for websites or blogs), Markdown (for GitHub READMEs and Notion), CSV, or PDF.
+                  Yes. Once you've cleaned and organized your table in TABLABLE, you can export it with a single click as clean HTML (ready for websites or blogs), Markdown (for GitHub READMEs and Notion), CSV, or PDF.
                 </p>
               </div>
             </div>

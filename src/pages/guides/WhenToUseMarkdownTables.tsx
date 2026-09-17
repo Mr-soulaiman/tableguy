@@ -28,7 +28,7 @@ export const WhenToUseMarkdownTables: React.FC = () => {
   return (
     <>
       <SEO
-        title="When Should You Use Markdown Tables? | TABLEGUY"
+        title="When Should You Use Markdown Tables? | TABLABLE"
         description="Learn when Markdown tables are useful, when to avoid them, and how to create simple readable tables for documentation, GitHub, notes, and more."
         canonicalPath="/guides/when-to-use-markdown-tables"
       />
@@ -382,17 +382,17 @@ export const WhenToUseMarkdownTables: React.FC = () => {
             </div>
           </section>
 
-          {/* Section 10: Using TABLEGUY */}
+          {/* Section 10: Using TABLABLE */}
           <section className="p-6 sm:p-8 bg-[#FFFDF0] border-2 sm:border-[3px] border-black shadow-[3px_3px_0px_0px_#000] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
             <div className="flex flex-col gap-1.5 max-w-xl">
               <span className="text-xs font-mono font-black uppercase text-gray-600">
-                TRY TABLEGUY
+                TRY TABLABLE
               </span>
               <h3 className="text-2xl font-black uppercase tracking-tight text-black">
                 Build Tables Visually, Export to Markdown
               </h3>
               <p className="text-sm font-medium text-gray-700">
-                Want to build the table visually instead of typing all those <code className="font-mono text-xs font-bold">|</code> characters? In TABLEGUY, you can edit cells, add rows and columns, set alignments, and export clean Markdown with one click.
+                Want to build the table visually instead of typing all those <code className="font-mono text-xs font-bold">|</code> characters? In TABLABLE, you can edit cells, add rows and columns, set alignments, and export clean Markdown with one click.
               </p>
             </div>
 
@@ -404,7 +404,7 @@ export const WhenToUseMarkdownTables: React.FC = () => {
               className="shrink-0"
             >
               <TableIcon className="w-4 h-4 stroke-[2.5] mr-1.5" />
-              <span>Try TABLEGUY</span>
+              <span>Try TABLABLE</span>
             </BrutalButton>
           </section>
 
@@ -447,7 +447,7 @@ export const WhenToUseMarkdownTables: React.FC = () => {
                   Can I convert a table to Markdown?
                 </h3>
                 <p className="text-sm text-gray-700">
-                  Yes. You can paste spreadsheet cells or CSV data directly into TABLEGUY and export them instantly as clean Markdown syntax ready to paste into GitHub, Obsidian, or documentation.
+                  Yes. You can paste spreadsheet cells or CSV data directly into TABLABLE and export them instantly as clean Markdown syntax ready to paste into GitHub, Obsidian, or documentation.
                 </p>
               </div>
             </div>

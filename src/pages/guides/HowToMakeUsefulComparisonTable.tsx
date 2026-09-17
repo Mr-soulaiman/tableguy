@@ -27,7 +27,7 @@ export const HowToMakeUsefulComparisonTable: React.FC = () => {
   return (
     <>
       <SEO
-        title="How to Make a Comparison Table That Actually Helps | TABLEGUY"
+        title="How to Make a Comparison Table That Actually Helps | TABLABLE"
         description="Learn how to build comparison tables that clarify decisions instead of overwhelming readers. Practical methods, laptop examples, templates, and key rules."
         canonicalPath="/guides/how-to-make-useful-comparison-table"
       />
@@ -378,7 +378,7 @@ export const HowToMakeUsefulComparisonTable: React.FC = () => {
             </h2>
 
             <p className="text-gray-800 text-sm sm:text-base">
-              Copy this basic Markdown comparison layout into your notes or paste it into TABLEGUY to customize columns, highlight best choices, and export:
+              Copy this basic Markdown comparison layout into your notes or paste it into TABLABLE to customize columns, highlight best choices, and export:
             </p>
 
             <div className="p-4 bg-gray-900 text-white font-mono text-xs sm:text-sm border-2 border-black overflow-x-auto shadow-[3px_3px_0px_0px_#000]">
@@ -392,17 +392,17 @@ export const HowToMakeUsefulComparisonTable: React.FC = () => {
             </div>
           </section>
 
-          {/* Section 8: TABLEGUY Single Natural CTA */}
+          {/* Section 8: TABLABLE Single Natural CTA */}
           <section className="p-6 sm:p-8 bg-[#FFFDF0] border-2 sm:border-[3px] border-black shadow-[3px_3px_0px_0px_#000] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
             <div className="flex flex-col gap-1.5 max-w-xl">
               <span className="text-xs font-mono font-black uppercase text-gray-600">
-                TRY TABLEGUY
+                TRY TABLABLE
               </span>
               <h3 className="text-2xl font-black uppercase tracking-tight text-black">
                 Build a Clean Comparison Table in Seconds
               </h3>
               <p className="text-sm font-medium text-gray-700">
-                Need to compare software plans, products, or service tiers? Use TABLEGUY to structure your columns, add clean highlight tags, and export HTML, Markdown, or PDF with no design hassle.
+                Need to compare software plans, products, or service tiers? Use TABLABLE to structure your columns, add clean highlight tags, and export HTML, Markdown, or PDF with no design hassle.
               </p>
             </div>
 

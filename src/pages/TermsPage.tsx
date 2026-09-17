@@ -10,8 +10,8 @@ export const TermsPage: React.FC = () => {
   return (
     <>
       <SEO
-        title="TABLEGUY Terms of Use"
-        description="Read the Terms of Use for TABLEGUY, a free online table creation and formatting tool."
+        title="TABLABLE Terms of Use"
+        description="Read the Terms of Use for TABLABLE, a free online table creation and formatting tool."
         canonicalPath="/terms"
       />
 
@@ -30,19 +30,19 @@ export const TermsPage: React.FC = () => {
             Terms of Use
           </h1>
           <p className="text-lg sm:text-xl font-bold text-gray-800">
-            Terms governing the use of the TABLEGUY online table generator utility.
+            Terms governing the use of the TABLABLE online table generator utility.
           </p>
         </div>
 
         {/* Content Card */}
         <BrutalCard shadow="lg" className="p-6 sm:p-10 bg-white flex flex-col gap-8 text-black">
-          {/* Section 1: Use of TABLEGUY */}
+          {/* Section 1: Use of TABLABLE */}
           <section className="flex flex-col gap-3">
             <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight">
-              1. Use of TABLEGUY
+              1. Use of TABLABLE
             </h2>
             <p className="text-sm sm:text-base font-medium text-gray-800 leading-relaxed">
-              TABLEGUY is provided as a free, web-based utility for creating, editing, formatting, and exporting tables. You are welcome to use TABLEGUY for personal, academic, organizational, or commercial purposes without fees, licensing subscriptions, or account requirements.
+              TABLABLE is provided as a free, web-based utility for creating, editing, formatting, and exporting tables. You are welcome to use TABLABLE for personal, academic, organizational, or commercial purposes without fees, licensing subscriptions, or account requirements.
             </p>
           </section>
 
@@ -52,7 +52,7 @@ export const TermsPage: React.FC = () => {
               2. User Responsibility
             </h2>
             <p className="text-sm sm:text-base font-medium text-gray-800 leading-relaxed">
-              You are responsible for the data, text, numbers, and content you enter, edit, or paste into TABLEGUY. You agree to ensure that your use of the tool and the data you process comply with all laws, confidentiality agreements, and regulations applicable to you.
+              You are responsible for the data, text, numbers, and content you enter, edit, or paste into TABLABLE. You agree to ensure that your use of the tool and the data you process comply with all laws, confidentiality agreements, and regulations applicable to you.
             </p>
           </section>
 
@@ -62,7 +62,7 @@ export const TermsPage: React.FC = () => {
               3. User-Generated Content &amp; Ownership
             </h2>
             <p className="text-sm sm:text-base font-medium text-gray-800 leading-relaxed">
-              You retain complete ownership and all rights to the tables, data, and exported files you produce using TABLEGUY. TABLEGUY claims no ownership, copyright, or intellectual property rights over any table content created, edited, or exported by users.
+              You retain complete ownership and all rights to the tables, data, and exported files you produce using TABLABLE. TABLABLE claims no ownership, copyright, or intellectual property rights over any table content created, edited, or exported by users.
             </p>
           </section>
 
@@ -72,7 +72,7 @@ export const TermsPage: React.FC = () => {
               4. Acceptable Use
             </h2>
             <p className="text-sm sm:text-base font-medium text-gray-800 leading-relaxed">
-              You agree to use TABLEGUY only for lawful purposes. You agree not to attempt to disrupt, exploit, overload, or compromise the technical availability or security of the website or its hosting infrastructure.
+              You agree to use TABLABLE only for lawful purposes. You agree not to attempt to disrupt, exploit, overload, or compromise the technical availability or security of the website or its hosting infrastructure.
             </p>
           </section>
 
@@ -82,7 +82,7 @@ export const TermsPage: React.FC = () => {
               5. Intellectual Property
             </h2>
             <p className="text-sm sm:text-base font-medium text-gray-800 leading-relaxed">
-              The TABLEGUY name, website design, visual identity, logos, icons, and interface code are protected by intellectual property and copyright laws. You may not duplicate, redistribute, or clone the TABLEGUY website or brand identity without prior permission. This does not restrict your rights to your own table data and exports.
+              The TABLABLE name, website design, visual identity, logos, icons, and interface code are protected by intellectual property and copyright laws. You may not duplicate, redistribute, or clone the TABLABLE website or brand identity without prior permission. This does not restrict your rights to your own table data and exports.
             </p>
           </section>
 
@@ -92,7 +92,7 @@ export const TermsPage: React.FC = () => {
               6. Availability of the Service
             </h2>
             <p className="text-sm sm:text-base font-medium text-gray-800 leading-relaxed">
-              TABLEGUY is provided as a free utility. While we make every effort to ensure reliable performance and consistent availability, we do not guarantee continuous, uninterrupted, or error-free operation of the website at all times.
+              TABLABLE is provided as a free utility. While we make every effort to ensure reliable performance and consistent availability, we do not guarantee continuous, uninterrupted, or error-free operation of the website at all times.
             </p>
           </section>
 
@@ -102,7 +102,7 @@ export const TermsPage: React.FC = () => {
               7. Disclaimer of Warranties
             </h2>
             <p className="text-sm sm:text-base font-medium text-gray-800 leading-relaxed">
-              TABLEGUY is provided &quot;as is&quot; and &quot;as available,&quot; without express or implied warranties of any kind, including but not limited to warranties of fitness for a particular purpose, merchantability, or non-infringement. You are encouraged to verify exported table calculations, syntax, and formatting prior to relying on them for critical applications.
+              TABLABLE is provided &quot;as is&quot; and &quot;as available,&quot; without express or implied warranties of any kind, including but not limited to warranties of fitness for a particular purpose, merchantability, or non-infringement. You are encouraged to verify exported table calculations, syntax, and formatting prior to relying on them for critical applications.
             </p>
           </section>
 
@@ -112,7 +112,7 @@ export const TermsPage: React.FC = () => {
               8. Limitation of Liability
             </h2>
             <p className="text-sm sm:text-base font-medium text-gray-800 leading-relaxed">
-              To the fullest extent permitted by law, TABLEGUY and its creator shall not be liable for any direct, indirect, incidental, consequential, or special damages resulting from the use or inability to use the service, including data loss or formatting inaccuracies.
+              To the fullest extent permitted by law, TABLABLE and its creator shall not be liable for any direct, indirect, incidental, consequential, or special damages resulting from the use or inability to use the service, including data loss or formatting inaccuracies.
             </p>
           </section>
 
@@ -132,7 +132,7 @@ export const TermsPage: React.FC = () => {
               10. Changes to These Terms
             </h2>
             <p className="text-sm sm:text-base font-medium text-gray-800 leading-relaxed">
-              We may revise these Terms of Use periodically. Any changes will be published on this page with an updated &quot;Last updated&quot; date. Continued use of TABLEGUY following the posting of updated terms constitutes acceptance of those revisions.
+              We may revise these Terms of Use periodically. Any changes will be published on this page with an updated &quot;Last updated&quot; date. Continued use of TABLABLE following the posting of updated terms constitutes acceptance of those revisions.
             </p>
           </section>
 

@@ -24,8 +24,8 @@ export const AboutPage: React.FC = () => {
   return (
     <>
       <SEO
-        title="About TABLEGUY — Simple Online Table Tools"
-        description="Learn about TABLEGUY, a simple free online tool for creating, editing, formatting and exporting tables."
+        title="About TABLABLE — Simple Online Table Tools"
+        description="Learn about TABLABLE, a simple free online tool for creating, editing, formatting and exporting tables."
         canonicalPath="/about"
       />
 
@@ -41,7 +41,7 @@ export const AboutPage: React.FC = () => {
             </BrutalBadge>
           </div>
           <h1 className="text-4xl sm:text-6xl font-black uppercase tracking-tight text-black mb-3">
-            About TABLEGUY
+            About TABLABLE
           </h1>
           <p className="text-lg sm:text-xl font-bold text-gray-800">
             A fast, straightforward tool designed to make creating, formatting, and exporting tables quick and simple.
@@ -50,23 +50,23 @@ export const AboutPage: React.FC = () => {
 
         {/* Main Content Card */}
         <BrutalCard shadow="lg" className="p-6 sm:p-10 bg-white flex flex-col gap-8">
-          {/* Section: What is TABLEGUY */}
+          {/* Section: What is TABLABLE */}
           <section className="flex flex-col gap-3">
             <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-black">
-              What is TABLEGUY?
+              What is TABLABLE?
             </h2>
             <p className="text-base sm:text-lg font-medium text-gray-800 leading-relaxed">
-              TABLEGUY is a free online tool built to take the friction out of working with tables. Whether you are assembling data for documentation, writing notes in Markdown, preparing an HTML snippet for a website, or formatting a quick CSV or PDF report, TABLEGUY gives you an intuitive spreadsheet-style interface directly in your browser.
+              TABLABLE is a free online tool built to take the friction out of working with tables. Whether you are assembling data for documentation, writing notes in Markdown, preparing an HTML snippet for a website, or formatting a quick CSV or PDF report, TABLABLE gives you an intuitive spreadsheet-style interface directly in your browser.
             </p>
           </section>
 
           {/* Section: Why it exists */}
           <section className="flex flex-col gap-3">
             <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-black">
-              Why TABLEGUY Exists
+              Why TABLABLE Exists
             </h2>
             <p className="text-base sm:text-lg font-medium text-gray-800 leading-relaxed">
-              Formatting tables manually in markup languages like Markdown or HTML is tedious and error-prone. Heavy desktop spreadsheet applications often feel excessive when you just need a clean, structured table ready to copy or download. TABLEGUY was built to bridge that gap: a lightweight, responsive utility where you can paste raw data, adjust columns, style cells, and grab your formatted output in seconds without logins or paywalls.
+              Formatting tables manually in markup languages like Markdown or HTML is tedious and error-prone. Heavy desktop spreadsheet applications often feel excessive when you just need a clean, structured table ready to copy or download. TABLABLE was built to bridge that gap: a lightweight, responsive utility where you can paste raw data, adjust columns, style cells, and grab your formatted output in seconds without logins or paywalls.
             </p>
           </section>
 
@@ -76,7 +76,7 @@ export const AboutPage: React.FC = () => {
               What You Can Do
             </h2>
             <p className="text-base font-medium text-gray-800 leading-relaxed">
-              TABLEGUY provides a focused set of practical table editing and formatting features:
+              TABLABLE provides a focused set of practical table editing and formatting features:
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">

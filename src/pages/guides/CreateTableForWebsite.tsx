@@ -27,7 +27,7 @@ export const CreateTableForWebsite: React.FC = () => {
   return (
     <>
       <SEO
-        title="How to Create a Table for a Website | TABLEGUY"
+        title="How to Create a Table for a Website | TABLABLE"
         description="Learn how to build clean, responsive HTML tables for websites. Practical code examples, when to use tables, HTML vs Markdown vs CSV, and accessibility tips."
         canonicalPath="/guides/create-table-for-website"
       />
@@ -339,17 +339,17 @@ export const CreateTableForWebsite: React.FC = () => {
             </p>
           </section>
 
-          {/* Section 7: TABLEGUY Single Natural CTA */}
+          {/* Section 7: TABLABLE Single Natural CTA */}
           <section className="p-6 sm:p-8 bg-[#FFFDF0] border-2 sm:border-[3px] border-black shadow-[3px_3px_0px_0px_#000] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
             <div className="flex flex-col gap-1.5 max-w-xl">
               <span className="text-xs font-mono font-black uppercase text-gray-600">
-                TRY TABLEGUY
+                TRY TABLABLE
               </span>
               <h3 className="text-2xl font-black uppercase tracking-tight text-black">
                 Generate Clean HTML Table Code Visually
               </h3>
               <p className="text-sm font-medium text-gray-700">
-                Don't waste time typing out repetitive <code className="font-mono text-xs bg-white px-1 border">&lt;tr&gt;</code> and <code className="font-mono text-xs bg-white px-1 border">&lt;td&gt;</code> tags by hand. Build your table in TABLEGUY visually and export production-ready HTML with a single click.
+                Don't waste time typing out repetitive <code className="font-mono text-xs bg-white px-1 border">&lt;tr&gt;</code> and <code className="font-mono text-xs bg-white px-1 border">&lt;td&gt;</code> tags by hand. Build your table in TABLABLE visually and export production-ready HTML with a single click.
               </p>
             </div>
 
@@ -404,7 +404,7 @@ export const CreateTableForWebsite: React.FC = () => {
                   Can I convert an Excel spreadsheet into website HTML?
                 </h3>
                 <p className="text-sm text-gray-700">
-                  Yes. Simply copy the cells from Excel or Google Sheets, paste them into TABLEGUY, and copy the generated HTML code directly into your WordPress post, Webflow page, or HTML file.
+                  Yes. Simply copy the cells from Excel or Google Sheets, paste them into TABLABLE, and copy the generated HTML code directly into your WordPress post, Webflow page, or HTML file.
                 </p>
               </div>
             </div>

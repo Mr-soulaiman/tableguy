@@ -133,7 +133,7 @@ export const TableGeneratorPage: React.FC = () => {
   return (
     <>
       <SEO
-        title="Free Table Generator — Create Tables Online | TABLEGUY"
+        title="Free Table Generator — Create Tables Online | TABLABLE"
         description="Create tables online for free. Paste or enter your data, edit cells, merge cells, format tables, and export your finished table."
         canonicalPath="/table-generator"
       />

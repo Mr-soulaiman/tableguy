@@ -1,167 +1,167 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://tableguy.vercel.app/</loc>
+    <loc>https://tablable.vercel.app/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://tableguy.vercel.app/table-generator</loc>
+    <loc>https://tablable.vercel.app/table-generator</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://tableguy.vercel.app/guides</loc>
+    <loc>https://tablable.vercel.app/guides</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tableguy.vercel.app/guides/csv-vs-excel-vs-html-vs-markdown</loc>
+    <loc>https://tablable.vercel.app/guides/csv-vs-excel-vs-html-vs-markdown</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tableguy.vercel.app/guides/when-to-use-csv</loc>
+    <loc>https://tablable.vercel.app/guides/when-to-use-csv</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tableguy.vercel.app/guides/when-to-use-html-tables</loc>
+    <loc>https://tablable.vercel.app/guides/when-to-use-html-tables</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tableguy.vercel.app/guides/turn-messy-list-into-clean-table</loc>
+    <loc>https://tablable.vercel.app/guides/turn-messy-list-into-clean-table</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tableguy.vercel.app/guides/make-table-from-excel-google-sheets</loc>
+    <loc>https://tablable.vercel.app/guides/make-table-from-excel-google-sheets</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tableguy.vercel.app/guides/compare-products-with-table</loc>
+    <loc>https://tablable.vercel.app/guides/compare-products-with-table</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tableguy.vercel.app/guides/when-to-use-markdown-tables</loc>
+    <loc>https://tablable.vercel.app/guides/when-to-use-markdown-tables</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tableguy.vercel.app/guides/tables-vs-lists</loc>
+    <loc>https://tablable.vercel.app/guides/tables-vs-lists</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tableguy.vercel.app/guides/how-to-make-readable-table</loc>
+    <loc>https://tablable.vercel.app/guides/how-to-make-readable-table</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tableguy.vercel.app/guides/tables-for-studying</loc>
+    <loc>https://tablable.vercel.app/guides/tables-for-studying</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tableguy.vercel.app/guides/budget-with-a-table</loc>
+    <loc>https://tablable.vercel.app/guides/budget-with-a-table</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tableguy.vercel.app/guides/common-table-mistakes</loc>
+    <loc>https://tablable.vercel.app/guides/common-table-mistakes</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tableguy.vercel.app/guides/organize-information-with-table</loc>
+    <loc>https://tablable.vercel.app/guides/organize-information-with-table</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tableguy.vercel.app/guides/organize-project-with-table</loc>
+    <loc>https://tablable.vercel.app/guides/organize-project-with-table</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tableguy.vercel.app/guides/organize-study-notes-with-table</loc>
+    <loc>https://tablable.vercel.app/guides/organize-study-notes-with-table</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tableguy.vercel.app/guides/create-schedule-with-table</loc>
+    <loc>https://tablable.vercel.app/guides/create-schedule-with-table</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tableguy.vercel.app/guides/turn-list-of-data-into-table</loc>
+    <loc>https://tablable.vercel.app/guides/turn-list-of-data-into-table</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tableguy.vercel.app/guides/how-to-make-useful-comparison-table</loc>
+    <loc>https://tablable.vercel.app/guides/how-to-make-useful-comparison-table</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tableguy.vercel.app/guides/create-table-for-website</loc>
+    <loc>https://tablable.vercel.app/guides/create-table-for-website</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tableguy.vercel.app/guides/how-to-clean-up-a-table</loc>
+    <loc>https://tablable.vercel.app/guides/how-to-clean-up-a-table</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tableguy.vercel.app/guides/how-to-make-a-table-mobile-friendly</loc>
+    <loc>https://tablable.vercel.app/guides/how-to-make-a-table-mobile-friendly</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tableguy.vercel.app/guides/simple-inventory-table</loc>
+    <loc>https://tablable.vercel.app/guides/simple-inventory-table</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tableguy.vercel.app/guides/how-to-convert-csv-to-html</loc>
+    <loc>https://tablable.vercel.app/guides/how-to-convert-csv-to-html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tableguy.vercel.app/guides/how-to-convert-csv-to-markdown</loc>
+    <loc>https://tablable.vercel.app/guides/how-to-convert-csv-to-markdown</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tableguy.vercel.app/guides/how-to-make-a-table-in-google-docs</loc>
+    <loc>https://tablable.vercel.app/guides/how-to-make-a-table-in-google-docs</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tableguy.vercel.app/guides/how-to-convert-excel-to-html</loc>
+    <loc>https://tablable.vercel.app/guides/how-to-convert-excel-to-html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://tableguy.vercel.app/about</loc>
+    <loc>https://tablable.vercel.app/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://tableguy.vercel.app/contact</loc>
+    <loc>https://tablable.vercel.app/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://tableguy.vercel.app/privacy-policy</loc>
+    <loc>https://tablable.vercel.app/privacy-policy</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://tableguy.vercel.app/terms</loc>
+    <loc>https://tablable.vercel.app/terms</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

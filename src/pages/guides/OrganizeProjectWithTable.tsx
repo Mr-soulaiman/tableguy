@@ -28,7 +28,7 @@ export const OrganizeProjectWithTable: React.FC = () => {
   return (
     <>
       <SEO
-        title="How to Organize a Project With a Table | TABLEGUY"
+        title="How to Organize a Project With a Table | TABLABLE"
         description="Learn how to turn scattered project tasks, owners, and deadlines into a simple project table. Practical steps, examples, and templates for small teams and personal projects."
         canonicalPath="/guides/organize-project-with-table"
       />
@@ -366,7 +366,7 @@ export const OrganizeProjectWithTable: React.FC = () => {
             </div>
 
             <p className="text-xs text-gray-600 italic">
-              Don't bring a forklift to move a small box. If your project has 15 tasks, a clean table in TABLEGUY or a shared doc will be faster, clearer, and more reliable than setting up heavy software.
+              Don't bring a forklift to move a small box. If your project has 15 tasks, a clean table in TABLABLE or a shared doc will be faster, clearer, and more reliable than setting up heavy software.
             </p>
           </section>
 
@@ -421,7 +421,7 @@ export const OrganizeProjectWithTable: React.FC = () => {
             </h2>
 
             <p className="text-gray-800 text-sm sm:text-base">
-              Copy this basic Markdown template directly into your notes, or paste it into TABLEGUY to add rows, set colors, and export:
+              Copy this basic Markdown template directly into your notes, or paste it into TABLABLE to add rows, set colors, and export:
             </p>
 
             <div className="p-4 bg-gray-900 text-white font-mono text-xs sm:text-sm border-2 border-black overflow-x-auto shadow-[3px_3px_0px_0px_#000]">
@@ -436,17 +436,17 @@ export const OrganizeProjectWithTable: React.FC = () => {
             </div>
           </section>
 
-          {/* Section 9: TABLEGUY Single Natural CTA */}
+          {/* Section 9: TABLABLE Single Natural CTA */}
           <section className="p-6 sm:p-8 bg-[#FFFDF0] border-2 sm:border-[3px] border-black shadow-[3px_3px_0px_0px_#000] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
             <div className="flex flex-col gap-1.5 max-w-xl">
               <span className="text-xs font-mono font-black uppercase text-gray-600">
-                TRY TABLEGUY
+                TRY TABLABLE
               </span>
               <h3 className="text-2xl font-black uppercase tracking-tight text-black">
                 Create Your Project Table in Seconds
               </h3>
               <p className="text-sm font-medium text-gray-700">
-                Need to share a project plan with your team? Use TABLEGUY to add tasks, highlight priorities with color tags, and export clean HTML, Markdown, or PDF with one click.
+                Need to share a project plan with your team? Use TABLABLE to add tasks, highlight priorities with color tags, and export clean HTML, Markdown, or PDF with one click.
               </p>
             </div>
 

@@ -25,7 +25,7 @@ export const CsvVsExcelVsHtmlVsMarkdown: React.FC = () => {
   return (
     <>
       <SEO
-        title="CSV vs Excel vs HTML vs Markdown: What's the Difference? | TABLEGUY"
+        title="CSV vs Excel vs HTML vs Markdown: What's the Difference? | TABLABLE"
         description="CSV, Excel, HTML and Markdown all handle tables differently. Here's what each one is good for, with simple examples to help you choose the right format."
         canonicalPath="/guides/csv-vs-excel-vs-html-vs-markdown"
       />
@@ -478,17 +478,17 @@ Sara,21,Rabat`}
             </div>
           </section>
 
-          {/* Section 8: TABLEGUY Connection */}
+          {/* Section 8: TABLABLE Connection */}
           <section className="p-6 sm:p-8 bg-[#FFFDF0] border-2 sm:border-[3px] border-black shadow-[3px_3px_0px_0px_#000] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
             <div className="flex flex-col gap-1.5 max-w-xl">
               <span className="text-xs font-mono font-black uppercase text-gray-600">
-                TRY TABLEGUY
+                TRY TABLABLE
               </span>
               <h3 className="text-2xl font-black uppercase tracking-tight text-black">
                 Convert and Clean Your Tables in Seconds
               </h3>
               <p className="text-sm font-medium text-gray-700">
-                If your table is sitting somewhere looking messy and you just want to clean it up and get it into the format you need, that's exactly what TABLEGUY is made for. Paste raw text, style cells, merge headers, and export to Markdown, HTML, CSV, or PDF instantly.
+                If your table is sitting somewhere looking messy and you just want to clean it up and get it into the format you need, that's exactly what TABLABLE is made for. Paste raw text, style cells, merge headers, and export to Markdown, HTML, CSV, or PDF instantly.
               </p>
             </div>
 

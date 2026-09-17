@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tableguy.vercel.app/sitemap.xml
+Sitemap: https://tablable.vercel.app/sitemap.xml

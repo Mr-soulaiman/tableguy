@@ -29,7 +29,7 @@ export const OrganizeStudyNotesWithTable: React.FC = () => {
   return (
     <>
       <SEO
-        title="How to Organize Your Study Notes With a Table | TABLEGUY"
+        title="How to Organize Your Study Notes With a Table | TABLABLE"
         description="Learn how to turn long study notes, formulas, vocabulary, and history dates into clean revision tables. Practical steps, examples, and study templates."
         canonicalPath="/guides/organize-study-notes-with-table"
       />
@@ -479,17 +479,17 @@ export const OrganizeStudyNotesWithTable: React.FC = () => {
             </ul>
           </section>
 
-          {/* Section 8: TABLEGUY Single Natural CTA */}
+          {/* Section 8: TABLABLE Single Natural CTA */}
           <section className="p-6 sm:p-8 bg-[#FFFDF0] border-2 sm:border-[3px] border-black shadow-[3px_3px_0px_0px_#000] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
             <div className="flex flex-col gap-1.5 max-w-xl">
               <span className="text-xs font-mono font-black uppercase text-gray-600">
-                TRY TABLEGUY
+                TRY TABLABLE
               </span>
               <h3 className="text-2xl font-black uppercase tracking-tight text-black">
                 Make Your Study Sheet in Seconds
               </h3>
               <p className="text-sm font-medium text-gray-700">
-                Need to create a quick revision sheet or flashcard table? Build it in TABLEGUY, style your columns, and download clean Markdown for your notes app or a crisp printable PDF.
+                Need to create a quick revision sheet or flashcard table? Build it in TABLABLE, style your columns, and download clean Markdown for your notes app or a crisp printable PDF.
               </p>
             </div>
 

@@ -239,19 +239,19 @@ export const GuideArticlePage: React.FC<GuideArticlePageProps> = ({ slug }) => {
 
             <section className="flex flex-col gap-3">
               <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-black">
-                How to Apply This With TABLEGUY
+                How to Apply This With TABLABLE
               </h2>
               <p>
-                TABLEGUY makes it seamless to implement these principles directly. You can create custom tables, edit cells with responsive auto-resizing, apply formatting and styling, merge headers or rows, and immediately export your finished output in HTML, Markdown, CSV, Plain Text, or PDF format.
+                TABLABLE makes it seamless to implement these principles directly. You can create custom tables, edit cells with responsive auto-resizing, apply formatting and styling, merge headers or rows, and immediately export your finished output in HTML, Markdown, CSV, Plain Text, or PDF format.
               </p>
             </section>
           </div>
 
-          {/* In-Article CTA to TABLEGUY */}
+          {/* In-Article CTA to TABLABLE */}
           <div className="mt-4 p-6 bg-[#FFFDF0] border-2 sm:border-[3px] border-black shadow-[3px_3px_0px_0px_#000] flex flex-col sm:flex-row sm:items-center justify-between gap-5">
             <div className="flex flex-col gap-1">
               <span className="text-xs font-mono font-black uppercase text-gray-600">
-                TRY TABLEGUY
+                TRY TABLABLE
               </span>
               <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-black">
                 Ready to create your own table?

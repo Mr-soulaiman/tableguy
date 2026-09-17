@@ -9,8 +9,8 @@ interface SEOProps {
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
-const BASE_URL = 'https://tableguy.vercel.app';
-const DEFAULT_IMAGE = `${BASE_URL}/tableguy-logo.png`;
+const BASE_URL = 'https://tablable.vercel.app';
+const DEFAULT_IMAGE = `${BASE_URL}/tablable-logo.png`;
 
 export const SEO: React.FC<SEOProps> = ({
   title,
@@ -76,7 +76,7 @@ export const SEO: React.FC<SEOProps> = ({
       'og:url': canonicalUrl,
       'og:type': resolvedType,
       'og:image': DEFAULT_IMAGE,
-      'og:site_name': 'TABLEGUY',
+      'og:site_name': 'TABLABLE',
     };
 
     Object.entries(ogTags).forEach(([prop, content]) => {
@@ -121,7 +121,7 @@ export const SEO: React.FC<SEOProps> = ({
         schemaData = {
           '@context': 'https://schema.org',
           '@type': 'Article',
-          headline: title.replace(' | TABLEGUY', '').trim(),
+          headline: title.replace(' | TABLABLE', '').trim(),
           description,
           url: canonicalUrl,
           mainEntityOfPage: {
@@ -131,7 +131,7 @@ export const SEO: React.FC<SEOProps> = ({
           image: DEFAULT_IMAGE,
           publisher: {
             '@type': 'Organization',
-            name: 'TABLEGUY',
+            name: 'TABLABLE',
             url: `${BASE_URL}/`,
             logo: {
               '@type': 'ImageObject',
@@ -147,11 +147,11 @@ export const SEO: React.FC<SEOProps> = ({
               '@type': 'WebSite',
               '@id': `${BASE_URL}/#website`,
               url: `${BASE_URL}/`,
-              name: 'TABLEGUY',
+              name: 'TABLABLE',
               description: 'Create, edit, format and export tables online for free. Paste your data, build a clean table, and copy or download it in multiple formats.',
               publisher: {
                 '@type': 'Organization',
-                name: 'TABLEGUY',
+                name: 'TABLABLE',
                 url: `${BASE_URL}/`,
                 logo: {
                   '@type': 'ImageObject',
@@ -162,7 +162,7 @@ export const SEO: React.FC<SEOProps> = ({
             {
               '@type': 'WebApplication',
               '@id': `${BASE_URL}/#webapp`,
-              name: 'TABLEGUY Table Generator',
+              name: 'TABLABLE Table Generator',
               url: `${BASE_URL}/table-generator`,
               applicationCategory: 'UtilitiesApplication',
               operatingSystem: 'All',
@@ -175,12 +175,12 @@ export const SEO: React.FC<SEOProps> = ({
         schemaData = {
           '@context': 'https://schema.org',
           '@type': 'WebPage',
-          name: title.replace(' | TABLEGUY', '').trim(),
+          name: title.replace(' | TABLABLE', '').trim(),
           description,
           url: canonicalUrl,
           publisher: {
             '@type': 'Organization',
-            name: 'TABLEGUY',
+            name: 'TABLABLE',
             url: `${BASE_URL}/`,
           },
         };

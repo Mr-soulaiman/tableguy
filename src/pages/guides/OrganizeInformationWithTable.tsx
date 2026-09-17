@@ -28,7 +28,7 @@ export const OrganizeInformationWithTable: React.FC = () => {
   return (
     <>
       <SEO
-        title="How to Organize Information With a Table | TABLEGUY"
+        title="How to Organize Information With a Table | TABLABLE"
         description="Learn a simple, step-by-step process to turn scattered notes, trip details, tasks, and project ideas into clean, scannable tables that anyone can understand."
         canonicalPath="/guides/organize-information-with-table"
       />
@@ -242,17 +242,17 @@ export const OrganizeInformationWithTable: React.FC = () => {
             </div>
           </section>
 
-          {/* Section 5: Using TABLEGUY */}
+          {/* Section 5: Using TABLABLE */}
           <section className="p-6 sm:p-8 bg-[#FFFDF0] border-2 sm:border-[3px] border-black shadow-[3px_3px_0px_0px_#000] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
             <div className="flex flex-col gap-1.5 max-w-xl">
               <span className="text-xs font-mono font-black uppercase text-gray-600">
-                TRY TABLEGUY
+                TRY TABLABLE
               </span>
               <h3 className="text-2xl font-black uppercase tracking-tight text-black">
                 Turn Scattered Notes Into a Clean Table
               </h3>
               <p className="text-sm font-medium text-gray-700">
-                Ready to organize your project, trip, or notes? With TABLEGUY, you can paste raw data or build your table visually from scratch. Add rows, adjust column alignments, style status tags, and export directly to clean HTML, Markdown, or CSV.
+                Ready to organize your project, trip, or notes? With TABLABLE, you can paste raw data or build your table visually from scratch. Add rows, adjust column alignments, style status tags, and export directly to clean HTML, Markdown, or CSV.
               </p>
             </div>
 
@@ -289,7 +289,7 @@ export const OrganizeInformationWithTable: React.FC = () => {
                   Can I convert an existing document or email into a table?
                 </h3>
                 <p className="text-sm text-gray-700">
-                  Yes. Extract the repeating facts (like item names and prices) into rows, separate them with commas or tabs, and paste them into TABLEGUY. See our guide on{' '}
+                  Yes. Extract the repeating facts (like item names and prices) into rows, separate them with commas or tabs, and paste them into TABLABLE. See our guide on{' '}
                   <Link href="/guides/turn-messy-list-into-clean-table" className="underline font-bold text-black hover:text-gray-700">
                     turning a messy list into a clean table
                   </Link>.

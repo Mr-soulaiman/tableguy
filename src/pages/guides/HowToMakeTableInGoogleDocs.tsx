@@ -29,7 +29,7 @@ export const HowToMakeTableInGoogleDocs: React.FC = () => {
   return (
     <>
       <SEO
-        title="How to Make a Table in Google Docs | TABLEGUY"
+        title="How to Make a Table in Google Docs | TABLABLE"
         description="Learn how to insert, format, customize, and clean up tables in Google Docs. Includes simple steps, design tips, and common table mistakes."
         canonicalPath="/guides/how-to-make-a-table-in-google-docs"
       />
@@ -355,22 +355,22 @@ export const HowToMakeTableInGoogleDocs: React.FC = () => {
             </div>
           </section>
 
-          {/* Section 8: TABLEGUY Single Natural CTA */}
+          {/* Section 8: TABLABLE Single Natural CTA */}
           <section className="p-6 sm:p-8 bg-[#FFFDF0] border-2 sm:border-[3px] border-black shadow-[3px_3px_0px_0px_#000] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
             <div className="flex flex-col gap-1.5 max-w-xl">
               <span className="text-xs font-mono font-black uppercase text-gray-600">
-                TRY TABLEGUY
+                TRY TABLABLE
               </span>
               <h3 className="text-2xl font-black uppercase tracking-tight text-black">
                 Prepare and Polish Tables Before You Paste
               </h3>
               <p className="text-sm font-medium text-gray-700">
-                Whether you need to format raw columns, align numbers, or export clean Markdown and HTML for your team, TABLEGUY gives you a frictionless visual workbench to build perfect tables in seconds.
+                Whether you need to format raw columns, align numbers, or export clean Markdown and HTML for your team, TABLABLE gives you a frictionless visual workbench to build perfect tables in seconds.
               </p>
             </div>
 
             <BrutalButton
-              id="guide-gdocs-to-tableguy-cta"
+              id="guide-gdocs-to-tablable-cta"
               variant="primary"
               size="lg"
               onClick={() => navigate('/table-generator')}
