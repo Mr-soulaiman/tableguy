@@ -14,6 +14,7 @@ import { MakeTableFromExcelGoogleSheets } from './guides/MakeTableFromExcelGoogl
 import { CompareProductsWithTable } from './guides/CompareProductsWithTable';
 import { WhenToUseMarkdownTables } from './guides/WhenToUseMarkdownTables';
 import { TablesVsLists } from './guides/TablesVsLists';
+import { HowToMakePrintableChecklist } from './guides/HowToMakePrintableChecklist';
 import { HowToMakeReadableTable } from './guides/HowToMakeReadableTable';
 import { TablesForStudying } from './guides/TablesForStudying';
 import { BudgetWithATable } from './guides/BudgetWithATable';
@@ -79,6 +80,10 @@ export const GuideArticlePage: React.FC<GuideArticlePageProps> = ({ slug }) => {
 
   if (slug === 'tables-vs-lists') {
     return <TablesVsLists />;
+  }
+
+  if (slug === 'how-to-make-a-printable-checklist') {
+    return <HowToMakePrintableChecklist />;
   }
 
   if (slug === 'how-to-make-readable-table') {

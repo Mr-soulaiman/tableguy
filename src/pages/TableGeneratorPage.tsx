@@ -160,6 +160,12 @@ export const TableGeneratorPage: React.FC = () => {
             <p className="text-base sm:text-lg font-medium text-gray-800 max-w-2xl leading-relaxed">
               Use this free online table generator to create a table, edit table rows and columns, merge cells, and export directly as an HTML table, Markdown table, CSV table, or PDF.
             </p>
+            <p className="mt-2 text-xs sm:text-sm font-medium text-gray-700">
+              Need a simple checklist instead?{' '}
+              <Link href="/to-do-list" className="font-black text-black underline hover:text-[#FFDE00] transition-colors">
+                Try the To-Do List Maker →
+              </Link>
+            </p>
           </div>
 
           {tables.length > 1 && (
@@ -268,6 +274,17 @@ export const TableGeneratorPage: React.FC = () => {
             </BrutalButton>
           </div>
         )}
+
+        {/* Subtle cross-link to To-Do List Maker */}
+        <div className="mt-4 p-4 bg-white border-2 border-black shadow-[2px_2px_0px_0px_#000] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs sm:text-sm font-medium text-gray-800">
+          <span>Need a simple checklist instead of a table?</span>
+          <Link
+            href="/to-do-list"
+            className="font-black text-black underline hover:text-[#FFDE00] transition-colors whitespace-nowrap"
+          >
+            Try the To-Do List Maker →
+          </Link>
+        </div>
       </section>
       </div>
     </>

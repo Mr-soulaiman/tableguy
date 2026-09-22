@@ -7,7 +7,7 @@ export interface GuideCategory {
 export interface GuideArticle {
   slug: string;
   title: string;
-  category: 'TABLE FORMATS' | 'TABLE BASICS' | 'TABLES IN EVERYDAY LIFE' | 'TIPS & HOW-TO';
+  category: 'TABLES' | 'TO-DO LISTS' | 'FORMATS' | 'TIPS & HOW-TO';
   description: string;
   readingTime: string;
   seoTitle: string;
@@ -19,24 +19,24 @@ export interface GuideArticle {
 
 export const GUIDE_CATEGORIES: GuideCategory[] = [
   {
-    id: 'table-formats',
-    name: 'TABLE FORMATS',
-    description: 'Understand different table and data formats and when to use them.',
-  },
-  {
-    id: 'table-basics',
-    name: 'TABLE BASICS',
+    id: 'tables',
+    name: 'TABLES',
     description: 'Learn how to create tables that are clear, useful, and easy to understand.',
   },
   {
-    id: 'tables-in-everyday-life',
-    name: 'TABLES IN EVERYDAY LIFE',
-    description: 'Practical ways to use tables for studying, planning, comparing, organizing, and more.',
+    id: 'to-do-lists',
+    name: 'TO-DO LISTS',
+    description: 'Practical guides on making checklists, task planning, and deciding between tables and lists.',
+  },
+  {
+    id: 'formats',
+    name: 'FORMATS',
+    description: 'Understand different table, list, and data export formats and when to use them.',
   },
   {
     id: 'tips-and-how-to',
     name: 'TIPS & HOW-TO',
-    description: 'Simple techniques for creating, formatting, and working with tables.',
+    description: 'Simple techniques for creating, formatting, cleaning, and exporting tables and checklists.',
   },
 ];
 
@@ -44,7 +44,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
   {
     slug: 'csv-vs-excel-vs-html-vs-markdown',
     title: "CSV vs Excel vs HTML vs Markdown: What's the Difference?",
-    category: 'TABLE FORMATS',
+    category: 'FORMATS',
     description: "CSV, Excel, HTML and Markdown all handle tables differently. Here's what each one is good for, with simple examples to help you choose the right format.",
     readingTime: '5 min read',
     seoTitle: "CSV vs Excel vs HTML vs Markdown: What's the Difference? | TABLABLE",
@@ -61,7 +61,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
   {
     slug: 'when-to-use-csv',
     title: 'When Should You Use CSV?',
-    category: 'TABLE FORMATS',
+    category: 'FORMATS',
     description: 'Not sure when to use CSV? Learn what CSV is good for, when it makes sense, and when another format like Excel is a better choice.',
     readingTime: '4 min read',
     seoTitle: 'When Should You Use CSV? A Simple Guide | TABLABLE',
@@ -78,7 +78,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
   {
     slug: 'when-to-use-html-tables',
     title: 'When Should You Use HTML Tables?',
-    category: 'TABLE FORMATS',
+    category: 'FORMATS',
     description: 'Learn when HTML tables are useful, when to use them on a website, and when another format is a better choice.',
     readingTime: '4 min read',
     seoTitle: 'When Should You Use HTML Tables? A Simple Guide | TABLABLE',
@@ -95,7 +95,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
   {
     slug: 'when-to-use-markdown-tables',
     title: 'When Should You Use Markdown Tables?',
-    category: 'TABLE FORMATS',
+    category: 'FORMATS',
     description: 'Learn when Markdown tables are useful, when to avoid them, and how to create simple readable tables for documentation, GitHub, notes, and more.',
     readingTime: '4 min read',
     seoTitle: 'When Should You Use Markdown Tables? | TABLABLE',
@@ -112,7 +112,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
   {
     slug: 'tables-vs-lists',
     title: 'Tables vs Lists: When Should You Use Each?',
-    category: 'TABLE BASICS',
+    category: 'TO-DO LISTS',
     description: 'Learn when a table is better than a list and when a simple list is actually the better choice. Real examples, comparison rules, and practical advice.',
     readingTime: '5 min read',
     seoTitle: 'Tables vs Lists: When Should You Use Each? | TABLABLE',
@@ -124,12 +124,29 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
       "Tables allow multi-dimensional scanning across both rows and columns.",
       "Keep short simple notes in lists, but switch to tables when comparisons become repetitive."
     ],
-    relatedSlugs: ['how-to-make-readable-table', 'turn-messy-list-into-clean-table', 'compare-products-with-table'],
+    relatedSlugs: ['how-to-make-a-printable-checklist', 'how-to-make-readable-table', 'turn-messy-list-into-clean-table'],
+  },
+  {
+    slug: 'how-to-make-a-printable-checklist',
+    title: 'How to Make a Printable Checklist That Works',
+    category: 'TO-DO LISTS',
+    description: 'Learn how to turn scattered tasks into a clean, printable daily checklist. Practical tips for task grouping, time estimates, and paper checklists.',
+    readingTime: '4 min read',
+    seoTitle: 'How to Make a Printable Checklist That Works | TABLABLE',
+    seoDescription: 'Learn how to turn scattered tasks into a clean, printable daily checklist. Practical tips for task grouping, time estimates, and paper checklists.',
+    intro: 'Digital apps with notifications and popups often distract more than they help. A clean printable checklist on physical paper gives you clarity and focus without digital noise.',
+    summaryPoints: [
+      'Limit daily priority tasks to 3–5 core items instead of an endless overwhelming list.',
+      'Attach realistic time estimates or time blocks (e.g. 18:00) to keep your schedule grounded.',
+      'Cross items off with a pen to leverage physical satisfaction and momentum.',
+      "Use TABLABLE's To-Do List Maker to generate and print a clean checklist in seconds."
+    ],
+    relatedSlugs: ['tables-vs-lists', 'create-schedule-with-table', 'organize-project-with-table'],
   },
   {
     slug: 'how-to-make-readable-table',
     title: 'How to Make a Table Easy to Read',
-    category: 'TABLE BASICS',
+    category: 'TABLES',
     description: 'Learn how to turn a confusing table into one anyone can understand in a few seconds. Clear rules on alignment, headers, cell length, and the 5-second test.',
     readingTime: '5 min read',
     seoTitle: 'How to Make a Table Easy to Read | TABLABLE',
@@ -146,7 +163,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
   {
     slug: 'tables-for-studying',
     title: 'How Tables Can Help You Study',
-    category: 'TABLES IN EVERYDAY LIFE',
+    category: 'TABLES',
     description: 'Learn practical ways to use study tables for revision, definitions, vocabulary, formulas, and history. Avoid dense paragraphs and retain information faster.',
     readingTime: '5 min read',
     seoTitle: 'How Tables Can Help You Study | TABLABLE',
@@ -163,7 +180,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
   {
     slug: 'budget-with-a-table',
     title: 'How to Organize Your Budget With a Table',
-    category: 'TABLES IN EVERYDAY LIFE',
+    category: 'TABLES',
     description: 'Learn how a simple table makes personal budgeting easy to understand. Compare planned vs actual spending, fixed vs variable costs, and avoid common budgeting traps.',
     readingTime: '5 min read',
     seoTitle: 'How to Organize Your Budget With a Table | TABLABLE',
@@ -180,7 +197,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
   {
     slug: 'compare-products-with-table',
     title: 'How to Compare Products Using a Table',
-    category: 'TABLES IN EVERYDAY LIFE',
+    category: 'TABLES',
     description: 'Learn how to create a simple product comparison table that makes prices, features, and differences easier to understand and compare.',
     readingTime: '5 min read',
     seoTitle: 'How to Compare Products Using a Table | TABLABLE',
@@ -248,7 +265,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
   {
     slug: 'organize-information-with-table',
     title: 'How to Organize Information With a Table',
-    category: 'TABLE BASICS',
+    category: 'TABLES',
     description: 'Learn a simple, step-by-step process to turn scattered notes, trip details, tasks, and project ideas into clean, scannable tables that anyone can understand.',
     readingTime: '5 min read',
     seoTitle: 'How to Organize Information With a Table | TABLABLE',
@@ -265,7 +282,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
   {
     slug: 'organize-project-with-table',
     title: 'How to Organize a Project With a Table',
-    category: 'TABLES IN EVERYDAY LIFE',
+    category: 'TABLES',
     description: 'Learn how to turn scattered project tasks, owners, and deadlines into a simple project table. Practical steps, examples, and templates for small teams and personal projects.',
     readingTime: '5 min read',
     seoTitle: 'How to Organize a Project With a Table | TABLABLE',
@@ -282,7 +299,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
   {
     slug: 'organize-study-notes-with-table',
     title: 'How to Organize Your Study Notes With a Table',
-    category: 'TABLES IN EVERYDAY LIFE',
+    category: 'TABLES',
     description: 'Learn how to turn long study notes, formulas, vocabulary, and history dates into clean revision tables. Practical steps, examples, and study templates.',
     readingTime: '5 min read',
     seoTitle: 'How to Organize Your Study Notes With a Table | TABLABLE',
@@ -299,7 +316,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
   {
     slug: 'create-schedule-with-table',
     title: 'How to Create a Simple Schedule With a Table',
-    category: 'TABLES IN EVERYDAY LIFE',
+    category: 'TABLES',
     description: 'Learn how to turn busy days, study routines, and work tasks into a clean schedule table. Practical templates, examples, and rules for realistic planning.',
     readingTime: '5 min read',
     seoTitle: 'How to Create a Simple Schedule With a Table | TABLABLE',
@@ -350,7 +367,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
   {
     slug: 'create-table-for-website',
     title: 'How to Create a Table for a Website',
-    category: 'TABLE FORMATS',
+    category: 'FORMATS',
     description: 'Learn how to create clean, responsive HTML tables for websites. Understand table tags, mobile responsiveness, and when HTML beats Markdown or CSV.',
     readingTime: '5 min read',
     seoTitle: 'How to Create a Table for a Website | TABLABLE',
@@ -401,7 +418,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
   {
     slug: 'simple-inventory-table',
     title: 'How to Create a Simple Inventory Table',
-    category: 'TABLES IN EVERYDAY LIFE',
+    category: 'TABLES',
     description: 'Learn how to create a simple inventory table for your home, business, workshop, office, or supplies. Includes useful columns and practical examples.',
     readingTime: '6 min read',
     seoTitle: 'How to Create a Simple Inventory Table | TABLABLE',
@@ -418,7 +435,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
   {
     slug: 'how-to-convert-csv-to-html',
     title: 'How to Convert CSV to HTML',
-    category: 'TABLE FORMATS',
+    category: 'FORMATS',
     description: 'Learn how to convert CSV data into an HTML table for a website. Includes examples, simple methods, formatting tips, and common CSV problems.',
     readingTime: '6 min read',
     seoTitle: 'How to Convert CSV to HTML | TABLABLE',
@@ -435,7 +452,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
   {
     slug: 'how-to-convert-csv-to-markdown',
     title: 'How to Convert CSV to Markdown',
-    category: 'TABLE FORMATS',
+    category: 'FORMATS',
     description: 'Learn how to convert CSV or spreadsheet data into a Markdown table for GitHub, documentation, notes, and other Markdown-based content.',
     readingTime: '6 min read',
     seoTitle: 'How to Convert CSV to Markdown | TABLABLE',
@@ -452,7 +469,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
   {
     slug: 'how-to-make-a-table-in-google-docs',
     title: 'How to Make a Table in Google Docs',
-    category: 'TABLES IN EVERYDAY LIFE',
+    category: 'TABLES',
     description: 'Learn how to insert, format, customize, and clean up tables in Google Docs. Includes simple steps, design tips, and common table mistakes.',
     readingTime: '6 min read',
     seoTitle: 'How to Make a Table in Google Docs | TABLABLE',
@@ -469,7 +486,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
   {
     slug: 'how-to-convert-excel-to-html',
     title: 'How to Convert Excel to HTML',
-    category: 'TABLE FORMATS',
+    category: 'FORMATS',
     description: 'Learn how to convert Excel spreadsheet data into an HTML table for a website. Includes examples, conversion methods, formatting tips, and common problems.',
     readingTime: '7 min read',
     seoTitle: 'How to Convert Excel to HTML | TABLABLE',

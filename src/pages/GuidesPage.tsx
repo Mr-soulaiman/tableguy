@@ -39,7 +39,7 @@ export const GuidesPage: React.FC = () => {
             TABLABLE Guides
           </h1>
           <p className="text-lg sm:text-xl font-bold text-gray-800 max-w-3xl">
-            Useful guides for creating, organizing, formatting, and getting more out of tables.
+            Useful guides for creating, organizing, formatting, and getting more out of tables and printable checklists.
           </p>
         </div>
 
@@ -87,32 +87,60 @@ export const GuidesPage: React.FC = () => {
           ))}
         </div>
 
-        {/* Bottom CTA Box */}
-        <BrutalCard shadow="lg" className="p-6 sm:p-8 bg-[#FFFDF0] border-2 sm:border-[3px] border-black flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-          <div className="flex flex-col gap-1.5 max-w-xl">
-            <div className="flex items-center gap-2 font-black text-black text-xs uppercase">
-              <TableIcon className="w-4 h-4 stroke-[2.5]" />
-              <span>Free Table Utility</span>
+        {/* Bottom Dual Tool Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+          <BrutalCard shadow="lg" className="p-6 sm:p-8 bg-[#FFDE00] border-2 sm:border-[3px] border-black flex flex-col justify-between gap-6">
+            <div className="flex flex-col gap-2">
+              <div className="flex items-center gap-2 font-black text-black text-xs uppercase">
+                <TableIcon className="w-4 h-4 stroke-[2.5]" />
+                <span>Tool 1 • Data &amp; Grids</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-black">
+                Table Generator
+              </h2>
+              <p className="text-sm font-bold text-black">
+                Paste spreadsheet rows, edit cells, merge headers, and export directly to Markdown, HTML, CSV, or PDF.
+              </p>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-black">
-              Ready to create your own table?
-            </h2>
-            <p className="text-sm font-medium text-gray-800">
-              Jump directly into the TABLABLE generator to create, style, merge, and export tables in Markdown, HTML, CSV, and PDF.
-            </p>
-          </div>
 
-          <BrutalButton
-            id="guides-open-generator-btn"
-            variant="primary"
-            size="lg"
-            onClick={() => navigate('/table-generator')}
-            className="shrink-0"
-          >
-            <span>Open Table Generator</span>
-            <ArrowRight className="w-5 h-5 stroke-[3] ml-2" />
-          </BrutalButton>
-        </BrutalCard>
+            <BrutalButton
+              id="guides-open-table-btn"
+              variant="secondary"
+              size="md"
+              onClick={() => navigate('/table-generator')}
+              className="bg-white self-start flex items-center gap-2"
+            >
+              <span>Open Table Generator</span>
+              <ArrowRight className="w-4 h-4 stroke-[3]" />
+            </BrutalButton>
+          </BrutalCard>
+
+          <BrutalCard shadow="lg" className="p-6 sm:p-8 bg-white border-2 sm:border-[3px] border-black flex flex-col justify-between gap-6">
+            <div className="flex flex-col gap-2">
+              <div className="flex items-center gap-2 font-black text-black text-xs uppercase">
+                <BookOpen className="w-4 h-4 stroke-[2.5]" />
+                <span>Tool 2 • Printable Checklist</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-black">
+                To-Do List Maker
+              </h2>
+              <p className="text-sm font-medium text-gray-700">
+                Type comma-separated tasks, auto-detect times, and download a clean, beautiful printable A4 PDF checklist.
+              </p>
+            </div>
+
+            <BrutalButton
+              id="guides-open-todo-btn"
+              variant="primary"
+              size="md"
+              onClick={() => navigate('/to-do-list')}
+              className="self-start flex items-center gap-2"
+            >
+              <span>Make a To-Do List</span>
+              <ArrowRight className="w-4 h-4 stroke-[3]" />
+            </BrutalButton>
+          </BrutalCard>
+        </div>
       </div>
     </>
   );

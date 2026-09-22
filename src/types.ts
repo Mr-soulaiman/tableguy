@@ -32,3 +32,10 @@ export interface ParsedTable {
   rows: string[][];
   name?: string;
 }
+
+export interface TodoTask {
+  id: string;
+  text: string;
+  time: string;
+  completed: boolean;
+}

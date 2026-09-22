@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useRouter, Link } from '../router';
 import { BrutalButton } from '../components/BrutalButton';
 import { BrutalCard } from '../components/BrutalCard';
@@ -9,114 +9,14 @@ import {
   ClipboardPaste,
   SlidersHorizontal,
   Copy,
-  Check,
-  Download,
   Info,
   BookOpen,
+  CheckSquare,
+  Table as TableIcon,
 } from 'lucide-react';
-import { TableItem } from '../types';
-import {
-  tableToHtml,
-  tableToMarkdown,
-  tableToCsv,
-  tableToPlainText,
-  copyTextToClipboard,
-  downloadFile,
-  generateFullHtmlDocument,
-  generateFullMarkdown,
-  generateFullCsv,
-  generateFullPlainText,
-  downloadPdf,
-} from '../utils/tableExport';
-
-const DEMO_TABLE: TableItem = {
-  id: 'homepage-demo-table',
-  name: 'Students & Tasks',
-  headers: ['Name', 'Role / Task', 'Status', 'Action'],
-  rows: [
-    ['Ahmed', 'Mathematics Notes', 'Grade 18', 'Ready'],
-    ['Sara', 'Physics Lab Data', 'Grade 19', 'Ready'],
-    ['Youssef', 'English Literature', 'Grade 16', 'Ready'],
-  ],
-  cellColors: [
-    ['', '', '', ''],
-    ['', '', '', ''],
-    ['', '', '', ''],
-  ],
-  headerColors: ['#FFDE00', '#FFDE00', '#FFDE00', '#FFDE00'],
-  cellFormats: [
-    [{ bold: true }, {}, {}, {}],
-    [{ bold: true }, {}, {}, {}],
-    [{ bold: true }, {}, {}, {}],
-  ],
-  headerFormats: [{ bold: true }, { bold: true }, { bold: true }, { bold: true }],
-  signatureEnabled: false,
-  signatureName: '',
-};
 
 export const HomePage: React.FC = () => {
   const { navigate } = useRouter();
-
-  // Notification states for live demo copying and downloading
-  const [copiedFormat, setCopiedFormat] = useState<string | null>(null);
-  const [downloadedFormat, setDownloadedFormat] = useState<string | null>(null);
-
-  const handleCopy = async (format: 'HTML' | 'Markdown' | 'CSV' | 'Plain Text') => {
-    let content = '';
-    if (format === 'HTML') {
-      content = tableToHtml(
-        DEMO_TABLE.headers,
-        DEMO_TABLE.rows,
-        DEMO_TABLE.cellColors,
-        DEMO_TABLE.headerColors,
-        DEMO_TABLE.cellFormats,
-        DEMO_TABLE.headerFormats,
-        { enabled: false, name: '' }
-      );
-    } else if (format === 'Markdown') {
-      content = tableToMarkdown(
-        DEMO_TABLE.headers,
-        DEMO_TABLE.rows,
-        DEMO_TABLE.cellFormats,
-        DEMO_TABLE.headerFormats,
-        { enabled: false, name: '' }
-      );
-    } else if (format === 'CSV') {
-      content = tableToCsv(DEMO_TABLE.headers, DEMO_TABLE.rows);
-    } else if (format === 'Plain Text') {
-      content = tableToPlainText(DEMO_TABLE.headers, DEMO_TABLE.rows, {
-        enabled: false,
-        name: '',
-      });
-    }
-
-    const success = await copyTextToClipboard(content);
-    if (success) {
-      setCopiedFormat(format);
-      setTimeout(() => setCopiedFormat(null), 2500);
-    }
-  };
-
-  const handleDownload = (format: 'HTML' | 'Markdown' | 'CSV' | 'TXT' | 'PDF') => {
-    if (format === 'HTML') {
-      const content = generateFullHtmlDocument([DEMO_TABLE]);
-      downloadFile('table.html', content, 'text/html');
-    } else if (format === 'Markdown') {
-      const content = generateFullMarkdown([DEMO_TABLE]);
-      downloadFile('table.md', content, 'text/markdown');
-    } else if (format === 'CSV') {
-      const content = generateFullCsv([DEMO_TABLE]);
-      downloadFile('table.csv', content, 'text/csv');
-    } else if (format === 'TXT') {
-      const content = generateFullPlainText([DEMO_TABLE]);
-      downloadFile('table.txt', content, 'text/plain');
-    } else if (format === 'PDF') {
-      downloadPdf([DEMO_TABLE], 'table.pdf');
-    }
-
-    setDownloadedFormat(format);
-    setTimeout(() => setDownloadedFormat(null), 2500);
-  };
 
   return (
     <>
@@ -134,7 +34,7 @@ export const HomePage: React.FC = () => {
             <div className="flex-1 text-center lg:text-left">
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 mb-6">
                 <BrutalBadge variant="yellow" size="md">
-                  Free Online Table Generator
+                  Two Free Online Tools
                 </BrutalBadge>
                 <BrutalBadge variant="white" size="md">
                   No Sign-up Required
@@ -150,7 +50,7 @@ export const HomePage: React.FC = () => {
               </h1>
 
               <p className="text-lg sm:text-xl md:text-2xl font-medium text-gray-800 leading-relaxed max-w-2xl mb-8 mx-auto lg:mx-0">
-                Create tables online for free. Paste raw data, edit cells, format tables with colors and styles, and export tables to HTML tables, Markdown tables, and CSV tables in seconds.
+                Turn simple information into clean, useful tables and printable checklists. Free, fast in your browser, and private.
               </p>
 
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-4">
@@ -166,15 +66,14 @@ export const HomePage: React.FC = () => {
                 </BrutalButton>
 
                 <BrutalButton
-                  id="hero-learn-more-btn"
+                  id="hero-create-todo-btn"
                   variant="secondary"
                   size="lg"
-                  onClick={() => {
-                    const el = document.getElementById('how-it-works');
-                    el?.scrollIntoView({ behavior: 'smooth' });
-                  }}
+                  onClick={() => navigate('/to-do-list')}
+                  className="group"
                 >
-                  How it works
+                  <span>To-Do List Maker</span>
+                  <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 stroke-[3] ml-2 group-hover:translate-x-1 transition-transform" />
                 </BrutalButton>
               </div>
             </div>
@@ -190,183 +89,102 @@ export const HomePage: React.FC = () => {
           </div>
         </section>
 
-        {/* Visual Product Demo Showcase */}
-        <section className="max-w-5xl mx-auto px-4 sm:px-6 w-full">
-          <BrutalCard shadow="lg" className="p-4 sm:p-8 bg-white overflow-hidden">
-            {/* Mock Window Topbar */}
-            <div className="flex flex-wrap items-center justify-between border-b-2 sm:border-b-[3px] border-black pb-4 mb-6 gap-2">
-              <div className="flex items-center gap-2">
-                <span className="w-3.5 h-3.5 bg-black inline-block"></span>
-                <span className="w-3.5 h-3.5 bg-[#FFDE00] border border-black inline-block"></span>
-                <span className="w-3.5 h-3.5 bg-white border border-black inline-block"></span>
-              </div>
-              <span className="font-mono text-xs font-black px-2.5 py-1 bg-[#FAF8F5] border-2 border-black">
-                QUICK DEMO TABLE
-              </span>
-            </div>
+        {/* WHAT DO YOU NEED TO MAKE? Section */}
+        <section className="max-w-6xl mx-auto px-4 sm:px-6 w-full">
+          <div className="text-center mb-8 sm:mb-10">
+            <h2 className="text-2xl sm:text-4xl font-black uppercase tracking-tight text-black">
+              WHAT DO YOU NEED TO MAKE?
+            </h2>
+            <p className="text-sm sm:text-base font-bold text-gray-700 mt-2">
+              Choose your tool and get straight to work. No accounts or waiting.
+            </p>
+          </div>
 
-            {/* Sample Neo-Brutalist Table Presentation */}
-            <div className="overflow-x-auto">
-              <table className="w-full text-left border-collapse border-2 border-black font-sans text-xs sm:text-sm">
-                <thead>
-                  <tr className="bg-[#FFDE00] border-b-2 border-black text-black">
-                    <th className="p-2.5 sm:p-3.5 font-black border-r-2 border-black uppercase">Name</th>
-                    <th className="p-2.5 sm:p-3.5 font-black border-r-2 border-black uppercase">Role / Task</th>
-                    <th className="p-2.5 sm:p-3.5 font-black border-r-2 border-black uppercase">Status</th>
-                    <th className="p-2.5 sm:p-3.5 font-black uppercase">Action</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y-2 divide-black bg-white font-medium">
-                  <tr className="hover:bg-[#FAF8F5]">
-                    <td className="p-2.5 sm:p-3.5 font-bold border-r-2 border-black">Ahmed</td>
-                    <td className="p-2.5 sm:p-3.5 border-r-2 border-black">Mathematics Notes</td>
-                    <td className="p-2.5 sm:p-3.5 border-r-2 border-black font-semibold text-black">
-                      Grade 18
-                    </td>
-                    <td className="p-2.5 sm:p-3.5 font-mono text-xs">Ready</td>
-                  </tr>
-                  <tr className="hover:bg-[#FAF8F5]">
-                    <td className="p-2.5 sm:p-3.5 font-bold border-r-2 border-black">Sara</td>
-                    <td className="p-2.5 sm:p-3.5 border-r-2 border-black">Physics Lab Data</td>
-                    <td className="p-2.5 sm:p-3.5 border-r-2 border-black font-semibold text-black">
-                      Grade 19
-                    </td>
-                    <td className="p-2.5 sm:p-3.5 font-mono text-xs">Ready</td>
-                  </tr>
-                  <tr className="hover:bg-[#FAF8F5]">
-                    <td className="p-2.5 sm:p-3.5 font-bold border-r-2 border-black">Youssef</td>
-                    <td className="p-2.5 sm:p-3.5 border-r-2 border-black">English Literature</td>
-                    <td className="p-2.5 sm:p-3.5 border-r-2 border-black font-semibold text-black">
-                      Grade 16
-                    </td>
-                    <td className="p-2.5 sm:p-3.5 font-mono text-xs">Ready</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            {/* Output / Export Section */}
-            <div className="mt-6 pt-5 border-t-2 sm:border-t-[3px] border-black flex flex-col gap-4">
-              {(copiedFormat || downloadedFormat) && (
-                <div className="flex items-center">
-                  <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-[#FFDE00] border-2 border-black font-black text-xs text-black animate-pulse">
-                    <Check className="w-3.5 h-3.5 stroke-[3]" />
-                    {copiedFormat ? `Copied ${copiedFormat}!` : `Downloaded ${downloadedFormat}!`}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+            {/* CARD 1: TABLE GENERATOR */}
+            <BrutalCard
+              shadow="lg"
+              className="p-6 sm:p-8 bg-white flex flex-col justify-between border-2 sm:border-[3px] border-black"
+            >
+              <div>
+                <div className="flex items-center justify-between gap-2 mb-4">
+                  <span className="text-[11px] font-black uppercase tracking-widest bg-black text-white px-2.5 py-1">
+                    Tool 01
+                  </span>
+                  <span className="text-xs font-mono font-bold text-gray-600">
+                    HTML • Markdown • CSV • PDF
                   </span>
                 </div>
-              )}
 
-              {/* Copy Subsection */}
-              <div className="flex flex-col gap-2">
-                <span className="text-xs font-black uppercase tracking-wider text-gray-700 flex items-center gap-1.5">
-                  <Copy className="w-3.5 h-3.5 stroke-[2.5]" />
-                  Copy Export
-                </span>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-2.5">
-                  <BrutalButton
-                    id="home-copy-html-btn"
-                    variant="secondary"
-                    size="sm"
-                    onClick={() => handleCopy('HTML')}
-                    className="flex items-center justify-center gap-1.5 text-xs sm:text-sm"
-                  >
-                    <Copy className="w-3.5 h-3.5 stroke-[2.5]" />
-                    <span>Copy HTML</span>
-                  </BrutalButton>
-                  <BrutalButton
-                    id="home-copy-md-btn"
-                    variant="secondary"
-                    size="sm"
-                    onClick={() => handleCopy('Markdown')}
-                    className="flex items-center justify-center gap-1.5 text-xs sm:text-sm"
-                  >
-                    <Copy className="w-3.5 h-3.5 stroke-[2.5]" />
-                    <span>Copy Markdown</span>
-                  </BrutalButton>
-                  <BrutalButton
-                    id="home-copy-csv-btn"
-                    variant="secondary"
-                    size="sm"
-                    onClick={() => handleCopy('CSV')}
-                    className="flex items-center justify-center gap-1.5 text-xs sm:text-sm"
-                  >
-                    <Copy className="w-3.5 h-3.5 stroke-[2.5]" />
-                    <span>Copy CSV</span>
-                  </BrutalButton>
-                  <BrutalButton
-                    id="home-copy-txt-btn"
-                    variant="secondary"
-                    size="sm"
-                    onClick={() => handleCopy('Plain Text')}
-                    className="flex items-center justify-center gap-1.5 text-xs sm:text-sm"
-                  >
-                    <Copy className="w-3.5 h-3.5 stroke-[2.5]" />
-                    <span>Copy Plain Text</span>
-                  </BrutalButton>
+                <div className="w-12 h-12 bg-[#FFDE00] border-2 border-black shadow-[2px_2px_0px_0px_#000] flex items-center justify-center font-black mb-4 text-black">
+                  <TableIcon className="w-6 h-6 stroke-[2.5]" />
                 </div>
+
+                <h3 className="text-2xl sm:text-3xl font-black uppercase text-black mb-2">
+                  TABLE GENERATOR
+                </h3>
+
+                <p className="text-base sm:text-lg font-bold text-black mb-3">
+                  Turn messy data into a clean table.
+                </p>
+
+                <p className="text-sm font-medium text-gray-700 leading-relaxed mb-6">
+                  Paste your data, edit it, format it, merge cells, and export it.
+                </p>
               </div>
 
-              {/* Download Subsection */}
-              <div className="flex flex-col gap-2">
-                <span className="text-xs font-black uppercase tracking-wider text-gray-700 flex items-center gap-1.5">
-                  <Download className="w-3.5 h-3.5 stroke-[2.5]" />
-                  Download Files
-                </span>
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-2.5">
-                  <BrutalButton
-                    id="home-download-html-btn"
-                    variant="secondary"
-                    size="sm"
-                    onClick={() => handleDownload('HTML')}
-                    className="flex items-center justify-center gap-1.5 text-xs sm:text-sm"
-                  >
-                    <Download className="w-3.5 h-3.5 stroke-[2.5]" />
-                    <span>Download HTML</span>
-                  </BrutalButton>
-                  <BrutalButton
-                    id="home-download-md-btn"
-                    variant="secondary"
-                    size="sm"
-                    onClick={() => handleDownload('Markdown')}
-                    className="flex items-center justify-center gap-1.5 text-xs sm:text-sm"
-                  >
-                    <Download className="w-3.5 h-3.5 stroke-[2.5]" />
-                    <span>Download Markdown</span>
-                  </BrutalButton>
-                  <BrutalButton
-                    id="home-download-csv-btn"
-                    variant="secondary"
-                    size="sm"
-                    onClick={() => handleDownload('CSV')}
-                    className="flex items-center justify-center gap-1.5 text-xs sm:text-sm"
-                  >
-                    <Download className="w-3.5 h-3.5 stroke-[2.5]" />
-                    <span>Download CSV</span>
-                  </BrutalButton>
-                  <BrutalButton
-                    id="home-download-txt-btn"
-                    variant="secondary"
-                    size="sm"
-                    onClick={() => handleDownload('TXT')}
-                    className="flex items-center justify-center gap-1.5 text-xs sm:text-sm"
-                  >
-                    <Download className="w-3.5 h-3.5 stroke-[2.5]" />
-                    <span>Download TXT</span>
-                  </BrutalButton>
-                  <BrutalButton
-                    id="home-download-pdf-btn"
-                    variant="primary"
-                    size="sm"
-                    onClick={() => handleDownload('PDF')}
-                    className="flex items-center justify-center gap-1.5 text-xs sm:text-sm col-span-2 sm:col-span-1 font-black"
-                  >
-                    <Download className="w-3.5 h-3.5 stroke-[2.5]" />
-                    <span>Download PDF</span>
-                  </BrutalButton>
-                </div>
+              <div>
+                <Link
+                  href="/table-generator"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm sm:text-base font-black bg-[#FFDE00] hover:bg-[#FFE633] text-black border-2 sm:border-[3px] border-black shadow-[3px_3px_0px_0px_#000] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_#000] transition-all"
+                >
+                  <span>MAKE A TABLE →</span>
+                </Link>
               </div>
-            </div>
-          </BrutalCard>
+            </BrutalCard>
+
+            {/* CARD 2: TO-DO LIST MAKER */}
+            <BrutalCard
+              shadow="lg"
+              className="p-6 sm:p-8 bg-white flex flex-col justify-between border-2 sm:border-[3px] border-black"
+            >
+              <div>
+                <div className="flex items-center justify-between gap-2 mb-4">
+                  <span className="text-[11px] font-black uppercase tracking-widest bg-[#FFDE00] text-black border border-black px-2.5 py-1 font-black">
+                    Tool 02
+                  </span>
+                  <span className="text-xs font-mono font-bold text-gray-600">
+                    Printable A4 PDF Checklist
+                  </span>
+                </div>
+
+                <div className="w-12 h-12 bg-[#FFDE00] border-2 border-black shadow-[2px_2px_0px_0px_#000] flex items-center justify-center font-black mb-4 text-black">
+                  <CheckSquare className="w-6 h-6 stroke-[2.5]" />
+                </div>
+
+                <h3 className="text-2xl sm:text-3xl font-black uppercase text-black mb-2">
+                  TO-DO LIST MAKER
+                </h3>
+
+                <p className="text-base sm:text-lg font-bold text-black mb-3">
+                  Turn a simple list of tasks into a clean printable checklist.
+                </p>
+
+                <p className="text-sm font-medium text-gray-700 leading-relaxed mb-6">
+                  Enter tasks separated by commas and download a beautiful PDF.
+                </p>
+              </div>
+
+              <div>
+                <Link
+                  href="/to-do-list"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm sm:text-base font-black bg-[#FFDE00] hover:bg-[#FFE633] text-black border-2 sm:border-[3px] border-black shadow-[3px_3px_0px_0px_#000] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_#000] transition-all"
+                >
+                  <span>MAKE A TO-DO LIST →</span>
+                </Link>
+              </div>
+            </BrutalCard>
+          </div>
         </section>
 
         {/* 3-Step Simple Explanation */}

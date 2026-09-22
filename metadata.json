@@ -1,6 +1,6 @@
 {
   "name": "TABLABLE",
-  "description": "Make a table. Get it out. A fast, free online table generator utility.",
+  "description": "Make a table. Get it out. A fast, free online table generator and printable to-do list maker.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

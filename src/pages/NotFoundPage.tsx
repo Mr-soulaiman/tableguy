@@ -3,7 +3,7 @@ import { useRouter } from '../router';
 import { BrutalCard } from '../components/BrutalCard';
 import { BrutalButton } from '../components/BrutalButton';
 import { SEO } from '../components/SEO';
-import { ArrowLeft, Table as TableIcon, BookOpen } from 'lucide-react';
+import { ArrowLeft, Table as TableIcon, BookOpen, CheckSquare } from 'lucide-react';
 
 export const NotFoundPage: React.FC = () => {
   const { navigate } = useRouter();
@@ -52,6 +52,17 @@ export const NotFoundPage: React.FC = () => {
             >
               <TableIcon className="w-4 h-4 stroke-[2.5] mr-1.5" />
               <span>Table Generator</span>
+            </BrutalButton>
+
+            <BrutalButton
+              id="not-found-open-todo-btn"
+              variant="secondary"
+              size="md"
+              className="w-full sm:w-auto"
+              onClick={() => navigate('/to-do-list')}
+            >
+              <CheckSquare className="w-4 h-4 stroke-[2.5] mr-1.5" />
+              <span>To-Do List</span>
             </BrutalButton>
 
             <BrutalButton

@@ -11,6 +11,7 @@ import { TermsPage } from './pages/TermsPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { GuidesPage } from './pages/GuidesPage';
 import { GuideArticlePage } from './pages/GuideArticlePage';
+import { TodoListPage } from './pages/TodoListPage';
 
 function AppContent() {
   const { currentPath } = useRouter();
@@ -21,6 +22,9 @@ function AppContent() {
     }
     if (currentPath === '/table-generator') {
       return <TableGeneratorPage />;
+    }
+    if (currentPath === '/to-do-list') {
+      return <TodoListPage />;
     }
     if (currentPath === '/guides') {
       return <GuidesPage />;

@@ -26,11 +26,19 @@ interface RouterProviderProps {
   children: ReactNode;
 }
 
+const normalizePath = (p: string) => {
+  if (!p) return '/';
+  if (p.length > 1 && p.endsWith('/')) {
+    return p.slice(0, -1);
+  }
+  return p;
+};
+
 export function RouterProvider({ children }: RouterProviderProps) {
   const [currentPath, setCurrentPath] = useState<string>(() => {
     if (typeof window !== 'undefined') {
       const path = window.location.pathname;
-      return path || '/';
+      return normalizePath(path);
     }
     return '/';
   });
@@ -38,7 +46,7 @@ export function RouterProvider({ children }: RouterProviderProps) {
   useEffect(() => {
     const handlePopState = () => {
       const path = window.location.pathname;
-      setCurrentPath(path || '/');
+      setCurrentPath(normalizePath(path));
     };
 
     window.addEventListener('popstate', handlePopState);
@@ -46,9 +54,10 @@ export function RouterProvider({ children }: RouterProviderProps) {
   }, []);
 
   const navigate = (path: string) => {
-    if (path !== currentPath) {
-      window.history.pushState({}, '', path);
-      setCurrentPath(path);
+    const normalized = normalizePath(path);
+    if (normalized !== currentPath) {
+      window.history.pushState({}, '', normalized);
+      setCurrentPath(normalized);
       window.scrollTo({ top: 0, behavior: 'instant' });
     }
   };

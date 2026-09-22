@@ -36,6 +36,18 @@ export const Footer: React.FC = () => {
               Table Generator
             </Link>
             <Link
+              href="/to-do-list"
+              className="text-xs sm:text-sm font-bold px-3 py-1 bg-[#FAF8F5] border-2 border-black shadow-[2px_2px_0px_0px_#000] hover:bg-[#FFDE00] transition-colors"
+            >
+              To-Do List
+            </Link>
+            <Link
+              href="/guides"
+              className="text-xs sm:text-sm font-bold px-3 py-1 bg-[#FAF8F5] border-2 border-black shadow-[2px_2px_0px_0px_#000] hover:bg-[#FFDE00] transition-colors"
+            >
+              Guides
+            </Link>
+            <Link
               href="/about"
               className="text-xs sm:text-sm font-bold px-3 py-1 bg-[#FAF8F5] border-2 border-black shadow-[2px_2px_0px_0px_#000] hover:bg-[#FFDE00] transition-colors"
             >
@@ -48,16 +60,10 @@ export const Footer: React.FC = () => {
               Contact
             </Link>
             <Link
-              href="/guides"
-              className="text-xs sm:text-sm font-bold px-3 py-1 bg-[#FAF8F5] border-2 border-black shadow-[2px_2px_0px_0px_#000] hover:bg-[#FFDE00] transition-colors"
-            >
-              Guides
-            </Link>
-            <Link
               href="/privacy-policy"
               className="text-xs sm:text-sm font-bold px-3 py-1 bg-[#FAF8F5] border-2 border-black shadow-[2px_2px_0px_0px_#000] hover:bg-[#FFDE00] transition-colors"
             >
-              Privacy Policy
+              Privacy
             </Link>
             <Link
               href="/terms"
@@ -83,7 +89,7 @@ export const Footer: React.FC = () => {
           </div>
 
           <p className="text-gray-600">
-            TABLABLE — Free Online Table Generator.
+            TABLABLE — Simple tools for tables &amp; printable checklists.
           </p>
         </div>
       </div>

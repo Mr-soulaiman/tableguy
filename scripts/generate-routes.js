@@ -24,6 +24,11 @@ const staticRoutes = [
     description: 'Design, edit, and format tables visually. Paste spreadsheet data, add formulas, align text, and export to Markdown, HTML, CSV, Plain Text, or PDF.',
   },
   {
+    path: '/to-do-list',
+    title: 'To-Do List Maker — Free Printable Checklist PDF | Tablable',
+    description: 'Create a simple to-do list from your tasks and download a clean printable PDF checklist. Free, simple, and no sign-up required.',
+  },
+  {
     path: '/guides',
     title: 'Table Guides & Tutorials | TABLABLE',
     description: 'Practical guides and tutorials on formatting tables, converting data between CSV, HTML, and Markdown, and creating clean spreadsheets.',

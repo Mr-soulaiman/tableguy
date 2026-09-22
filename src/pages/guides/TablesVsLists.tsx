@@ -54,7 +54,7 @@ export const TablesVsLists: React.FC = () => {
         <header className="border-b-2 sm:border-b-[3px] border-black pb-6 sm:pb-8">
           <div className="flex flex-wrap items-center gap-2.5 mb-4">
             <BrutalBadge variant="yellow" size="md">
-              TABLE BASICS
+              TO-DO LISTS
             </BrutalBadge>
             <span className="text-xs font-mono font-bold text-gray-600 flex items-center gap-1">
               <Clock className="w-3.5 h-3.5 stroke-[2.5]" />
@@ -423,6 +423,49 @@ export const TablesVsLists: React.FC = () => {
               </div>
             </div>
           </section>
+
+          {/* Dual Tool CTA Section */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <BrutalCard shadow="md" className="p-5 sm:p-6 bg-[#FFDE00] border-2 border-black flex flex-col justify-between gap-4">
+              <div>
+                <h3 className="text-xl font-black uppercase text-black mb-1">
+                  Need a Checklist?
+                </h3>
+                <p className="text-xs sm:text-sm font-bold text-black">
+                  Generate a clean, printable to-do list PDF in seconds from comma-separated tasks.
+                </p>
+              </div>
+              <BrutalButton
+                id="tables-vs-lists-open-todo"
+                variant="secondary"
+                size="sm"
+                onClick={() => navigate('/to-do-list')}
+                className="bg-white self-start"
+              >
+                <span>OPEN TO-DO LIST MAKER →</span>
+              </BrutalButton>
+            </BrutalCard>
+
+            <BrutalCard shadow="md" className="p-5 sm:p-6 bg-white border-2 border-black flex flex-col justify-between gap-4">
+              <div>
+                <h3 className="text-xl font-black uppercase text-black mb-1">
+                  Need a Data Table?
+                </h3>
+                <p className="text-xs sm:text-sm font-medium text-gray-700">
+                  Paste rows, edit cells, merge headers, and export to Markdown, HTML, CSV, or PDF.
+                </p>
+              </div>
+              <BrutalButton
+                id="tables-vs-lists-open-table"
+                variant="primary"
+                size="sm"
+                onClick={() => navigate('/table-generator')}
+                className="self-start"
+              >
+                <span>OPEN TABLE GENERATOR →</span>
+              </BrutalButton>
+            </BrutalCard>
+          </div>
 
           {/* Navigation & Next Guide */}
           <div className="pt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-t-2 border-black">
