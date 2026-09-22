@@ -139,6 +139,29 @@ export const SEO: React.FC<SEOProps> = ({
             },
           },
         };
+      } else if (cleanPath === 'to-do-list') {
+        schemaData = {
+          '@context': 'https://schema.org',
+          '@graph': [
+            {
+              '@type': 'WebSite',
+              '@id': `${BASE_URL}/#website`,
+              url: `${BASE_URL}/`,
+              name: 'TABLABLE',
+              description: 'Create, edit, format and export tables online for free. Paste your data, build a clean table, and copy or download it in multiple formats.',
+            },
+            {
+              '@type': 'WebApplication',
+              '@id': `${BASE_URL}/#todomaker`,
+              name: 'TABLABLE To-Do List Maker',
+              url: `${BASE_URL}/to-do-list`,
+              applicationCategory: 'UtilitiesApplication',
+              operatingSystem: 'All',
+              browserRequirements: 'Requires JavaScript. Requires HTML5.',
+              description: 'Create a clean printable to-do list from your tasks and download an A4 PDF checklist for free.',
+            },
+          ],
+        };
       } else if (cleanPath === '' || cleanPath === 'table-generator') {
         schemaData = {
           '@context': 'https://schema.org',

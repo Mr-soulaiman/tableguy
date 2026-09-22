@@ -20,8 +20,8 @@ const template = fs.readFileSync(indexHtmlPath, 'utf8');
 const staticRoutes = [
   {
     path: '/table-generator',
-    title: 'Online Table Generator & Editor | TABLABLE',
-    description: 'Design, edit, and format tables visually. Paste spreadsheet data, add formulas, align text, and export to Markdown, HTML, CSV, Plain Text, or PDF.',
+    title: 'Free Table Generator — Create Tables Online | TABLABLE',
+    description: 'Create tables online for free. Paste or enter your data, edit cells, merge cells, format tables, and export your finished table.',
   },
   {
     path: '/to-do-list',
@@ -30,8 +30,8 @@ const staticRoutes = [
   },
   {
     path: '/guides',
-    title: 'Table Guides & Tutorials | TABLABLE',
-    description: 'Practical guides and tutorials on formatting tables, converting data between CSV, HTML, and Markdown, and creating clean spreadsheets.',
+    title: 'TABLABLE Guides — Learn About Tables, Formats & Organization',
+    description: 'Learn how to create better tables, choose the right table format, organize information, and use tables effectively with practical guides from TABLABLE.',
   },
   {
     path: '/about',
@@ -40,8 +40,8 @@ const staticRoutes = [
   },
   {
     path: '/contact',
-    title: 'Contact TABLABLE — Questions & Feedback',
-    description: 'Get in touch with the TABLABLE team. Send us questions, feedback, or feature suggestions for our online table generator.',
+    title: 'Contact TABLABLE',
+    description: 'Contact TABLABLE with questions, feedback, bug reports or suggestions about the free table generator.',
   },
   {
     path: '/privacy-policy',
@@ -161,7 +161,21 @@ for (const r of allRoutes) {
   fs.writeFileSync(path.join(targetDir, 'index.html'), routeHtml, 'utf8');
 }
 
-// Also write dist/404.html
-fs.writeFileSync(path.join(distDir, '404.html'), template, 'utf8');
+// Also write dist/404.html with noindex and 404 title
+let notFoundHtml = template;
+notFoundHtml = notFoundHtml.replace(/<title>.*?<\/title>/s, '<title>404 — Table Not Found | TABLABLE</title>');
+notFoundHtml = notFoundHtml.replace(
+  /<meta\s+name="description"\s+content=".*?"\s*\/?>/i,
+  '<meta name="description" content="The page you&#039;re looking for doesn&#039;t exist." />'
+);
+notFoundHtml = notFoundHtml.replace(
+  /<meta\s+name="robots"\s+content=".*?"\s*\/?>/i,
+  '<meta name="robots" content="noindex, nofollow" />'
+);
+notFoundHtml = notFoundHtml.replace(
+  /<link\s+rel="canonical"\s+href=".*?"\s*\/?>/i,
+  ''
+);
+fs.writeFileSync(path.join(distDir, '404.html'), notFoundHtml, 'utf8');
 
 console.log(`Successfully generated static HTML for ${allRoutes.length} routes + 404.html.`);
