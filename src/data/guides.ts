@@ -141,7 +141,92 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
       'Cross items off with a pen to leverage physical satisfaction and momentum.',
       "Use TABLABLE's To-Do List Maker to generate and print a clean checklist in seconds."
     ],
-    relatedSlugs: ['tables-vs-lists', 'create-schedule-with-table', 'organize-project-with-table'],
+    relatedSlugs: ['how-to-make-a-to-do-list-that-actually-works', 'daily-to-do-list-how-to-plan-your-day', 'tables-vs-lists'],
+  },
+  {
+    slug: 'how-to-make-a-to-do-list-that-actually-works',
+    title: 'How to Make a To-Do List That Actually Works',
+    category: 'TO-DO LISTS',
+    description: 'Learn how to make a simple to-do list you can actually finish, with practical tips for choosing tasks, setting priorities, and keeping your list realistic.',
+    readingTime: '5 min read',
+    seoTitle: 'How to Make a To-Do List That Actually Works | TABLABLE',
+    seoDescription: 'Learn how to make a simple to-do list you can actually finish, with practical tips for choosing tasks, setting priorities, and keeping your list realistic.',
+    intro: 'Most to-do lists fail before lunchtime because they become overwhelming dumping grounds. A realistic list focuses on three core outcomes and clear physical actions.',
+    summaryPoints: [
+      'Limit daily core tasks to 3 items. Everything else is secondary.',
+      'Replace vague goals with concrete physical actions you can picture.',
+      'Attach times only to real appointments, not arbitrary tasks.',
+      'Leave 40% buffer room in your day for the unexpected.'
+    ],
+    relatedSlugs: ['daily-to-do-list-how-to-plan-your-day', 'weekly-to-do-list-how-to-plan-your-week', 'how-to-make-a-printable-checklist'],
+  },
+  {
+    slug: 'daily-to-do-list-how-to-plan-your-day',
+    title: 'Daily To-Do List: How to Plan Your Day',
+    category: 'TO-DO LISTS',
+    description: 'Build a realistic daily to-do list with simple steps for choosing priorities, organizing your time, and avoiding an overloaded schedule.',
+    readingTime: '5 min read',
+    seoTitle: 'Daily To-Do List: How to Plan Your Day | TABLABLE',
+    seoDescription: 'Build a realistic daily to-do list with simple steps for choosing priorities, organizing your time, and avoiding an overloaded schedule.',
+    intro: 'Turn chaotic morning clutter into a calm, focused daily checklist. Learn how to anchor your day around 3 core tasks and batch administrative chores.',
+    summaryPoints: [
+      'Start with a quick brain dump to clear your mental cache.',
+      'Pick 3 anchor tasks to protect your focus during peak hours.',
+      'Cluster minor errands into a single 30-minute afternoon batch.',
+      'Avoid scheduling every 15 minutes to keep your plan resilient.'
+    ],
+    relatedSlugs: ['how-to-make-a-to-do-list-that-actually-works', 'weekly-to-do-list-how-to-plan-your-week', 'how-to-make-a-printable-checklist'],
+  },
+  {
+    slug: 'weekly-to-do-list-how-to-plan-your-week',
+    title: 'Weekly To-Do List: How to Plan Your Week',
+    category: 'TO-DO LISTS',
+    description: 'Learn how to make a weekly to-do list that keeps important tasks visible without turning your week into an impossible schedule.',
+    readingTime: '5 min read',
+    seoTitle: 'Weekly To-Do List: How to Plan Your Week | TABLABLE',
+    seoDescription: 'Learn how to make a weekly to-do list that keeps important tasks visible without turning your week into an impossible schedule.',
+    intro: 'A weekly to-do list is a master menu of outcomes, not an impossible calendar grid. Learn how to tier weekly tasks and avoid the Monday trap.',
+    summaryPoints: [
+      'Separate your master task pool from fixed calendar commitments.',
+      'Sort tasks into Must Happen, Should Happen, and If There is Time.',
+      'Spread large multi-step projects across several days instead of overloading Monday.',
+      'Close each week with an intentional 5-minute Friday review.'
+    ],
+    relatedSlugs: ['how-to-make-a-to-do-list-that-actually-works', 'daily-to-do-list-how-to-plan-your-day', 'printable-to-do-list-how-to-make-one-for-free'],
+  },
+  {
+    slug: 'printable-to-do-list-how-to-make-one-for-free',
+    title: 'Printable To-Do List: How to Make One for Free',
+    category: 'TO-DO LISTS',
+    description: 'Learn how to make a simple printable to-do list for free, organize your tasks clearly, and turn it into a clean PDF you can print or keep on your device.',
+    readingTime: '5 min read',
+    seoTitle: 'Printable To-Do List: How to Make One for Free | TABLABLE',
+    seoDescription: 'Learn how to make a simple printable to-do list for free, organize your tasks clearly, and turn it into a clean PDF you can print or keep on your device.',
+    intro: 'Keep a clear, physical checklist on your desk without digital pings or distractions. Learn how to format a clean printable to-do list for study, chores, or work.',
+    summaryPoints: [
+      'Physical paper lists eliminate phone notifications and tab hopping.',
+      'Prioritize readability and writing space over decorative graphics.',
+      'Assign times only to genuine appointments or hard deadlines.',
+      'Download a clean A4 PDF ready for your desk in seconds.'
+    ],
+    relatedSlugs: ['to-do-list-vs-checklist', 'how-to-make-a-to-do-list-that-actually-works', 'how-to-make-a-printable-checklist'],
+  },
+  {
+    slug: 'to-do-list-vs-checklist',
+    title: "To-Do List vs. Checklist: What's the Difference?",
+    category: 'TO-DO LISTS',
+    description: 'To-do lists and checklists look similar, but they are useful for different things. Learn the difference and when to use each one.',
+    readingTime: '5 min read',
+    seoTitle: "To-Do List vs. Checklist: What's the Difference? | TABLABLE",
+    seoDescription: 'To-do lists and checklists look similar, but they are useful for different things. Learn the difference and when to use each one.',
+    intro: 'Both formats use tick boxes, but they serve completely different purposes: deciding what needs doing versus verifying that nothing was missed.',
+    summaryPoints: [
+      'To-do lists guide intentional daily focus and change constantly.',
+      'Checklists prevent missed steps during repeatable processes.',
+      'Turn heavy to-do items into multi-step checklists to eliminate friction.',
+      'Use both together for optimal daily clarity and quality control.'
+    ],
+    relatedSlugs: ['printable-to-do-list-how-to-make-one-for-free', 'tables-vs-lists', 'how-to-make-a-to-do-list-that-actually-works'],
   },
   {
     slug: 'how-to-make-readable-table',

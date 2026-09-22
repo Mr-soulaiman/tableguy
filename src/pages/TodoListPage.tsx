@@ -58,31 +58,6 @@ export const TodoListPage: React.FC = () => {
     }, 50);
   };
 
-  const handleSetTodayDate = () => {
-    const today = new Date();
-    const formatted = today
-      .toLocaleDateString('en-US', {
-        weekday: 'long',
-        month: 'long',
-        day: 'numeric',
-      })
-      .toUpperCase();
-    setDateInput(formatted);
-  };
-
-  const handleSetTomorrowDate = () => {
-    const tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    const formatted = tomorrow
-      .toLocaleDateString('en-US', {
-        weekday: 'long',
-        month: 'long',
-        day: 'numeric',
-      })
-      .toUpperCase();
-    setDateInput(formatted);
-  };
-
   const handleEditRawInput = () => {
     editorSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -137,12 +112,9 @@ export const TodoListPage: React.FC = () => {
               <div className="flex flex-col gap-2">
                 <label
                   htmlFor="todo-raw-input"
-                  className="text-base sm:text-lg font-black uppercase text-black flex items-center justify-between"
+                  className="text-base sm:text-lg font-black uppercase text-black"
                 >
-                  <span>WHAT DO YOU NEED TO GET DONE?</span>
-                  <span className="text-xs font-bold text-gray-500 normal-case tracking-normal">
-                    Comma-separated
-                  </span>
+                  WHAT DO YOU NEED TO GET DONE?
                 </label>
 
                 <textarea
@@ -168,39 +140,12 @@ export const TodoListPage: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 border-t-2 border-black/10">
                 {/* Optional Date Field */}
                 <div className="flex flex-col gap-2">
-                  <div className="flex items-center justify-between">
-                    <label
-                      htmlFor="todo-date-input"
-                      className="text-xs sm:text-sm font-black uppercase text-black"
-                    >
-                      DATE (OPTIONAL)
-                    </label>
-                    <div className="flex items-center gap-1.5">
-                      <button
-                        type="button"
-                        onClick={handleSetTodayDate}
-                        className="text-[11px] font-bold underline hover:text-black text-gray-600 cursor-pointer"
-                      >
-                        Today
-                      </button>
-                      <span className="text-gray-300">·</span>
-                      <button
-                        type="button"
-                        onClick={handleSetTomorrowDate}
-                        className="text-[11px] font-bold underline hover:text-black text-gray-600 cursor-pointer"
-                      >
-                        Tomorrow
-                      </button>
-                      <span className="text-gray-300">·</span>
-                      <button
-                        type="button"
-                        onClick={() => setDateInput('')}
-                        className="text-[11px] font-bold underline hover:text-red-600 text-gray-600 cursor-pointer"
-                      >
-                        Clear
-                      </button>
-                    </div>
-                  </div>
+                  <label
+                    htmlFor="todo-date-input"
+                    className="text-xs sm:text-sm font-black uppercase text-black"
+                  >
+                    DATE (OPTIONAL)
+                  </label>
 
                   <div className="relative">
                     <input

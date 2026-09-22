@@ -15,6 +15,11 @@ import { CompareProductsWithTable } from './guides/CompareProductsWithTable';
 import { WhenToUseMarkdownTables } from './guides/WhenToUseMarkdownTables';
 import { TablesVsLists } from './guides/TablesVsLists';
 import { HowToMakePrintableChecklist } from './guides/HowToMakePrintableChecklist';
+import { HowToMakeAToDoListThatActuallyWorks } from './guides/HowToMakeAToDoListThatActuallyWorks';
+import { DailyToDoListHowToPlanYourDay } from './guides/DailyToDoListHowToPlanYourDay';
+import { WeeklyToDoListHowToPlanYourWeek } from './guides/WeeklyToDoListHowToPlanYourWeek';
+import { PrintableToDoListHowToMakeOneForFree } from './guides/PrintableToDoListHowToMakeOneForFree';
+import { ToDoListVsChecklist } from './guides/ToDoListVsChecklist';
 import { HowToMakeReadableTable } from './guides/HowToMakeReadableTable';
 import { TablesForStudying } from './guides/TablesForStudying';
 import { BudgetWithATable } from './guides/BudgetWithATable';
@@ -84,6 +89,26 @@ export const GuideArticlePage: React.FC<GuideArticlePageProps> = ({ slug }) => {
 
   if (slug === 'how-to-make-a-printable-checklist') {
     return <HowToMakePrintableChecklist />;
+  }
+
+  if (slug === 'how-to-make-a-to-do-list-that-actually-works') {
+    return <HowToMakeAToDoListThatActuallyWorks />;
+  }
+
+  if (slug === 'daily-to-do-list-how-to-plan-your-day') {
+    return <DailyToDoListHowToPlanYourDay />;
+  }
+
+  if (slug === 'weekly-to-do-list-how-to-plan-your-week') {
+    return <WeeklyToDoListHowToPlanYourWeek />;
+  }
+
+  if (slug === 'printable-to-do-list-how-to-make-one-for-free') {
+    return <PrintableToDoListHowToMakeOneForFree />;
+  }
+
+  if (slug === 'to-do-list-vs-checklist') {
+    return <ToDoListVsChecklist />;
   }
 
   if (slug === 'how-to-make-readable-table') {
