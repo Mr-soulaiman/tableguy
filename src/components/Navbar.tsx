@@ -66,6 +66,18 @@ export const Navbar: React.FC = () => {
           </Link>
 
           <Link
+            href="/word-counter"
+            className={`px-3.5 py-2 text-xs sm:text-sm font-black border-2 lg:border-[3px] border-black flex items-center gap-1.5 transition-all whitespace-nowrap ${
+              currentPath === '/word-counter'
+                ? 'bg-[#FFDE00] text-black shadow-[3px_3px_0px_0px_#000] translate-x-[1px] translate-y-[1px]'
+                : 'bg-[#FFDE00] text-black hover:bg-[#FFE633] shadow-[3px_3px_0px_0px_#000] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_#000]'
+            }`}
+          >
+            <span>Word Counter</span>
+            <ArrowRight className="w-4 h-4 stroke-[3]" />
+          </Link>
+
+          <Link
             href="/guides"
             className={`px-3 py-2 text-xs sm:text-sm font-bold border-2 border-black transition-all whitespace-nowrap ${
               currentPath.startsWith('/guides')
@@ -145,6 +157,19 @@ export const Navbar: React.FC = () => {
               }`}
             >
               <span>To-Do List</span>
+              <ArrowRight className="w-4 h-4 stroke-[3]" />
+            </Link>
+
+            <Link
+              href="/word-counter"
+              onClick={() => setMobileMenuOpen(false)}
+              className={`w-full py-2.5 px-3.5 text-sm font-black border-2 border-black flex items-center justify-between transition-all ${
+                currentPath === '/word-counter'
+                  ? 'bg-[#FFDE00] text-black shadow-[3px_3px_0px_0px_#000]'
+                  : 'bg-[#FFDE00] text-black hover:bg-[#FFE633] shadow-[3px_3px_0px_0px_#000]'
+              }`}
+            >
+              <span>Word Counter</span>
               <ArrowRight className="w-4 h-4 stroke-[3]" />
             </Link>
 

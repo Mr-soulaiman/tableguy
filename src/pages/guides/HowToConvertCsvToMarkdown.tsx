@@ -491,10 +491,10 @@ Sara,16`}
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
               <Link
-                href="/guides/how-to-make-a-table-in-google-docs"
+                href="/guides/csv-vs-excel-vs-html-vs-markdown"
                 className="text-xs sm:text-sm font-black text-black hover:underline flex items-center gap-1"
               >
-                Next: How to Make a Table in Google Docs
+                Next: CSV vs Excel vs HTML vs Markdown
                 <ArrowRight className="w-3.5 h-3.5 stroke-[3]" />
               </Link>
             </div>

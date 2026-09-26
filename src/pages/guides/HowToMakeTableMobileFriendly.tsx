@@ -485,8 +485,8 @@ export const HowToMakeTableMobileFriendly: React.FC = () => {
                 </h3>
                 <p className="text-sm text-gray-700">
                   A body size between 13px and 15px works best for mobile tables. Avoid dropping below 12px, as readers with standard vision will struggle to read numbers clearly. Check our guide on{' '}
-                  <Link href="/guides/create-table-for-website" className="underline font-bold text-black hover:text-gray-700">
-                    how to create a table for a website
+                  <Link href="/guides/how-to-make-readable-table" className="underline font-bold text-black hover:text-gray-700">
+                    how to make a table easy to read
                   </Link>.
                 </p>
               </div>

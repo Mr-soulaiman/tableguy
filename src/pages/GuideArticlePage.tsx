@@ -11,33 +11,21 @@ import { WhenToUseCsv } from './guides/WhenToUseCsv';
 import { WhenToUseHtmlTables } from './guides/WhenToUseHtmlTables';
 import { TurnMessyListIntoCleanTable } from './guides/TurnMessyListIntoCleanTable';
 import { MakeTableFromExcelGoogleSheets } from './guides/MakeTableFromExcelGoogleSheets';
-import { CompareProductsWithTable } from './guides/CompareProductsWithTable';
 import { WhenToUseMarkdownTables } from './guides/WhenToUseMarkdownTables';
-import { TablesVsLists } from './guides/TablesVsLists';
-import { HowToMakePrintableChecklist } from './guides/HowToMakePrintableChecklist';
 import { HowToMakeAToDoListThatActuallyWorks } from './guides/HowToMakeAToDoListThatActuallyWorks';
 import { DailyToDoListHowToPlanYourDay } from './guides/DailyToDoListHowToPlanYourDay';
 import { WeeklyToDoListHowToPlanYourWeek } from './guides/WeeklyToDoListHowToPlanYourWeek';
 import { PrintableToDoListHowToMakeOneForFree } from './guides/PrintableToDoListHowToMakeOneForFree';
 import { ToDoListVsChecklist } from './guides/ToDoListVsChecklist';
 import { HowToMakeReadableTable } from './guides/HowToMakeReadableTable';
-import { TablesForStudying } from './guides/TablesForStudying';
-import { BudgetWithATable } from './guides/BudgetWithATable';
-import { CommonTableMistakes } from './guides/CommonTableMistakes';
-import { OrganizeInformationWithTable } from './guides/OrganizeInformationWithTable';
-import { OrganizeProjectWithTable } from './guides/OrganizeProjectWithTable';
-import { OrganizeStudyNotesWithTable } from './guides/OrganizeStudyNotesWithTable';
-import { CreateScheduleWithTable } from './guides/CreateScheduleWithTable';
-import { TurnListOfDataIntoTable } from './guides/TurnListOfDataIntoTable';
 import { HowToMakeUsefulComparisonTable } from './guides/HowToMakeUsefulComparisonTable';
-import { CreateTableForWebsite } from './guides/CreateTableForWebsite';
 import { HowToCleanUpTable } from './guides/HowToCleanUpTable';
 import { HowToMakeTableMobileFriendly } from './guides/HowToMakeTableMobileFriendly';
-import { SimpleInventoryTable } from './guides/SimpleInventoryTable';
 import { HowToConvertCsvToHtml } from './guides/HowToConvertCsvToHtml';
 import { HowToConvertCsvToMarkdown } from './guides/HowToConvertCsvToMarkdown';
-import { HowToMakeTableInGoogleDocs } from './guides/HowToMakeTableInGoogleDocs';
-import { HowToConvertExcelToHtml } from './guides/HowToConvertExcelToHtml';
+import { HowToCountWordsInAText } from './guides/HowToCountWordsInAText';
+import { WordCountVsCharacterCount } from './guides/WordCountVsCharacterCount';
+import { HowManyWordsShouldAnEssayBe } from './guides/HowManyWordsShouldAnEssayBe';
 import {
   ArrowLeft,
   ChevronRight,
@@ -75,20 +63,8 @@ export const GuideArticlePage: React.FC<GuideArticlePageProps> = ({ slug }) => {
     return <MakeTableFromExcelGoogleSheets />;
   }
 
-  if (slug === 'compare-products-with-table') {
-    return <CompareProductsWithTable />;
-  }
-
   if (slug === 'when-to-use-markdown-tables') {
     return <WhenToUseMarkdownTables />;
-  }
-
-  if (slug === 'tables-vs-lists') {
-    return <TablesVsLists />;
-  }
-
-  if (slug === 'how-to-make-a-printable-checklist') {
-    return <HowToMakePrintableChecklist />;
   }
 
   if (slug === 'how-to-make-a-to-do-list-that-actually-works') {
@@ -115,44 +91,8 @@ export const GuideArticlePage: React.FC<GuideArticlePageProps> = ({ slug }) => {
     return <HowToMakeReadableTable />;
   }
 
-  if (slug === 'tables-for-studying') {
-    return <TablesForStudying />;
-  }
-
-  if (slug === 'budget-with-a-table') {
-    return <BudgetWithATable />;
-  }
-
-  if (slug === 'common-table-mistakes') {
-    return <CommonTableMistakes />;
-  }
-
-  if (slug === 'organize-information-with-table') {
-    return <OrganizeInformationWithTable />;
-  }
-
-  if (slug === 'organize-project-with-table') {
-    return <OrganizeProjectWithTable />;
-  }
-
-  if (slug === 'organize-study-notes-with-table') {
-    return <OrganizeStudyNotesWithTable />;
-  }
-
-  if (slug === 'create-schedule-with-table') {
-    return <CreateScheduleWithTable />;
-  }
-
-  if (slug === 'turn-list-of-data-into-table') {
-    return <TurnListOfDataIntoTable />;
-  }
-
   if (slug === 'how-to-make-useful-comparison-table') {
     return <HowToMakeUsefulComparisonTable />;
-  }
-
-  if (slug === 'create-table-for-website') {
-    return <CreateTableForWebsite />;
   }
 
   if (slug === 'how-to-clean-up-a-table') {
@@ -163,10 +103,6 @@ export const GuideArticlePage: React.FC<GuideArticlePageProps> = ({ slug }) => {
     return <HowToMakeTableMobileFriendly />;
   }
 
-  if (slug === 'simple-inventory-table') {
-    return <SimpleInventoryTable />;
-  }
-
   if (slug === 'how-to-convert-csv-to-html') {
     return <HowToConvertCsvToHtml />;
   }
@@ -175,12 +111,16 @@ export const GuideArticlePage: React.FC<GuideArticlePageProps> = ({ slug }) => {
     return <HowToConvertCsvToMarkdown />;
   }
 
-  if (slug === 'how-to-make-a-table-in-google-docs') {
-    return <HowToMakeTableInGoogleDocs />;
+  if (slug === 'how-to-count-words-in-a-text') {
+    return <HowToCountWordsInAText />;
   }
 
-  if (slug === 'how-to-convert-excel-to-html') {
-    return <HowToConvertExcelToHtml />;
+  if (slug === 'word-count-vs-character-count') {
+    return <WordCountVsCharacterCount />;
+  }
+
+  if (slug === 'how-many-words-should-an-essay-be') {
+    return <HowManyWordsShouldAnEssayBe />;
   }
 
   const guide = getGuideBySlug(slug);

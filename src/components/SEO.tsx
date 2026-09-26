@@ -162,6 +162,29 @@ export const SEO: React.FC<SEOProps> = ({
             },
           ],
         };
+      } else if (cleanPath === 'word-counter') {
+        schemaData = {
+          '@context': 'https://schema.org',
+          '@graph': [
+            {
+              '@type': 'WebSite',
+              '@id': `${BASE_URL}/#website`,
+              url: `${BASE_URL}/`,
+              name: 'TABLABLE',
+              description: 'Create, edit, format and export tables online for free. Paste your data, build a clean table, and copy or download it in multiple formats.',
+            },
+            {
+              '@type': 'WebApplication',
+              '@id': `${BASE_URL}/#wordcounter`,
+              name: 'TABLABLE Free Word Counter',
+              url: `${BASE_URL}/word-counter`,
+              applicationCategory: 'UtilitiesApplication',
+              operatingSystem: 'All',
+              browserRequirements: 'Requires JavaScript. Requires HTML5.',
+              description: 'Free online word counter. Count words, characters, sentences, paragraphs, and reading time instantly. Simple, fast, and free.',
+            },
+          ],
+        };
       } else if (cleanPath === '' || cleanPath === 'table-generator') {
         schemaData = {
           '@context': 'https://schema.org',

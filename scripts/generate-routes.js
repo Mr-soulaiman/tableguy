@@ -29,6 +29,33 @@ const staticRoutes = [
     description: 'Create a simple to-do list from your tasks and download a clean printable PDF checklist. Free, simple, and no sign-up required.',
   },
   {
+    path: '/word-counter',
+    title: 'Free Word Counter - Count Words & Characters | TABLABLE',
+    description: 'Free online word counter. Count words, characters, sentences, paragraphs, and reading time instantly. Simple, fast, and free.',
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'WebSite',
+          '@id': 'https://tablable.vercel.app/#website',
+          url: 'https://tablable.vercel.app/',
+          name: 'TABLABLE',
+          description: 'Create, edit, format and export tables online for free. Paste your data, build a clean table, and copy or download it in multiple formats.',
+        },
+        {
+          '@type': 'WebApplication',
+          '@id': 'https://tablable.vercel.app/#wordcounter',
+          name: 'TABLABLE Free Word Counter',
+          url: 'https://tablable.vercel.app/word-counter',
+          applicationCategory: 'UtilitiesApplication',
+          operatingSystem: 'All',
+          browserRequirements: 'Requires JavaScript. Requires HTML5.',
+          description: 'Free online word counter. Count words, characters, sentences, paragraphs, and reading time instantly. Simple, fast, and free.',
+        },
+      ],
+    },
+  },
+  {
     path: '/guides',
     title: 'TABLABLE Guides — Learn About Tables, Formats & Organization',
     description: 'Learn how to create better tables, choose the right table format, organize information, and use tables effectively with practical guides from TABLABLE.',
@@ -84,7 +111,7 @@ function escapeHtml(str) {
     .replace(/'/g, '&#039;');
 }
 
-function generateHtmlForRoute({ routePath, title, description }) {
+function generateHtmlForRoute({ routePath, title, description, jsonLd }) {
   const canonicalUrl = `https://tablable.vercel.app${routePath}`;
   const safeTitle = escapeHtml(title);
   const safeDesc = escapeHtml(description);
@@ -124,6 +151,13 @@ function generateHtmlForRoute({ routePath, title, description }) {
     `<meta property="og:url" content="${canonicalUrl}" />`
   );
 
+  if (routePath.startsWith('/guides/')) {
+    html = html.replace(
+      /<meta\s+property="og:type"\s+content=".*?"\s*\/?>/i,
+      `<meta property="og:type" content="article" />`
+    );
+  }
+
   // Replace twitter:title
   html = html.replace(
     /<meta\s+name="twitter:title"\s+content=".*?"\s*\/?>/i,
@@ -136,6 +170,13 @@ function generateHtmlForRoute({ routePath, title, description }) {
     `<meta name="twitter:description" content="${safeDesc}" />`
   );
 
+  if (jsonLd) {
+    html = html.replace(
+      /<script\s+type="application\/ld\+json"\s+id="seo-jsonld">[\s\S]*?<\/script>/i,
+      `<script type="application/ld+json" id="seo-jsonld">\n${JSON.stringify(jsonLd, null, 2)}\n    </script>`
+    );
+  }
+
   return html;
 }
 
@@ -144,12 +185,37 @@ const allRoutes = [
     routePath: r.path,
     title: r.title,
     description: r.description,
+    jsonLd: r.jsonLd,
   })),
-  ...guideArticles.map((a) => ({
-    routePath: `/guides/${a.slug}`,
-    title: a.seoTitle,
-    description: a.seoDescription,
-  })),
+  ...guideArticles.map((a) => {
+    const canonicalUrl = `https://tablable.vercel.app/guides/${a.slug}`;
+    return {
+      routePath: `/guides/${a.slug}`,
+      title: a.seoTitle,
+      description: a.seoDescription,
+      jsonLd: {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: a.seoTitle.replace(' | TABLABLE', '').trim(),
+        description: a.seoDescription,
+        url: canonicalUrl,
+        mainEntityOfPage: {
+          '@type': 'WebPage',
+          '@id': canonicalUrl,
+        },
+        image: 'https://tablable.vercel.app/tablable-logo.png',
+        publisher: {
+          '@type': 'Organization',
+          name: 'TABLABLE',
+          url: 'https://tablable.vercel.app/',
+          logo: {
+            '@type': 'ImageObject',
+            url: 'https://tablable.vercel.app/tablable-logo.png',
+          },
+        },
+      },
+    };
+  }),
 ];
 
 console.log(`Generating static HTML for ${allRoutes.length} routes...`);

@@ -12,6 +12,7 @@ import { NotFoundPage } from './pages/NotFoundPage';
 import { GuidesPage } from './pages/GuidesPage';
 import { GuideArticlePage } from './pages/GuideArticlePage';
 import { TodoListPage } from './pages/TodoListPage';
+import { WordCounterPage } from './pages/WordCounterPage';
 
 function AppContent() {
   const { currentPath } = useRouter();
@@ -25,6 +26,9 @@ function AppContent() {
     }
     if (currentPath === '/to-do-list') {
       return <TodoListPage />;
+    }
+    if (currentPath === '/word-counter') {
+      return <WordCounterPage />;
     }
     if (currentPath === '/guides') {
       return <GuidesPage />;

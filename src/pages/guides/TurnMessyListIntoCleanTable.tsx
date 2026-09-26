@@ -572,11 +572,7 @@ export const TurnMessyListIntoCleanTable: React.FC = () => {
                   When is a simple bulleted list better than a table?
                 </h3>
                 <p className="text-sm text-gray-700">
-                  If your items only have one piece of information (like a 4-item grocery list) or represent sequential step-by-step instructions, a bulleted or numbered list is much simpler to read than an empty table. Check out our guide on{' '}
-                  <Link href="/guides/tables-vs-lists" className="underline font-bold text-black hover:text-gray-700">
-                    tables vs lists
-                  </Link>{' '}
-                  for more examples.
+                  If your items only have one piece of information (like a 4-item grocery list) or represent sequential step-by-step instructions, a bulleted or numbered list is much simpler to read than an empty table.
                 </p>
               </div>
             </div>

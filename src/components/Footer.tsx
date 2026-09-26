@@ -42,6 +42,12 @@ export const Footer: React.FC = () => {
               To-Do List
             </Link>
             <Link
+              href="/word-counter"
+              className="text-xs sm:text-sm font-bold px-3 py-1 bg-[#FAF8F5] border-2 border-black shadow-[2px_2px_0px_0px_#000] hover:bg-[#FFDE00] transition-colors"
+            >
+              Word Counter
+            </Link>
+            <Link
               href="/guides"
               className="text-xs sm:text-sm font-bold px-3 py-1 bg-[#FAF8F5] border-2 border-black shadow-[2px_2px_0px_0px_#000] hover:bg-[#FFDE00] transition-colors"
             >

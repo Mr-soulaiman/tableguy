@@ -308,19 +308,19 @@ export const TodoListPage: React.FC = () => {
                   Guides &amp; Articles
                 </span>
                 <h3 className="text-xl sm:text-2xl font-black uppercase text-black mb-2">
-                  Tables vs. Lists
+                  To-Do List vs. Checklist
                 </h3>
                 <p className="text-sm font-medium text-gray-700 leading-relaxed">
-                  Wondering when to use a checklist and when to switch to a structured table? Read our practical guide on choosing the best format for your notes.
+                  Wondering when to use a daily to-do list and when to use a repeatable checklist? Read our practical guide on choosing the right list for your tasks.
                 </p>
               </div>
               <div>
                 <Link
-                  href="/guides/tables-vs-lists"
+                  href="/guides/to-do-list-vs-checklist"
                   className="inline-flex items-center gap-2 px-4 py-2.5 text-xs sm:text-sm font-black bg-white hover:bg-[#F3F0E6] text-black border-2 border-black shadow-[2px_2px_0px_0px_#000] hover:translate-x-[1px] hover:translate-y-[1px] transition-all"
                 >
                   <BookOpen className="w-4 h-4 stroke-[2.5]" />
-                  <span>Read Tables vs. Lists →</span>
+                  <span>Read To-Do List vs. Checklist →</span>
                 </Link>
               </div>
             </BrutalCard>

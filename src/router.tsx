@@ -3,6 +3,9 @@ import React, { createContext, useContext, useEffect, useState, ReactNode } from
 export type RoutePath =
   | '/'
   | '/table-generator'
+  | '/to-do-list'
+  | '/word-counter'
+  | '/guides'
   | '/about'
   | '/contact'
   | '/privacy-policy'

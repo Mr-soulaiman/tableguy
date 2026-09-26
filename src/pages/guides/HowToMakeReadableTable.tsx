@@ -402,10 +402,10 @@ export const HowToMakeReadableTable: React.FC = () => {
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
               <Link
-                href="/guides/tables-for-studying"
+                href="/guides/how-to-clean-up-a-table"
                 className="text-xs sm:text-sm font-black text-black hover:underline flex items-center gap-1"
               >
-                Read: How Tables Can Help You Study
+                Read: How to Clean Up a Table Before Sharing It
                 <ArrowRight className="w-3.5 h-3.5 stroke-[3]" />
               </Link>
             </div>

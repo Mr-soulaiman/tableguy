@@ -480,10 +480,10 @@ export const HowToMakeUsefulComparisonTable: React.FC = () => {
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
               <Link
-                href="/guides/turn-list-of-data-into-table"
+                href="/guides/turn-messy-list-into-clean-table"
                 className="text-xs sm:text-sm font-black text-black hover:underline flex items-center gap-1"
               >
-                Read: How to Turn a List of Data Into a Table
+                Read: How to Turn a Messy List Into a Clean Table
                 <ArrowRight className="w-3.5 h-3.5 stroke-[3]" />
               </Link>
             </div>
