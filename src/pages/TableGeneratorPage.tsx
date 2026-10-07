@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter, Link } from '../router';
 import { BrutalCard } from '../components/BrutalCard';
 import { BrutalButton } from '../components/BrutalButton';
 import { BrutalBadge } from '../components/BrutalBadge';
 import { TableEditor } from '../components/TableEditor';
+import { HowToUseSection } from '../components/HowToUseSection';
 import { SEO } from '../components/SEO';
 import {
   Table,
@@ -13,6 +14,34 @@ import {
 } from 'lucide-react';
 import { parseMultiTableData } from '../utils/tableParser';
 import { TableItem } from '../types';
+import {
+  loadTableDraft,
+  saveTableDraft,
+  clearTableDraft,
+} from '../utils/draftStorage';
+
+const TABLE_GENERATOR_STEPS = [
+  {
+    title: 'Enter or Paste Data',
+    description: 'Type directly into table cells or paste rows from Excel, CSV, Google Sheets, or plain text.',
+  },
+  {
+    title: 'Edit & Format Table',
+    description: 'Add rows and columns, apply bold or italic text, color cells, align columns, and merge cells.',
+  },
+  {
+    title: 'Add Optional Title',
+    description: 'Optionally enter a table title and position it at the top as a header or bottom as a caption.',
+  },
+  {
+    title: 'Choose Output Format',
+    description: 'Select HTML, Markdown, CSV, Plain Text, or printable PDF format based on your needs.',
+  },
+  {
+    title: 'Download or Copy',
+    description: 'Copy the formatted code to your clipboard with one click or download the finished file.',
+  },
+];
 
 const DEFAULT_TABLE: TableItem = {
   id: 'tbl-default',
@@ -44,12 +73,30 @@ const DEFAULT_TABLE: TableItem = {
 export const TableGeneratorPage: React.FC = () => {
   const { navigate } = useRouter();
 
-  // Tables state: list of TableItem
-  const [tables, setTables] = useState<TableItem[]>([DEFAULT_TABLE]);
+  // Tables state: list of TableItem initialized from localStorage draft if available
+  const [tables, setTables] = useState<TableItem[]>(() => {
+    const draft = loadTableDraft();
+    if (draft && Array.isArray(draft.tables) && draft.tables.length > 0) {
+      return draft.tables;
+    }
+    return [DEFAULT_TABLE];
+  });
 
   // Paste area state
-  const [pasteText, setPasteText] = useState<string>('');
+  const [pasteText, setPasteText] = useState<string>(() => {
+    const draft = loadTableDraft();
+    return draft && draft.pasteText !== undefined ? draft.pasteText : '';
+  });
   const [pasteError, setPasteError] = useState<string | null>(null);
+
+  // Debounced auto-save draft whenever tables or pasteText changes
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      saveTableDraft({ tables, pasteText });
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [tables, pasteText]);
 
   // Turn pasted data into tables (Magic Table)
   const handleTurnIntoTable = () => {
@@ -105,6 +152,7 @@ export const TableGeneratorPage: React.FC = () => {
     setTables([{ ...DEFAULT_TABLE, id: `tbl-${Date.now()}` }]);
     setPasteText('');
     setPasteError(null);
+    clearTableDraft();
   };
 
   // Add a new empty table
@@ -280,6 +328,12 @@ export const TableGeneratorPage: React.FC = () => {
             </BrutalButton>
           </div>
         )}
+
+        {/* How to Use the Table Generator Guide Section */}
+        <HowToUseSection
+          title="How to Use the Table Generator"
+          steps={TABLE_GENERATOR_STEPS}
+        />
 
         {/* Subtle cross-link to To-Do List Maker */}
         <div className="mt-4 p-4 bg-white border-2 border-black shadow-[2px_2px_0px_0px_#000] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs sm:text-sm font-medium text-gray-800">

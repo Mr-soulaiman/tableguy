@@ -1,12 +1,18 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { SEO } from '../components/SEO';
 import { BrutalCard } from '../components/BrutalCard';
 import { BrutalButton } from '../components/BrutalButton';
 import { BrutalBadge } from '../components/BrutalBadge';
 import { TodoListPreview } from '../components/TodoListPreview';
+import { HowToUseSection } from '../components/HowToUseSection';
 import { parseTodoListInput, formatDisplayDate } from '../utils/todoParser';
 import { TodoTask, TitlePosition } from '../types';
 import { Link, useRouter } from '../router';
+import {
+  loadTodoDraft,
+  saveTodoDraft,
+  clearTodoDraft,
+} from '../utils/draftStorage';
 import {
   CheckSquare,
   ArrowRight,
@@ -22,13 +28,45 @@ import {
   BookOpen,
 } from 'lucide-react';
 
+const TODO_LIST_STEPS = [
+  {
+    title: 'Add Your Tasks',
+    description: 'Enter your tasks separated by commas, with optional times or dates detected automatically.',
+  },
+  {
+    title: 'Organize & Reorder',
+    description: 'Arrange tasks in your preferred order using the up and down arrow controls.',
+  },
+  {
+    title: 'Check Off Completed',
+    description: 'Click the checkboxes to mark tasks completed as you work through your day.',
+  },
+  {
+    title: 'Edit or Remove',
+    description: 'Update task wording, adjust times inline, or delete tasks when no longer needed.',
+  },
+  {
+    title: 'Print or Export PDF',
+    description: 'Download a clean, printable vector A4 PDF checklist or print directly from your browser.',
+  },
+];
+
 const DEFAULT_SAMPLE_INPUT =
   'Study math at 18:00, Buy groceries at 19:30, Call mom at 6 PM, Finish project, Clean room';
 
 export const TodoListPage: React.FC = () => {
   const { navigate } = useRouter();
-  const [rawInput, setRawInput] = useState<string>(DEFAULT_SAMPLE_INPUT);
+
+  const [rawInput, setRawInput] = useState<string>(() => {
+    const draft = loadTodoDraft();
+    return draft ? draft.rawInput : DEFAULT_SAMPLE_INPUT;
+  });
+
   const [dateInput, setDateInput] = useState<string>(() => {
+    const draft = loadTodoDraft();
+    if (draft && draft.dateInput !== undefined) {
+      return draft.dateInput;
+    }
     // Default to today formatted nicely
     const today = new Date();
     return today
@@ -39,10 +77,45 @@ export const TodoListPage: React.FC = () => {
       })
       .toUpperCase();
   });
-  const [listTitle, setListTitle] = useState<string>('MY TO-DO LIST');
-  const [titlePosition, setTitlePosition] = useState<TitlePosition>('top');
-  const [tasks, setTasks] = useState<TodoTask[]>(() => parseTodoListInput(DEFAULT_SAMPLE_INPUT));
-  const [hasGenerated, setHasGenerated] = useState<boolean>(true);
+
+  const [listTitle, setListTitle] = useState<string>(() => {
+    const draft = loadTodoDraft();
+    return draft && draft.listTitle !== undefined ? draft.listTitle : 'MY TO-DO LIST';
+  });
+
+  const [titlePosition, setTitlePosition] = useState<TitlePosition>(() => {
+    const draft = loadTodoDraft();
+    return draft && draft.titlePosition ? draft.titlePosition : 'top';
+  });
+
+  const [tasks, setTasks] = useState<TodoTask[]>(() => {
+    const draft = loadTodoDraft();
+    if (draft && Array.isArray(draft.tasks)) {
+      return draft.tasks;
+    }
+    return parseTodoListInput(DEFAULT_SAMPLE_INPUT);
+  });
+
+  const [hasGenerated, setHasGenerated] = useState<boolean>(() => {
+    const draft = loadTodoDraft();
+    return draft && draft.hasGenerated !== undefined ? draft.hasGenerated : true;
+  });
+
+  // Debounced auto-save draft whenever tasks, raw input, date, title, or titlePosition changes
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      saveTodoDraft({
+        tasks,
+        rawInput,
+        dateInput,
+        listTitle,
+        titlePosition,
+        hasGenerated,
+      });
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [tasks, rawInput, dateInput, listTitle, titlePosition, hasGenerated]);
 
   const previewSectionRef = useRef<HTMLDivElement>(null);
   const editorSectionRef = useRef<HTMLDivElement>(null);
@@ -299,6 +372,12 @@ export const TodoListPage: React.FC = () => {
             </BrutalCard>
           </div>
         </section>
+
+        {/* How to Use the To-Do List Maker Guide Section */}
+        <HowToUseSection
+          title="How to Use the To-Do List Maker"
+          steps={TODO_LIST_STEPS}
+        />
 
         {/* Helpful Guides & Table Generator Cross-Links */}
         <section className="max-w-4xl mx-auto px-4 sm:px-6 w-full">

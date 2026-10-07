@@ -1,9 +1,15 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { SEO } from '../components/SEO';
 import { BrutalCard } from '../components/BrutalCard';
 import { BrutalButton } from '../components/BrutalButton';
 import { BrutalBadge } from '../components/BrutalBadge';
+import { HowToUseSection } from '../components/HowToUseSection';
 import { Link } from '../router';
+import {
+  loadWordCounterDraft,
+  saveWordCounterDraft,
+  clearWordCounterDraft,
+} from '../utils/draftStorage';
 import {
   Copy,
   Check,
@@ -19,6 +25,29 @@ import {
   CheckSquare,
   BookOpen,
 } from 'lucide-react';
+
+const WORD_COUNTER_STEPS = [
+  {
+    title: 'Paste or Type Text',
+    description: 'Enter or paste your text into the editor to start analyzing words and characters instantly.',
+  },
+  {
+    title: 'Automatic Real-Time Counts',
+    description: 'Metrics update automatically with zero delays as you type, delete, or modify text.',
+  },
+  {
+    title: 'Check Text Breakdown',
+    description: 'Review word count, characters with & without spaces, sentences, paragraphs, and reading time.',
+  },
+  {
+    title: 'Edit Text if Needed',
+    description: 'Fine-tune your writing and keep track of strict essay, assignment, or character limits.',
+  },
+  {
+    title: 'Copy or Use Result',
+    description: 'Copy the analyzed text with one click or clear the editor to start analyzing a new text.',
+  },
+];
 
 export interface WordCounterStats {
   words: number;
@@ -87,8 +116,24 @@ export function calculateTextStats(text: string): WordCounterStats {
 }
 
 export const WordCounterPage: React.FC = () => {
-  const [text, setText] = useState<string>('');
+  const [text, setText] = useState<string>(() => {
+    const draft = loadWordCounterDraft();
+    return draft ? draft.text : '';
+  });
   const [copied, setCopied] = useState<boolean>(false);
+
+  // Debounced auto-save draft whenever text changes
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (text.trim().length > 0) {
+        saveWordCounterDraft({ text });
+      } else {
+        clearWordCounterDraft();
+      }
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [text]);
 
   const stats = useMemo(() => calculateTextStats(text), [text]);
 
@@ -113,6 +158,7 @@ export const WordCounterPage: React.FC = () => {
   const handleClear = () => {
     setText('');
     setCopied(false);
+    clearWordCounterDraft();
   };
 
   return (
@@ -348,6 +394,12 @@ export const WordCounterPage: React.FC = () => {
             </BrutalCard>
           </div>
         </section>
+
+        {/* How to Use the Word Counter Guide Section */}
+        <HowToUseSection
+          title="How to Use the Word Counter"
+          steps={WORD_COUNTER_STEPS}
+        />
 
         {/* Cross-Links to Other Tablable Tools & Guides */}
         <section className="max-w-4xl mx-auto px-4 sm:px-6 w-full">
