@@ -1,6 +1,6 @@
 import { jsPDF } from 'jspdf';
 import autoTable from 'jspdf-autotable';
-import { CellFormat, TableItem, MergeCell } from '../types';
+import { CellFormat, TableItem, MergeCell, TitlePosition } from '../types';
 import { getTableMergeInfo, getMergeMatrix } from './mergeUtils';
 
 /**
@@ -52,7 +52,9 @@ export function tableToHtml(
   headerFormats?: CellFormat[],
   signatureOptions?: { enabled?: boolean; name?: string },
   columnAlignments?: ('left' | 'center' | 'right')[],
-  merges?: MergeCell[]
+  merges?: MergeCell[],
+  title?: string,
+  titlePosition: TitlePosition = 'top'
 ): string {
   const { headerMergeInfo, bodyMergeMatrix } = getTableMergeInfo(rows.length, headers.length, merges || []);
 
@@ -122,6 +124,14 @@ export function tableToHtml(
     html += `\n<p><strong>Signature:</strong> ${escapeHtml(sigValue)}</p>`;
   }
 
+  if (title && title.trim()) {
+    if (titlePosition === 'bottom') {
+      html += `\n<p style="font-family: inherit; font-size: 0.85rem; font-weight: 600; color: #555; margin-top: 8px; margin-bottom: 0;">${escapeHtml(title.trim())}</p>`;
+    } else {
+      html = `<h3 style="font-family: inherit; font-size: 1.25rem; font-weight: 800; text-transform: uppercase; margin: 0 0 10px 0; letter-spacing: -0.02em;">${escapeHtml(title.trim())}</h3>\n` + html;
+    }
+  }
+
   return html;
 }
 
@@ -131,7 +141,9 @@ export function tableToMarkdown(
   cellFormats?: CellFormat[][],
   headerFormats?: CellFormat[],
   signatureOptions?: { enabled?: boolean; name?: string },
-  columnAlignments?: ('left' | 'center' | 'right')[]
+  columnAlignments?: ('left' | 'center' | 'right')[],
+  title?: string,
+  titlePosition: TitlePosition = 'top'
 ): string {
   const formattedHeaders = headers.map((h, i) => formatCellMarkdown(h, headerFormats?.[i]));
   const formattedRows = rows.map((r, rIdx) =>
@@ -182,6 +194,14 @@ export function tableToMarkdown(
     md += `\n\n**Signature:** ${sigValue}`;
   }
 
+  if (title && title.trim()) {
+    if (titlePosition === 'bottom') {
+      md += `\n\n*${title.trim()}*`;
+    } else {
+      md = `### ${title.trim()}\n\n` + md;
+    }
+  }
+
   return md;
 }
 
@@ -203,7 +223,9 @@ export function tableToCsv(headers: string[], rows: string[][]): string {
 export function tableToPlainText(
   headers: string[],
   rows: string[][],
-  signatureOptions?: { enabled?: boolean; name?: string }
+  signatureOptions?: { enabled?: boolean; name?: string },
+  title?: string,
+  titlePosition: TitlePosition = 'top'
 ): string {
   // Split cells by newlines for multi-line ASCII rendering
   const headerLines = headers.map(h => (h || '').split(/\r?\n/));
@@ -257,6 +279,14 @@ export function tableToPlainText(
   if (signatureOptions?.enabled) {
     const sigValue = signatureOptions.name?.trim() || '______________________';
     text += `\n\nSignature: ${sigValue}`;
+  }
+
+  if (title && title.trim()) {
+    if (titlePosition === 'bottom') {
+      text += `\n\n(${title.trim()})`;
+    } else {
+      text = `=== ${title.trim().toUpperCase()} ===\n\n` + text;
+    }
   }
 
   return text;
@@ -315,12 +345,16 @@ export function downloadFile(filename: string, content: string, mimeType: string
 export function generateFullHtmlDocument(tables: TableItem[]): string {
   const tablesContent = tables
     .map((tbl, idx) => {
-      const title =
-        tables.length > 1
-          ? `    <h2 style="font-size: 1.15rem; font-weight: 800; margin: 28px 0 12px 0; text-transform: uppercase; letter-spacing: -0.02em;">${escapeHtml(
-              tbl.name || `Table ${idx + 1}`
-            )}</h2>\n`
-          : '';
+      const displayTitle = tbl.title && tbl.title.trim()
+        ? tbl.title.trim()
+        : (tables.length > 1 ? (tbl.name || `Table ${idx + 1}`) : '');
+      const isBottom = tbl.titlePosition === 'bottom' && Boolean(tbl.title && tbl.title.trim());
+
+      const title = !isBottom && displayTitle
+        ? `    <h2 style="font-size: 1.15rem; font-weight: 800; margin: 28px 0 12px 0; text-transform: uppercase; letter-spacing: -0.02em;">${escapeHtml(
+            displayTitle
+          )}</h2>\n`
+        : '';
 
       const tableHtml = tableToHtml(
         tbl.headers,
@@ -334,7 +368,13 @@ export function generateFullHtmlDocument(tables: TableItem[]): string {
         tbl.merges
       );
 
-      return `  <section class="table-block" style="margin-bottom: 36px;">\n${title}${tableHtml}\n  </section>`;
+      const bottomTitle = isBottom && displayTitle
+        ? `\n    <p style="font-size: 0.85rem; font-weight: 600; color: #555; margin-top: 8px; margin-bottom: 0;">${escapeHtml(
+            displayTitle
+          )}</p>`
+        : '';
+
+      return `  <section class="table-block" style="margin-bottom: 36px;">\n${title}${tableHtml}${bottomTitle}\n  </section>`;
     })
     .join('\n  <hr style="border: 0; border-top: 2px dashed #333; margin: 36px 0;" />\n');
 
@@ -343,7 +383,7 @@ export function generateFullHtmlDocument(tables: TableItem[]): string {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${tables.length === 1 && tables[0].name ? escapeHtml(tables[0].name) : 'TABLABLE Export'}</title>
+  <title>${tables.length === 1 && (tables[0].title || tables[0].name) ? escapeHtml(tables[0].title || tables[0].name) : 'TABLABLE Export'}</title>
   <style>
     * {
       box-sizing: border-box;
@@ -410,13 +450,18 @@ export function generateFullMarkdown(tables: TableItem[]): string {
       tbl.cellFormats,
       tbl.headerFormats,
       { enabled: tbl.signatureEnabled, name: tbl.signatureName },
-      tbl.columnAlignments
+      tbl.columnAlignments,
+      tbl.title,
+      tbl.titlePosition
     );
   }
 
   return tables
     .map((tbl, idx) => {
-      const header = `### ${tbl.name || `Table ${idx + 1}`}\n\n`;
+      const displayTitle = tbl.title && tbl.title.trim()
+        ? tbl.title.trim()
+        : (tbl.name || `Table ${idx + 1}`);
+      const isBottom = tbl.titlePosition === 'bottom' && Boolean(tbl.title && tbl.title.trim());
       const content = tableToMarkdown(
         tbl.headers,
         tbl.rows,
@@ -425,7 +470,11 @@ export function generateFullMarkdown(tables: TableItem[]): string {
         { enabled: tbl.signatureEnabled, name: tbl.signatureName },
         tbl.columnAlignments
       );
-      return `${header}${content}`;
+
+      if (isBottom) {
+        return `${content}\n\n*${displayTitle}*`;
+      }
+      return `### ${displayTitle}\n\n${content}`;
     })
     .join('\n\n---\n\n');
 }
@@ -444,7 +493,7 @@ export function generateFullCsv(tables: TableItem[], forDownload = true): string
   } else {
     csvBody = tables
       .map((tbl, idx) => {
-        const tableName = tbl.name || `Table ${idx + 1}`;
+        const tableName = tbl.title && tbl.title.trim() ? tbl.title.trim() : (tbl.name || `Table ${idx + 1}`);
         const headerComment = `# ${tableName}`;
         const csvData = tableToCsv(tbl.headers, tbl.rows);
         return `${headerComment}\r\n${csvData}`;
@@ -467,20 +516,33 @@ export function generateFullCsv(tables: TableItem[], forDownload = true): string
 export function generateFullPlainText(tables: TableItem[]): string {
   if (tables.length === 1) {
     const tbl = tables[0];
-    return tableToPlainText(tbl.headers, tbl.rows, {
-      enabled: tbl.signatureEnabled,
-      name: tbl.signatureName,
-    });
+    return tableToPlainText(
+      tbl.headers,
+      tbl.rows,
+      {
+        enabled: tbl.signatureEnabled,
+        name: tbl.signatureName,
+      },
+      tbl.title,
+      tbl.titlePosition
+    );
   }
 
   return tables
     .map((tbl, idx) => {
-      const title = `=== ${tbl.name || `Table ${idx + 1}`} ===\n`;
+      const displayTitle = tbl.title && tbl.title.trim()
+        ? tbl.title.trim()
+        : (tbl.name || `Table ${idx + 1}`);
+      const isBottom = tbl.titlePosition === 'bottom' && Boolean(tbl.title && tbl.title.trim());
       const tableText = tableToPlainText(tbl.headers, tbl.rows, {
         enabled: tbl.signatureEnabled,
         name: tbl.signatureName,
       });
-      return `${title}${tableText}`;
+
+      if (isBottom) {
+        return `${tableText}\n\n(${displayTitle})`;
+      }
+      return `=== ${displayTitle.toUpperCase()} ===\n${tableText}`;
     })
     .join('\n\n' + '='.repeat(48) + '\n\n');
 }
@@ -531,7 +593,14 @@ export function downloadPdf(tables: TableItem[], filename = 'table.pdf'): void {
     const pageHeight = doc.internal.pageSize.getHeight();
 
     // Table title if multiple tables or custom name
-    if (tables.length > 1 || (tbl.name && tbl.name.trim() !== '' && tbl.name !== 'Untitled Table')) {
+    const displayTitle = tbl.title && tbl.title.trim()
+      ? tbl.title.trim()
+      : (tables.length > 1 || (tbl.name && tbl.name.trim() !== '' && tbl.name !== 'Untitled Table')
+        ? (tbl.name || `Table ${tblIdx + 1}`)
+        : '');
+    const isBottom = tbl.titlePosition === 'bottom' && Boolean(tbl.title && tbl.title.trim());
+
+    if (!isBottom && displayTitle) {
       if (currentY + 20 > pageHeight - margin) {
         doc.addPage();
         currentY = margin;
@@ -539,8 +608,7 @@ export function downloadPdf(tables: TableItem[], filename = 'table.pdf'): void {
       doc.setFont('helvetica', 'bold');
       doc.setFontSize(tables.length > 1 ? 12 : 14);
       doc.setTextColor(0, 0, 0);
-      const title = tbl.name || `Table ${tblIdx + 1}`;
-      doc.text(title, margin, currentY);
+      doc.text(displayTitle.toUpperCase(), margin, currentY);
       currentY += 6;
     }
 
@@ -650,6 +718,21 @@ export function downloadPdf(tables: TableItem[], filename = 'table.pdf'): void {
 
     const finalY = (doc as any).lastAutoTable?.finalY ?? currentY;
     currentY = finalY;
+
+    // Bottom caption if bottom position
+    if (isBottom && displayTitle) {
+      if (currentY + 12 > pageHeight - margin) {
+        doc.addPage();
+        currentY = margin;
+      } else {
+        currentY += 4;
+      }
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(8.5);
+      doc.setTextColor(80, 80, 80);
+      doc.text(displayTitle, margin, currentY);
+      currentY += 2;
+    }
 
     // Signature if enabled
     if (tbl.signatureEnabled && tbl.signatureName?.trim()) {

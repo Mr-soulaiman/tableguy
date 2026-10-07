@@ -37,6 +37,8 @@ const DEFAULT_TABLE: TableItem = {
   headerFormats: [{}, {}, {}],
   signatureEnabled: false,
   signatureName: '',
+  title: '',
+  titlePosition: 'top',
 };
 
 export const TableGeneratorPage: React.FC = () => {
@@ -73,6 +75,8 @@ export const TableGeneratorPage: React.FC = () => {
       headerFormats: pt.headers.map(() => ({})),
       signatureEnabled: false,
       signatureName: '',
+      title: pt.name || '',
+      titlePosition: 'top',
     }));
 
     setTables(newTables);
@@ -126,6 +130,8 @@ export const TableGeneratorPage: React.FC = () => {
       headerFormats: [{}, {}, {}],
       signatureEnabled: false,
       signatureName: '',
+      title: '',
+      titlePosition: 'top',
     };
     setTables(prev => [...prev, newTable]);
   };

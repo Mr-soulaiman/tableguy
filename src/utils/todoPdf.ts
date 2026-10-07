@@ -1,8 +1,9 @@
 import { jsPDF } from 'jspdf';
-import { TodoTask } from '../types';
+import { TodoTask, TitlePosition } from '../types';
 
 export interface GeneratePdfOptions {
   title?: string;
+  titlePosition?: TitlePosition;
   date?: string;
   tasks: TodoTask[];
 }
@@ -12,6 +13,7 @@ export interface GeneratePdfOptions {
  */
 export function generateTodoPdf({
   title = 'MY TO-DO LIST',
+  titlePosition = 'top',
   date = '',
   tasks = [],
 }: GeneratePdfOptions): jsPDF {
@@ -28,7 +30,9 @@ export function generateTodoPdf({
   const contentWidth = pageWidth - margin * 2; // 186mm
   const bottomLimit = pageHeight - 22;
 
-  const displayTitle = (title || 'MY TO-DO LIST').trim().toUpperCase();
+  const hasTitle = Boolean(title && title.trim());
+  const isTop = (titlePosition || 'top') === 'top';
+  const displayTitle = hasTitle ? title.trim().toUpperCase() : 'CHECKLIST';
   const displayDate = date.trim().toUpperCase();
 
   const hasAnyTime = tasks.some((t) => Boolean(t.time && t.time.trim()));
@@ -48,7 +52,9 @@ export function generateTodoPdf({
     doc.setFont('helvetica', 'bold');
     doc.setFontSize(isContinuation ? 16 : 20);
     doc.setTextColor(0, 0, 0);
-    const titleText = isContinuation ? `${displayTitle} (CONTINUED)` : displayTitle;
+    const titleText = isTop
+      ? (isContinuation ? `${displayTitle} (CONTINUED)` : displayTitle)
+      : (isContinuation ? 'CHECKLIST (CONTINUED)' : 'CHECKLIST');
     doc.text(titleText, margin + 6, margin + 15);
 
     // 4. Header date badge (if present)
@@ -186,6 +192,14 @@ export function generateTodoPdf({
     doc.setDrawColor(0, 0, 0);
     doc.setLineWidth(0.4);
     doc.line(margin, pageHeight - margin - 7, pageWidth - margin, pageHeight - margin - 7);
+
+    // If bottom title is set, render it as caption above footer line on last page or pages
+    if (!isTop && hasTitle) {
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(8.5);
+      doc.setTextColor(80, 80, 80);
+      doc.text(title.trim(), margin + 4, pageHeight - margin - 9);
+    }
 
     doc.setFont('helvetica', 'bold');
     doc.setFontSize(8);

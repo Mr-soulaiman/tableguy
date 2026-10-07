@@ -34,7 +34,7 @@ import {
   Split,
   Combine,
 } from 'lucide-react';
-import { TableItem, CellFormat, ColumnAlignment, MergeCell } from '../types';
+import { TableItem, CellFormat, ColumnAlignment, MergeCell, TitlePosition } from '../types';
 import {
   getTableMergeInfo,
   getMergeMatrix,
@@ -173,6 +173,8 @@ export const TableEditor: React.FC<TableEditorProps> = ({
     merges = [],
     signatureEnabled = false,
     signatureName = '',
+    title = '',
+    titlePosition = 'top',
   } = table;
 
   // Selected cell & color picker state
@@ -891,6 +893,20 @@ export const TableEditor: React.FC<TableEditorProps> = ({
     });
   };
 
+  const handleTitleChange = (val: string) => {
+    onUpdateTable({
+      ...table,
+      title: val,
+    });
+  };
+
+  const handleTitlePositionChange = (pos: TitlePosition) => {
+    onUpdateTable({
+      ...table,
+      titlePosition: pos,
+    });
+  };
+
   // Copy handlers
   const handleCopy = async (format: 'HTML' | 'Markdown' | 'CSV' | 'Plain Text') => {
     let output = '';
@@ -906,7 +922,9 @@ export const TableEditor: React.FC<TableEditorProps> = ({
         headerFormats,
         sigOpts,
         currentAlignments,
-        merges
+        merges,
+        title,
+        titlePosition
       );
     } else if (format === 'Markdown') {
       output = tableToMarkdown(
@@ -915,12 +933,14 @@ export const TableEditor: React.FC<TableEditorProps> = ({
         cellFormats,
         headerFormats,
         sigOpts,
-        currentAlignments
+        currentAlignments,
+        title,
+        titlePosition
       );
     } else if (format === 'CSV') {
       output = tableToCsv(headers, rows);
     } else if (format === 'Plain Text') {
-      output = tableToPlainText(headers, rows, sigOpts);
+      output = tableToPlainText(headers, rows, sigOpts, title, titlePosition);
     }
 
     const success = await copyTextToClipboard(output);
@@ -1369,9 +1389,70 @@ export const TableEditor: React.FC<TableEditorProps> = ({
         </div>
       )}
 
-      {/* Responsive Table Scroll Area */}
-      <div className="overflow-x-auto max-w-full pb-3 border-2 sm:border-[3px] border-black shadow-[4px_4px_0px_0px_#000]">
-        <table className="w-full border-collapse text-left font-sans table-auto">
+      {/* Optional Table Title & Position Control */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 p-3 bg-[#FAF8F5] border-2 sm:border-[3px] border-black shadow-[3px_3px_0px_0px_#000]">
+        <div className="flex flex-1 items-center gap-2">
+          <label
+            htmlFor={`table-title-input-${tableIndex}`}
+            className="text-xs font-mono font-black uppercase text-black shrink-0"
+          >
+            Title:
+          </label>
+          <input
+            id={`table-title-input-${tableIndex}`}
+            type="text"
+            value={title}
+            onChange={e => handleTitleChange(e.target.value)}
+            placeholder="Optional table title or caption..."
+            className="w-full px-2.5 py-1 text-xs sm:text-sm font-bold border-2 border-black bg-white focus:outline-none focus:bg-white shadow-[1px_1px_0px_0px_#000]"
+          />
+        </div>
+
+        <div className="flex items-center gap-1.5 shrink-0">
+          <span className="text-[11px] font-mono font-black uppercase text-gray-600 mr-1">
+            Position:
+          </span>
+          <button
+            type="button"
+            id={`title-pos-top-${tableIndex}`}
+            onClick={() => handleTitlePositionChange('top')}
+            className={`px-2.5 py-1 text-xs font-black border-2 border-black transition-all cursor-pointer ${
+              (titlePosition || 'top') === 'top'
+                ? 'bg-[#FFDE00] text-black shadow-[2px_2px_0px_0px_#000]'
+                : 'bg-white text-gray-700 hover:bg-gray-100 shadow-[1px_1px_0px_0px_#000]'
+            }`}
+          >
+            Top Title
+          </button>
+          <button
+            type="button"
+            id={`title-pos-bottom-${tableIndex}`}
+            onClick={() => handleTitlePositionChange('bottom')}
+            className={`px-2.5 py-1 text-xs font-black border-2 border-black transition-all cursor-pointer ${
+              titlePosition === 'bottom'
+                ? 'bg-[#FFDE00] text-black shadow-[2px_2px_0px_0px_#000]'
+                : 'bg-white text-gray-700 hover:bg-gray-100 shadow-[1px_1px_0px_0px_#000]'
+            }`}
+          >
+            Bottom Title
+          </button>
+        </div>
+      </div>
+
+      {/* Table Document Container */}
+      <div className="flex flex-col">
+        {/* TOP TITLE: Appears directly above the table. Larger than table text, main title, bold, small spacing */}
+        {Boolean(title && title.trim()) && (titlePosition || 'top') === 'top' && (
+          <div className="mb-2.5">
+            <h4 className="font-sans text-lg sm:text-xl font-black uppercase text-black tracking-tight leading-snug">
+              {title.trim()}
+            </h4>
+          </div>
+        )}
+
+        {/* Responsive Table Scroll Area */}
+        <div className="overflow-x-auto max-w-full pb-3 border-2 sm:border-[3px] border-black shadow-[4px_4px_0px_0px_#000]">
+          <table className="w-full border-collapse text-left font-sans table-auto">
           <thead>
             {/* Header Inputs Row */}
             <tr className="bg-[#FFDE00] border-b-2 sm:border-b-[3px] border-black">
@@ -1590,6 +1671,16 @@ export const TableEditor: React.FC<TableEditorProps> = ({
           </tbody>
         </table>
       </div>
+
+      {/* BOTTOM TITLE: Appears directly below the table. Smaller caption style, same font, lighter visual emphasis, close to table */}
+      {Boolean(title && title.trim()) && titlePosition === 'bottom' && (
+        <div className="mt-2 text-left">
+          <p className="font-sans text-xs sm:text-sm font-semibold text-gray-700 tracking-wide">
+            {title.trim()}
+          </p>
+        </div>
+      )}
+    </div>
 
       {/* Signature Section beneath the table */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-1">

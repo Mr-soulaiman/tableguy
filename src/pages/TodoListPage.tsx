@@ -5,7 +5,7 @@ import { BrutalButton } from '../components/BrutalButton';
 import { BrutalBadge } from '../components/BrutalBadge';
 import { TodoListPreview } from '../components/TodoListPreview';
 import { parseTodoListInput, formatDisplayDate } from '../utils/todoParser';
-import { TodoTask } from '../types';
+import { TodoTask, TitlePosition } from '../types';
 import { Link, useRouter } from '../router';
 import {
   CheckSquare,
@@ -40,6 +40,7 @@ export const TodoListPage: React.FC = () => {
       .toUpperCase();
   });
   const [listTitle, setListTitle] = useState<string>('MY TO-DO LIST');
+  const [titlePosition, setTitlePosition] = useState<TitlePosition>('top');
   const [tasks, setTasks] = useState<TodoTask[]>(() => parseTodoListInput(DEFAULT_SAMPLE_INPUT));
   const [hasGenerated, setHasGenerated] = useState<boolean>(true);
 
@@ -161,12 +162,40 @@ export const TodoListPage: React.FC = () => {
 
                 {/* Optional Title Field */}
                 <div className="flex flex-col gap-2">
-                  <label
-                    htmlFor="todo-title-input"
-                    className="text-xs sm:text-sm font-black uppercase text-black"
-                  >
-                    LIST TITLE
-                  </label>
+                  <div className="flex items-center justify-between">
+                    <label
+                      htmlFor="todo-title-input"
+                      className="text-xs sm:text-sm font-black uppercase text-black"
+                    >
+                      LIST TITLE (OPTIONAL)
+                    </label>
+                    <div className="flex items-center gap-1">
+                      <button
+                        type="button"
+                        id="todo-title-pos-top"
+                        onClick={() => setTitlePosition('top')}
+                        className={`px-2 py-0.5 text-[11px] font-black border-2 border-black transition-all cursor-pointer ${
+                          titlePosition === 'top'
+                            ? 'bg-[#FFDE00] text-black shadow-[1px_1px_0px_0px_#000]'
+                            : 'bg-white text-gray-700 hover:bg-gray-100'
+                        }`}
+                      >
+                        Top
+                      </button>
+                      <button
+                        type="button"
+                        id="todo-title-pos-bottom"
+                        onClick={() => setTitlePosition('bottom')}
+                        className={`px-2 py-0.5 text-[11px] font-black border-2 border-black transition-all cursor-pointer ${
+                          titlePosition === 'bottom'
+                            ? 'bg-[#FFDE00] text-black shadow-[1px_1px_0px_0px_#000]'
+                            : 'bg-white text-gray-700 hover:bg-gray-100'
+                        }`}
+                      >
+                        Bottom
+                      </button>
+                    </div>
+                  </div>
                   <input
                     id="todo-title-input"
                     type="text"
@@ -223,6 +252,7 @@ export const TodoListPage: React.FC = () => {
               tasks={tasks}
               date={dateInput}
               listTitle={listTitle}
+              titlePosition={titlePosition}
               onUpdateTasks={setTasks}
               onEditRawInput={handleEditRawInput}
             />

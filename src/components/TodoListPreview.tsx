@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TodoTask } from '../types';
+import { TodoTask, TitlePosition } from '../types';
 import { BrutalButton } from './BrutalButton';
 import { BrutalBadge } from './BrutalBadge';
 import { downloadTodoPdf, printTodoPdf } from '../utils/todoPdf';
@@ -21,6 +21,7 @@ interface TodoListPreviewProps {
   tasks: TodoTask[];
   date: string;
   listTitle: string;
+  titlePosition?: TitlePosition;
   onUpdateTasks: (tasks: TodoTask[]) => void;
   onEditRawInput: () => void;
 }
@@ -29,6 +30,7 @@ export const TodoListPreview: React.FC<TodoListPreviewProps> = ({
   tasks,
   date,
   listTitle,
+  titlePosition = 'top' as TitlePosition,
   onUpdateTasks,
   onEditRawInput,
 }) => {
@@ -114,6 +116,7 @@ export const TodoListPreview: React.FC<TodoListPreviewProps> = ({
     downloadTodoPdf(
       {
         title: listTitle || 'MY TO-DO LIST',
+        titlePosition,
         date,
         tasks,
       },
@@ -124,6 +127,7 @@ export const TodoListPreview: React.FC<TodoListPreviewProps> = ({
   const handlePrint = () => {
     printTodoPdf({
       title: listTitle || 'MY TO-DO LIST',
+      titlePosition,
       date,
       tasks,
     });
@@ -199,9 +203,15 @@ export const TodoListPreview: React.FC<TodoListPreviewProps> = ({
               <span className="text-[10px] sm:text-xs font-black tracking-widest uppercase bg-black text-white px-2 py-0.5 border border-black inline-block mb-1.5 shadow-[1px_1px_0px_0px_#000]">
                 Printable Sheet
               </span>
-              <h2 className="text-2xl sm:text-3xl font-black uppercase text-black tracking-tight leading-none">
-                {listTitle || 'MY TO-DO LIST'}
-              </h2>
+              {Boolean(listTitle && listTitle.trim()) && (titlePosition || 'top') === 'top' ? (
+                <h2 className="font-sans text-2xl sm:text-3xl font-black uppercase text-black tracking-tight leading-none">
+                  {listTitle.trim()}
+                </h2>
+              ) : (
+                <h2 className="font-sans text-xl sm:text-2xl font-black uppercase text-black tracking-tight leading-none">
+                  Checklist
+                </h2>
+              )}
             </div>
 
             {date && (
@@ -410,6 +420,15 @@ export const TodoListPreview: React.FC<TodoListPreviewProps> = ({
               </form>
             )}
           </div>
+
+          {/* BOTTOM TITLE: Appears directly below the task list. Smaller caption style, same font, lighter visual emphasis, close to list */}
+          {Boolean(listTitle && listTitle.trim()) && titlePosition === 'bottom' && (
+            <div className="px-4 sm:px-8 py-2.5 bg-[#FAF8F5] border-t-2 border-black/15 text-left">
+              <p className="font-sans text-xs sm:text-sm font-semibold text-gray-700 tracking-wide">
+                {listTitle.trim()}
+              </p>
+            </div>
+          )}
 
           {/* Footer note in preview */}
           <div className="border-t-2 border-black px-4 sm:px-8 py-3 bg-[#FAF8F5] flex items-center justify-between text-[11px] sm:text-xs font-bold text-gray-600">

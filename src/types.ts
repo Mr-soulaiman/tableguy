@@ -1,4 +1,5 @@
 export type ColumnAlignment = 'left' | 'center' | 'right';
+export type TitlePosition = 'top' | 'bottom';
 
 export interface CellFormat {
   bold?: boolean;
@@ -15,6 +16,8 @@ export interface MergeCell {
 export interface TableItem {
   id: string;
   name: string;
+  title?: string;
+  titlePosition?: TitlePosition;
   headers: string[];
   rows: string[][];
   cellColors: string[][];
